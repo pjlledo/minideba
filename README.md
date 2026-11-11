@@ -2,9 +2,11 @@
 
 **Versión reducida (45 preguntas) del cuestionario DEBA de detección de barreras y facilitadores para la inclusión, para móvil.**
 
-👉 **Abrir la aplicación: https://pjlledo.github.io/minideba/**
+👉 **Abrir la aplicación: https://minideba.orienteca.es/**
 
-Se responden 45 de las 80 preguntas del DEBA sobre un alumno o alumna y se descarga su análisis DAFO en un **PDF de dos páginas como máximo**. Para el análisis completo está el [DEBA de 80 preguntas](https://pjlledo.github.io/deba/).
+Forma parte de [orienteca.es](https://orienteca.es/), biblioteca de recursos y utilidades para la orientación y la inclusión educativa.
+
+Se responden 45 de las 80 preguntas del DEBA sobre un alumno o alumna y se descarga su análisis DAFO en un **PDF de dos páginas como máximo**. Para el análisis completo está el [DEBA de 80 preguntas](https://deba.orienteca.es/).
 
 > **Casos especiales.** Si el alumno/a está en un cambio de etapa, tiene una enfermedad crónica, absentismo grave o movilidad reducida, usa el DEBA completo: las preguntas específicas de esos casos no están en minideba.
 

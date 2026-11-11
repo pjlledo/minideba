@@ -13,7 +13,7 @@
   proceden de la herramienta DEBA original.
 
   Incluye jsPDF 2.5.1 y jsPDF-AutoTable 3.8.2 (licencia MIT; sus avisos se conservan más abajo).
-  Código fuente: https://github.com/pjlledo/minideba · DEBA completo: https://pjlledo.github.io/deba/
+  Web: https://minideba.orienteca.es/ · Código fuente: https://github.com/pjlledo/minideba · DEBA completo: https://deba.orienteca.es/
 -->
 <html lang="es">
 <head>
@@ -719,7 +719,8 @@ const credits = () => `
   <footer class="credits">
     <p><b>minideba</b> · Creado por <b>Pedro J. Lledó Sigüenza</b> con la ayuda de la IA, a partir de la herramienta DEBA (Cuestionario de detección de barreras y facilitadores para la inclusión) de la Conselleria de Educación de la Generalitat Valenciana.</p>
     <p>Versión reducida no oficial: la selección de ${TOTAL} de los 80 ítems es del autor, no de la Conselleria. Las preguntas mantienen su redacción original.</p>
-    <p>© 2026 Pedro J. Lledó Sigüenza · Código bajo licencia <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" target="_blank" rel="noopener">EUPL 1.2</a> · <a href="https://github.com/pjlledo/minideba" target="_blank" rel="noopener">Código fuente</a> · <a href="https://pjlledo.github.io/deba/" target="_blank" rel="noopener">DEBA completo</a> · Incluye jsPDF y jsPDF-AutoTable (licencia MIT).</p>
+    <p>© 2026 Pedro J. Lledó Sigüenza · Código bajo licencia <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" target="_blank" rel="noopener">EUPL 1.2</a> · <a href="https://github.com/pjlledo/minideba" target="_blank" rel="noopener">Código fuente</a> · <a href="https://deba.orienteca.es/" target="_blank" rel="noopener">DEBA completo</a> · Incluye jsPDF y jsPDF-AutoTable (licencia MIT).</p>
+  <p>Más recursos para la orientación y la inclusión en <a href="https://orienteca.es/" target="_blank" rel="noopener">orienteca.es</a>.</p>
   </footer>`;
 
 /* ---------- Pantalla: inicio ---------- */
@@ -735,7 +736,7 @@ function renderHome(){
       <p class="lead">Versión reducida del DEBA: responde ${TOTAL} preguntas sobre un alumno o alumna y descarga su análisis DAFO en un PDF de dos páginas.</p>
     </header>
     <div class="stack">
-      <div class="card notice">${icon("info",'style="width:20px;height:20px;margin-top:2px"')}<p><b>¿Caso especial?</b> Si el alumno/a está en un cambio de etapa, tiene una enfermedad crónica, absentismo grave o movilidad reducida, usa el <a href="https://pjlledo.github.io/deba/" target="_blank" rel="noopener">DEBA completo (80 preguntas)</a>.</p></div>
+      <div class="card notice">${icon("info",'style="width:20px;height:20px;margin-top:2px"')}<p><b>¿Caso especial?</b> Si el alumno/a está en un cambio de etapa, tiene una enfermedad crónica, absentismo grave o movilidad reducida, usa el <a href="https://deba.orienteca.es/" target="_blank" rel="noopener">DEBA completo (80 preguntas)</a>.</p></div>
       ${started ? `
       <div class="card resume">
         <div class="ring" style="--p:${Math.round(done/TOTAL*100)}"><span>${done}/${TOTAL}</span></div>
