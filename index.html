@@ -10,18 +10,19 @@
   Licenciado bajo la Licencia Pública de la Unión Europea (EUPL) v1.2.
   Texto oficial en castellano: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
   La licencia cubre el código y el diseño de esta aplicación. Los textos del cuestionario
-  proceden de la herramienta DEBA original.
+  (en castellano y en valenciano) proceden de la herramienta DEBA original.
 
   Incluye jsPDF 2.5.1 y jsPDF-AutoTable 3.8.2 (licencia MIT; sus avisos se conservan más abajo).
+  Generado con fuentes/build.py: no editar este archivo a mano.
   Web: https://minideba.orienteca.es/ · Código fuente: https://github.com/pjlledo/minideba · DEBA completo: https://deba.orienteca.es/
 -->
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>minideba · Barreras y facilitadores</title>
+<title>minideba · Barreras y facilitadores · Barreres i facilitadors</title>
 <meta name="author" content="Pedro J. Lledó Sigüenza">
-<meta name="description" content="minideba: versión reducida (45 ítems) del cuestionario DEBA de detección de barreras y facilitadores para la inclusión. Genera el análisis DAFO en PDF. Las respuestas no salen del dispositivo.">
+<meta name="description" content="minideba: versión reducida (45 ítems) del cuestionario DEBA de detección de barreras y facilitadores para la inclusión, en castellano y valenciano. PDF de dos páginas.">
 <meta name="theme-color" content="#1d3a7a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -123,7 +124,6 @@ details.info ul{padding-left:20px;margin:8px 0 0}
 .notice{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);border:0;box-shadow:none;padding:14px 16px;font-size:15px;color:var(--text)}
 .notice p{margin:0} .notice svg{color:var(--accent)}
 .notice a{color:var(--accent);font-weight:600;text-underline-offset:2px}
-.qnum .orig{font-weight:500}
 
 /* ---------- Barra superior ---------- */
 .topbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
@@ -221,6 +221,13 @@ table.sum tfoot td{font-weight:800;border-bottom:0}
 .hint-dl{font-size:13px;color:var(--muted);text-align:center;margin:8px 0 0}
 .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:15px;opacity:0;pointer-events:none;transition:.2s;z-index:40;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%)}
+.qnum .orig{font-weight:500}
+/* Selector de idioma */
+.langsw{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border)}
+.langsw button{border:0;background:transparent;color:var(--muted);font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;min-height:32px}
+.langsw button[aria-pressed="true"]{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(19,26,43,.12)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.result-top{display:flex;justify-content:flex-end;margin-bottom:-4px}
 @media (min-width:700px){ .quiz,.result{padding-top:28px} .hero{padding-top:48px} }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
 </style>
@@ -641,19 +648,176 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
  */
 !function(t,e){if("object"==typeof exports&&"object"==typeof module)module.exports=e(function(){try{return require("jspdf")}catch(t){}}());else if("function"==typeof define&&define.amd)define(["jspdf"],e);else{var n="object"==typeof exports?e(function(){try{return require("jspdf")}catch(t){}}()):e(t.jspdf);for(var o in n)("object"==typeof exports?exports:t)[o]=n[o]}}("undefined"!=typeof globalThis?globalThis:void 0!==this?this:"undefined"!=typeof window?window:"undefined"!=typeof self?self:global,(function(t){return function(){"use strict";var e={172:function(t,e){var n,o=this&&this.__extends||(n=function(t,e){return n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n])},n(t,e)},function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Class extends value "+String(e)+" is not a constructor or null");function o(){this.constructor=t}n(t,e),t.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)});Object.defineProperty(e,"__esModule",{value:!0}),e.CellHookData=e.HookData=void 0;var r=function(t,e,n){this.table=e,this.pageNumber=e.pageNumber,this.pageCount=this.pageNumber,this.settings=e.settings,this.cursor=n,this.doc=t.getDocument()};e.HookData=r;var i=function(t){function e(e,n,o,r,i,l){var a=t.call(this,e,n,l)||this;return a.cell=o,a.row=r,a.column=i,a.section=r.section,a}return o(e,t),e}(r);e.CellHookData=i},340:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0});var o=n(4),r=n(136),i=n(744),l=n(776),a=n(664),s=n(972);e.default=function(t){t.API.autoTable=function(){for(var t,e=[],n=0;n<arguments.length;n++)e[n]=arguments[n];1===e.length?t=e[0]:(console.error("Use of deprecated autoTable initiation"),(t=e[2]||{}).columns=e[0],t.body=e[1]);var o=(0,l.parseInput)(this,t),r=(0,s.createTable)(this,o);return(0,a.drawTable)(this,r),this},t.API.lastAutoTable=!1,t.API.previousAutoTable=!1,t.API.autoTable.previous=!1,t.API.autoTableText=function(t,e,n,o){(0,r.default)(t,e,n,o,this)},t.API.autoTableSetDefaults=function(t){return i.DocHandler.setDefaults(t,this),this},t.autoTableSetDefaults=function(t,e){i.DocHandler.setDefaults(t,e)},t.API.autoTableHtmlToJson=function(t,e){var n;if(void 0===e&&(e=!1),"undefined"==typeof window)return console.error("Cannot run autoTableHtmlToJson in non browser environment"),null;var r=new i.DocHandler(this),l=(0,o.parseHtml)(r,t,window,e,!1),a=l.head,s=l.body;return{columns:(null===(n=a[0])||void 0===n?void 0:n.map((function(t){return t.content})))||[],rows:s,data:s}},t.API.autoTableEndPosY=function(){console.error("Use of deprecated function: autoTableEndPosY. Use doc.lastAutoTable.finalY instead.");var t=this.lastAutoTable;return t&&t.finalY?t.finalY:0},t.API.autoTableAddPageContent=function(e){return console.error("Use of deprecated function: autoTableAddPageContent. Use jsPDF.autoTableSetDefaults({didDrawPage: () => {}}) instead."),t.API.autoTable.globalDefaults||(t.API.autoTable.globalDefaults={}),t.API.autoTable.globalDefaults.addPageContent=e,this},t.API.autoTableAddPage=function(){return console.error("Use of deprecated function: autoTableAddPage. Use doc.addPage()"),this.addPage(),this}}},136:function(t,e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t,e,n,o,r){o=o||{};var i=r.internal.scaleFactor,l=r.internal.getFontSize()/i,a=l*(r.getLineHeightFactor?r.getLineHeightFactor():1.15),s="",u=1;if("middle"!==o.valign&&"bottom"!==o.valign&&"center"!==o.halign&&"right"!==o.halign||(u=(s="string"==typeof t?t.split(/\r\n|\r|\n/g):t).length||1),n+=l*(2-1.15),"middle"===o.valign?n-=u/2*a:"bottom"===o.valign&&(n-=u*a),"center"===o.halign||"right"===o.halign){var d=l;if("center"===o.halign&&(d*=.5),s&&u>=1){for(var h=0;h<s.length;h++)r.text(s[h],e-r.getStringUnitWidth(s[h])*d,n),n+=a;return r}e-=r.getStringUnitWidth(t)*d}return"justify"===o.halign?r.text(t,e,n,{maxWidth:o.maxWidth||100,align:"justify"}):r.text(t,e,n),r}},420:function(t,e){function n(t,e){var n=t>0,o=e||0===e;return n&&o?"DF":n?"S":o?"F":null}function o(t,e){var n,o,r,i;if(t=t||e,Array.isArray(t)){if(t.length>=4)return{top:t[0],right:t[1],bottom:t[2],left:t[3]};if(3===t.length)return{top:t[0],right:t[1],bottom:t[2],left:t[1]};if(2===t.length)return{top:t[0],right:t[1],bottom:t[0],left:t[1]};t=1===t.length?t[0]:e}return"object"==typeof t?("number"==typeof t.vertical&&(t.top=t.vertical,t.bottom=t.vertical),"number"==typeof t.horizontal&&(t.right=t.horizontal,t.left=t.horizontal),{left:null!==(n=t.left)&&void 0!==n?n:e,top:null!==(o=t.top)&&void 0!==o?o:e,right:null!==(r=t.right)&&void 0!==r?r:e,bottom:null!==(i=t.bottom)&&void 0!==i?i:e}):("number"!=typeof t&&(t=e),{top:t,right:t,bottom:t,left:t})}Object.defineProperty(e,"__esModule",{value:!0}),e.getPageAvailableWidth=e.parseSpacing=e.getFillStyle=e.addTableBorder=e.getStringWidth=void 0,e.getStringWidth=function(t,e,n){return n.applyStyles(e,!0),(Array.isArray(t)?t:[t]).map((function(t){return n.getTextWidth(t)})).reduce((function(t,e){return Math.max(t,e)}),0)},e.addTableBorder=function(t,e,o,r){var i=e.settings.tableLineWidth,l=e.settings.tableLineColor;t.applyStyles({lineWidth:i,lineColor:l});var a=n(i,!1);a&&t.rect(o.x,o.y,e.getWidth(t.pageSize().width),r.y-o.y,a)},e.getFillStyle=n,e.parseSpacing=o,e.getPageAvailableWidth=function(t,e){var n=o(e.settings.margin,0);return t.pageSize().width-(n.left+n.right)}},796:function(t,e){var n,o=this&&this.__extends||(n=function(t,e){return n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n])},n(t,e)},function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Class extends value "+String(e)+" is not a constructor or null");function o(){this.constructor=t}n(t,e),t.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)});Object.defineProperty(e,"__esModule",{value:!0}),e.getTheme=e.defaultStyles=e.HtmlRowInput=void 0;var r=function(t){function e(e){var n=t.call(this)||this;return n._element=e,n}return o(e,t),e}(Array);e.HtmlRowInput=r,e.defaultStyles=function(t){return{font:"helvetica",fontStyle:"normal",overflow:"linebreak",fillColor:!1,textColor:20,halign:"left",valign:"top",fontSize:10,cellPadding:5/t,lineColor:200,lineWidth:0,cellWidth:"auto",minCellHeight:0,minCellWidth:0}},e.getTheme=function(t){return{striped:{table:{fillColor:255,textColor:80,fontStyle:"normal"},head:{textColor:255,fillColor:[41,128,185],fontStyle:"bold"},body:{},foot:{textColor:255,fillColor:[41,128,185],fontStyle:"bold"},alternateRow:{fillColor:245}},grid:{table:{fillColor:255,textColor:80,fontStyle:"normal",lineWidth:.1},head:{textColor:255,fillColor:[26,188,156],fontStyle:"bold",lineWidth:0},body:{},foot:{textColor:255,fillColor:[26,188,156],fontStyle:"bold",lineWidth:0},alternateRow:{}},plain:{head:{fontStyle:"bold"},foot:{fontStyle:"bold"}}}[t]}},903:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.parseCss=void 0;var o=n(420);function r(t,e){var n=i(t,e);if(!n)return null;var o=n.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d*\.?\d*))?\)$/);if(!o||!Array.isArray(o))return null;var r=[parseInt(o[1]),parseInt(o[2]),parseInt(o[3])];return 0===parseInt(o[4])||isNaN(r[0])||isNaN(r[1])||isNaN(r[2])?null:r}function i(t,e){var n=e(t);return"rgba(0, 0, 0, 0)"===n||"transparent"===n||"initial"===n||"inherit"===n?null==t.parentElement?null:i(t.parentElement,e):n}e.parseCss=function(t,e,n,i,l){var a={},s=96/72,u=r(e,(function(t){return l.getComputedStyle(t).backgroundColor}));null!=u&&(a.fillColor=u);var d=r(e,(function(t){return l.getComputedStyle(t).color}));null!=d&&(a.textColor=d);var h=function(t,e){var n=[t.paddingTop,t.paddingRight,t.paddingBottom,t.paddingLeft],r=96/(72/e),i=(parseInt(t.lineHeight)-parseInt(t.fontSize))/e/2,l=n.map((function(t){return parseInt(t||"0")/r})),a=(0,o.parseSpacing)(l,0);i>a.top&&(a.top=i);i>a.bottom&&(a.bottom=i);return a}(i,n);h&&(a.cellPadding=h);var c="borderTopColor",f=s*n,g=i.borderTopWidth;if(i.borderBottomWidth===g&&i.borderRightWidth===g&&i.borderLeftWidth===g){var p=(parseFloat(g)||0)/f;p&&(a.lineWidth=p)}else a.lineWidth={top:(parseFloat(i.borderTopWidth)||0)/f,right:(parseFloat(i.borderRightWidth)||0)/f,bottom:(parseFloat(i.borderBottomWidth)||0)/f,left:(parseFloat(i.borderLeftWidth)||0)/f},a.lineWidth.top||(a.lineWidth.right?c="borderRightColor":a.lineWidth.bottom?c="borderBottomColor":a.lineWidth.left&&(c="borderLeftColor"));console.log(a.lineWidth);var y=r(e,(function(t){return l.getComputedStyle(t)[c]}));null!=y&&(a.lineColor=y);var v=["left","right","center","justify"];-1!==v.indexOf(i.textAlign)&&(a.halign=i.textAlign),-1!==(v=["middle","bottom","top"]).indexOf(i.verticalAlign)&&(a.valign=i.verticalAlign);var m=parseInt(i.fontSize||"");isNaN(m)||(a.fontSize=m/s);var b=function(t){var e="";("bold"===t.fontWeight||"bolder"===t.fontWeight||parseInt(t.fontWeight)>=700)&&(e="bold");"italic"!==t.fontStyle&&"oblique"!==t.fontStyle||(e+="italic");return e}(i);b&&(a.fontStyle=b);var w=(i.fontFamily||"").toLowerCase();return-1!==t.indexOf(w)&&(a.font=w),a}},744:function(t,e){Object.defineProperty(e,"__esModule",{value:!0}),e.DocHandler=void 0;var n={},o=function(){function t(t){this.jsPDFDocument=t,this.userStyles={textColor:t.getTextColor?this.jsPDFDocument.getTextColor():0,fontSize:t.internal.getFontSize(),fontStyle:t.internal.getFont().fontStyle,font:t.internal.getFont().fontName,lineWidth:t.getLineWidth?this.jsPDFDocument.getLineWidth():0,lineColor:t.getDrawColor?this.jsPDFDocument.getDrawColor():0}}return t.setDefaults=function(t,e){void 0===e&&(e=null),e?e.__autoTableDocumentDefaults=t:n=t},t.unifyColor=function(t){return Array.isArray(t)?t:"number"==typeof t?[t,t,t]:"string"==typeof t?[t]:null},t.prototype.applyStyles=function(e,n){var o,r,i;void 0===n&&(n=!1),e.fontStyle&&this.jsPDFDocument.setFontStyle&&this.jsPDFDocument.setFontStyle(e.fontStyle);var l=this.jsPDFDocument.internal.getFont(),a=l.fontStyle,s=l.fontName;if(e.font&&(s=e.font),e.fontStyle){a=e.fontStyle;var u=this.getFontList()[s];u&&-1===u.indexOf(a)&&(this.jsPDFDocument.setFontStyle&&this.jsPDFDocument.setFontStyle(u[0]),a=u[0])}if(this.jsPDFDocument.setFont(s,a),e.fontSize&&this.jsPDFDocument.setFontSize(e.fontSize),!n){var d=t.unifyColor(e.fillColor);d&&(o=this.jsPDFDocument).setFillColor.apply(o,d),(d=t.unifyColor(e.textColor))&&(r=this.jsPDFDocument).setTextColor.apply(r,d),(d=t.unifyColor(e.lineColor))&&(i=this.jsPDFDocument).setDrawColor.apply(i,d),"number"==typeof e.lineWidth&&this.jsPDFDocument.setLineWidth(e.lineWidth)}},t.prototype.splitTextToSize=function(t,e,n){return this.jsPDFDocument.splitTextToSize(t,e,n)},t.prototype.rect=function(t,e,n,o,r){return this.jsPDFDocument.rect(t,e,n,o,r)},t.prototype.getLastAutoTable=function(){return this.jsPDFDocument.lastAutoTable||null},t.prototype.getTextWidth=function(t){return this.jsPDFDocument.getTextWidth(t)},t.prototype.getDocument=function(){return this.jsPDFDocument},t.prototype.setPage=function(t){this.jsPDFDocument.setPage(t)},t.prototype.addPage=function(){return this.jsPDFDocument.addPage()},t.prototype.getFontList=function(){return this.jsPDFDocument.getFontList()},t.prototype.getGlobalOptions=function(){return n||{}},t.prototype.getDocumentOptions=function(){return this.jsPDFDocument.__autoTableDocumentDefaults||{}},t.prototype.pageSize=function(){var t=this.jsPDFDocument.internal.pageSize;return null==t.width&&(t={width:t.getWidth(),height:t.getHeight()}),t},t.prototype.scaleFactor=function(){return this.jsPDFDocument.internal.scaleFactor},t.prototype.getLineHeightFactor=function(){var t=this.jsPDFDocument;return t.getLineHeightFactor?t.getLineHeightFactor():1.15},t.prototype.getLineHeight=function(t){return t/this.scaleFactor()*this.getLineHeightFactor()},t.prototype.pageNumber=function(){var t=this.jsPDFDocument.internal.getCurrentPageInfo();return t?t.pageNumber:this.jsPDFDocument.internal.getNumberOfPages()},t}();e.DocHandler=o},4:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.parseHtml=void 0;var o=n(903),r=n(796);function i(t,e,n,i,a,s){for(var u=new r.HtmlRowInput(i),d=0;d<i.cells.length;d++){var h=i.cells[d],c=n.getComputedStyle(h);if(a||"none"!==c.display){var f=void 0;s&&(f=(0,o.parseCss)(t,h,e,c,n)),u.push({rowSpan:h.rowSpan,colSpan:h.colSpan,styles:f,_element:h,content:l(h)})}}var g=n.getComputedStyle(i);if(u.length>0&&(a||"none"!==g.display))return u}function l(t){var e=t.cloneNode(!0);return e.innerHTML=e.innerHTML.replace(/\n/g,"").replace(/ +/g," "),e.innerHTML=e.innerHTML.split(/<br.*?>/).map((function(t){return t.trim()})).join("\n"),e.innerText||e.textContent||""}e.parseHtml=function(t,e,n,o,r){var l,a,s;void 0===o&&(o=!1),void 0===r&&(r=!1),s="string"==typeof e?n.document.querySelector(e):e;var u=Object.keys(t.getFontList()),d=t.scaleFactor(),h=[],c=[],f=[];if(!s)return console.error("Html table could not be found with input: ",e),{head:h,body:c,foot:f};for(var g=0;g<s.rows.length;g++){var p=s.rows[g],y=null===(a=null===(l=null==p?void 0:p.parentElement)||void 0===l?void 0:l.tagName)||void 0===a?void 0:a.toLowerCase(),v=i(u,d,n,p,o,r);v&&("thead"===y?h.push(v):"tfoot"===y?f.push(v):c.push(v))}return{head:h,body:c,foot:f}}},776:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.parseInput=void 0;var o=n(4),r=n(356),i=n(420),l=n(744),a=n(792);e.parseInput=function(t,e){var n=new l.DocHandler(t),s=n.getDocumentOptions(),u=n.getGlobalOptions();(0,a.default)(n,u,s,e);var d,h=(0,r.assign)({},u,s,e);"undefined"!=typeof window&&(d=window);var c=function(t,e,n){for(var o={styles:{},headStyles:{},bodyStyles:{},footStyles:{},alternateRowStyles:{},columnStyles:{}},i=function(i){if("columnStyles"===i){var l=t[i],a=e[i],s=n[i];o.columnStyles=(0,r.assign)({},l,a,s)}else{var u=[t,e,n].map((function(t){return t[i]||{}}));o[i]=(0,r.assign)({},u[0],u[1],u[2])}},l=0,a=Object.keys(o);l<a.length;l++){i(a[l])}return o}(u,s,e),f=function(t,e,n){for(var o={didParseCell:[],willDrawCell:[],didDrawCell:[],willDrawPage:[],didDrawPage:[]},r=0,i=[t,e,n];r<i.length;r++){var l=i[r];l.didParseCell&&o.didParseCell.push(l.didParseCell),l.willDrawCell&&o.willDrawCell.push(l.willDrawCell),l.didDrawCell&&o.didDrawCell.push(l.didDrawCell),l.willDrawPage&&o.willDrawPage.push(l.willDrawPage),l.didDrawPage&&o.didDrawPage.push(l.didDrawPage)}return o}(u,s,e),g=function(t,e){var n,o,r,l,a,s,u,d,h,c,f,g,p,y,v=(0,i.parseSpacing)(e.margin,40/t.scaleFactor()),m=null!==(n=function(t,e){var n=t.getLastAutoTable(),o=t.scaleFactor(),r=t.pageNumber(),i=!1;if(n&&n.startPageNumber){i=n.startPageNumber+n.pageNumber-1===r}if("number"==typeof e)return e;if((null==e||!1===e)&&i&&null!=(null==n?void 0:n.finalY))return n.finalY+20/o;return null}(t,e.startY))&&void 0!==n?n:v.top;p=!0===e.showFoot?"everyPage":!1===e.showFoot?"never":null!==(o=e.showFoot)&&void 0!==o?o:"everyPage";y=!0===e.showHead?"everyPage":!1===e.showHead?"never":null!==(r=e.showHead)&&void 0!==r?r:"everyPage";var b=null!==(l=e.useCss)&&void 0!==l&&l,w=e.theme||(b?"plain":"striped"),P=!!e.horizontalPageBreak,S=null!==(a=e.horizontalPageBreakRepeat)&&void 0!==a?a:null;return{includeHiddenHtml:null!==(s=e.includeHiddenHtml)&&void 0!==s&&s,useCss:b,theme:w,startY:m,margin:v,pageBreak:null!==(u=e.pageBreak)&&void 0!==u?u:"auto",rowPageBreak:null!==(d=e.rowPageBreak)&&void 0!==d?d:"auto",tableWidth:null!==(h=e.tableWidth)&&void 0!==h?h:"auto",showHead:y,showFoot:p,tableLineWidth:null!==(c=e.tableLineWidth)&&void 0!==c?c:0,tableLineColor:null!==(f=e.tableLineColor)&&void 0!==f?f:200,horizontalPageBreak:P,horizontalPageBreakRepeat:S,horizontalPageBreakBehaviour:null!==(g=e.horizontalPageBreakBehaviour)&&void 0!==g?g:"afterAllRows"}}(n,h),p=function(t,e,n){var r=e.head||[],i=e.body||[],l=e.foot||[];if(e.html){var a=e.includeHiddenHtml;if(n){var s=(0,o.parseHtml)(t,e.html,n,a,e.useCss)||{};r=s.head||r,i=s.body||r,l=s.foot||r}else console.error("Cannot parse html in non browser environment")}var u=e.columns||function(t,e,n){var o=t[0]||e[0]||n[0]||[],r=[];return Object.keys(o).filter((function(t){return"_element"!==t})).forEach((function(t){var e,n=1;"object"!=typeof(e=Array.isArray(o)?o[parseInt(t)]:o[t])||Array.isArray(e)||(n=(null==e?void 0:e.colSpan)||1);for(var i=0;i<n;i++){var l={dataKey:Array.isArray(o)?r.length:t+(i>0?"_".concat(i):"")};r.push(l)}})),r}(r,i,l);return{columns:u,head:r,body:i,foot:l}}(n,h,d);return{id:e.tableId,content:p,hooks:f,styles:c,settings:g}}},792:function(t,e){function n(t){t.rowHeight?(console.error("Use of deprecated style rowHeight. It is renamed to minCellHeight."),t.minCellHeight||(t.minCellHeight=t.rowHeight)):t.columnWidth&&(console.error("Use of deprecated style columnWidth. It is renamed to cellWidth."),t.cellWidth||(t.cellWidth=t.columnWidth))}Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t,e,o,r){for(var i=function(e){e&&"object"!=typeof e&&console.error("The options parameter should be of type object, is: "+typeof e),void 0!==e.extendWidth&&(e.tableWidth=e.extendWidth?"auto":"wrap",console.error("Use of deprecated option: extendWidth, use tableWidth instead.")),void 0!==e.margins&&(void 0===e.margin&&(e.margin=e.margins),console.error("Use of deprecated option: margins, use margin instead.")),e.startY&&"number"!=typeof e.startY&&(console.error("Invalid value for startY option",e.startY),delete e.startY),!e.didDrawPage&&(e.afterPageContent||e.beforePageContent||e.afterPageAdd)&&(console.error("The afterPageContent, beforePageContent and afterPageAdd hooks are deprecated. Use didDrawPage instead"),e.didDrawPage=function(n){t.applyStyles(t.userStyles),e.beforePageContent&&e.beforePageContent(n),t.applyStyles(t.userStyles),e.afterPageContent&&e.afterPageContent(n),t.applyStyles(t.userStyles),e.afterPageAdd&&n.pageNumber>1&&n.afterPageAdd(n),t.applyStyles(t.userStyles)}),["createdHeaderCell","drawHeaderRow","drawRow","drawHeaderCell"].forEach((function(t){e[t]&&console.error('The "'.concat(t,'" hook has changed in version 3.0, check the changelog for how to migrate.'))})),[["showFoot","showFooter"],["showHead","showHeader"],["didDrawPage","addPageContent"],["didParseCell","createdCell"],["headStyles","headerStyles"]].forEach((function(t){var n=t[0],o=t[1];e[o]&&(console.error("Use of deprecated option ".concat(o,". Use ").concat(n," instead")),e[n]=e[o])})),[["padding","cellPadding"],["lineHeight","rowHeight"],"fontSize","overflow"].forEach((function(t){var n="string"==typeof t?t:t[0],o="string"==typeof t?t:t[1];void 0!==e[n]&&(void 0===e.styles[o]&&(e.styles[o]=e[n]),console.error("Use of deprecated option: "+n+", use the style "+o+" instead."))}));for(var o=0,r=["styles","bodyStyles","headStyles","footStyles"];o<r.length;o++){n(e[r[o]]||{})}for(var i=e.columnStyles||{},l=0,a=Object.keys(i);l<a.length;l++){n(i[a[l]]||{})}},l=0,a=[e,o,r];l<a.length;l++){i(a[l])}}},260:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.Column=e.Cell=e.Row=e.Table=void 0;var o=n(796),r=n(172),i=n(420),l=function(){function t(t,e){this.pageNumber=1,this.pageCount=1,this.id=t.id,this.settings=t.settings,this.styles=t.styles,this.hooks=t.hooks,this.columns=e.columns,this.head=e.head,this.body=e.body,this.foot=e.foot}return t.prototype.getHeadHeight=function(t){return this.head.reduce((function(e,n){return e+n.getMaxCellHeight(t)}),0)},t.prototype.getFootHeight=function(t){return this.foot.reduce((function(e,n){return e+n.getMaxCellHeight(t)}),0)},t.prototype.allRows=function(){return this.head.concat(this.body).concat(this.foot)},t.prototype.callCellHooks=function(t,e,n,o,i,l){for(var a=0,s=e;a<s.length;a++){var u=!1===(0,s[a])(new r.CellHookData(t,this,n,o,i,l));if(n.text=Array.isArray(n.text)?n.text:[n.text],u)return!1}return!0},t.prototype.callEndPageHooks=function(t,e){t.applyStyles(t.userStyles);for(var n=0,o=this.hooks.didDrawPage;n<o.length;n++){(0,o[n])(new r.HookData(t,this,e))}},t.prototype.callWillDrawPageHooks=function(t,e){for(var n=0,o=this.hooks.willDrawPage;n<o.length;n++){(0,o[n])(new r.HookData(t,this,e))}},t.prototype.getWidth=function(t){if("number"==typeof this.settings.tableWidth)return this.settings.tableWidth;if("wrap"===this.settings.tableWidth)return this.columns.reduce((function(t,e){return t+e.wrappedWidth}),0);var e=this.settings.margin;return t-e.left-e.right},t}();e.Table=l;var a=function(){function t(t,e,n,r,i){void 0===i&&(i=!1),this.height=0,this.raw=t,t instanceof o.HtmlRowInput&&(this.raw=t._element,this.element=t._element),this.index=e,this.section=n,this.cells=r,this.spansMultiplePages=i}return t.prototype.getMaxCellHeight=function(t){var e=this;return t.reduce((function(t,n){var o;return Math.max(t,(null===(o=e.cells[n.index])||void 0===o?void 0:o.height)||0)}),0)},t.prototype.hasRowSpan=function(t){var e=this;return t.filter((function(t){var n=e.cells[t.index];return!!n&&n.rowSpan>1})).length>0},t.prototype.canEntireRowFit=function(t,e){return this.getMaxCellHeight(e)<=t},t.prototype.getMinimumRowHeight=function(t,e){var n=this;return t.reduce((function(t,o){var r=n.cells[o.index];if(!r)return 0;var i=e.getLineHeight(r.styles.fontSize),l=r.padding("vertical")+i;return l>t?l:t}),0)},t}();e.Row=a;var s=function(){function t(t,e,n){var o,r;this.contentHeight=0,this.contentWidth=0,this.wrappedWidth=0,this.minReadableWidth=0,this.minWidth=0,this.width=0,this.height=0,this.x=0,this.y=0,this.styles=e,this.section=n,this.raw=t;var i=t;null==t||"object"!=typeof t||Array.isArray(t)?(this.rowSpan=1,this.colSpan=1):(this.rowSpan=t.rowSpan||1,this.colSpan=t.colSpan||1,i=null!==(r=null!==(o=t.content)&&void 0!==o?o:t.title)&&void 0!==r?r:t,t._element&&(this.raw=t._element));var l=null!=i?""+i:"";this.text=l.split(/\r\n|\r|\n/g)}return t.prototype.getTextPos=function(){var t,e;if("top"===this.styles.valign)t=this.y+this.padding("top");else if("bottom"===this.styles.valign)t=this.y+this.height-this.padding("bottom");else{var n=this.height-this.padding("vertical");t=this.y+n/2+this.padding("top")}if("right"===this.styles.halign)e=this.x+this.width-this.padding("right");else if("center"===this.styles.halign){var o=this.width-this.padding("horizontal");e=this.x+o/2+this.padding("left")}else e=this.x+this.padding("left");return{x:e,y:t}},t.prototype.getContentHeight=function(t,e){void 0===e&&(e=1.15);var n=(Array.isArray(this.text)?this.text.length:1)*(this.styles.fontSize/t*e)+this.padding("vertical");return Math.max(n,this.styles.minCellHeight)},t.prototype.padding=function(t){var e=(0,i.parseSpacing)(this.styles.cellPadding,0);return"vertical"===t?e.top+e.bottom:"horizontal"===t?e.left+e.right:e[t]},t}();e.Cell=s;var u=function(){function t(t,e,n){this.wrappedWidth=0,this.minReadableWidth=0,this.minWidth=0,this.width=0,this.dataKey=t,this.raw=e,this.index=n}return t.prototype.getMaxCustomCellWidth=function(t){for(var e=0,n=0,o=t.allRows();n<o.length;n++){var r=o[n].cells[this.index];r&&"number"==typeof r.styles.cellWidth&&(e=Math.max(e,r.styles.cellWidth))}return e},t}();e.Column=u},356:function(t,e){Object.defineProperty(e,"__esModule",{value:!0}),e.assign=void 0,e.assign=function(t,e,n,o,r){if(null==t)throw new TypeError("Cannot convert undefined or null to object");for(var i=Object(t),l=1;l<arguments.length;l++){var a=arguments[l];if(null!=a)for(var s in a)Object.prototype.hasOwnProperty.call(a,s)&&(i[s]=a[s])}return i}},972:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.createTable=void 0;var o=n(744),r=n(260),i=n(324),l=n(796),a=n(356);function s(t,e,n,o,i,l){var a={};return e.map((function(e,s){for(var u=0,h={},c=0,f=0,g=0,p=n;g<p.length;g++){var y=p[g];if(null==a[y.index]||0===a[y.index].left)if(0===f){var v=void 0,m={};"object"!=typeof(v=Array.isArray(e)?e[y.index-c-u]:e[y.dataKey])||Array.isArray(v)||(m=(null==v?void 0:v.styles)||{});var b=d(t,y,s,i,o,l,m),w=new r.Cell(v,b,t);h[y.dataKey]=w,h[y.index]=w,f=w.colSpan-1,a[y.index]={left:w.rowSpan-1,times:f}}else f--,c++;else a[y.index].left--,f=a[y.index].times,u++}return new r.Row(e,s,t,h)}))}function u(t,e){var n={};return t.forEach((function(t){if(null!=t.raw){var o=function(t,e){if("head"===t){if("object"==typeof e)return e.header||e.title||null;if("string"==typeof e||"number"==typeof e)return e}else if("foot"===t&&"object"==typeof e)return e.footer;return null}(e,t.raw);null!=o&&(n[t.dataKey]=o)}})),Object.keys(n).length>0?n:null}function d(t,e,n,o,r,i,s){var u,d=(0,l.getTheme)(o);"head"===t?u=r.headStyles:"body"===t?u=r.bodyStyles:"foot"===t&&(u=r.footStyles);var h=(0,a.assign)({},d.table,d[t],r.styles,u),c=r.columnStyles[e.dataKey]||r.columnStyles[e.index]||{},f="body"===t?c:{},g="body"===t&&n%2==0?(0,a.assign)({},d.alternateRow,r.alternateRowStyles):{},p=(0,l.defaultStyles)(i),y=(0,a.assign)({},p,h,g,f);return(0,a.assign)(y,s)}e.createTable=function(t,e){var n=new o.DocHandler(t),l=function(t,e){var n=t.content,o=function(t){return t.map((function(t,e){var n,o,i;return i="object"==typeof t&&null!==(o=null!==(n=t.dataKey)&&void 0!==n?n:t.key)&&void 0!==o?o:e,new r.Column(i,t,e)}))}(n.columns);if(0===n.head.length){(i=u(o,"head"))&&n.head.push(i)}if(0===n.foot.length){var i;(i=u(o,"foot"))&&n.foot.push(i)}var l=t.settings.theme,a=t.styles;return{columns:o,head:s("head",n.head,o,a,l,e),body:s("body",n.body,o,a,l,e),foot:s("foot",n.foot,o,a,l,e)}}(e,n.scaleFactor()),a=new r.Table(e,l);return(0,i.calculateWidths)(n,a),n.applyStyles(n.userStyles),a}},664:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.addPage=e.drawTable=void 0;var o=n(420),r=n(260),i=n(744),l=n(356),a=n(136),s=n(224);function u(t,e,n,o){var r=e.settings;t.applyStyles(t.userStyles),"firstPage"!==r.showHead&&"everyPage"!==r.showHead||e.head.forEach((function(r){return g(t,e,r,n,o)}))}function d(t,e,n,o,r,i){t.applyStyles(t.userStyles),i=null!=i?i:e.body.length;var l=Math.min(n+i,e.body.length),a=-1;return e.body.slice(n,l).forEach((function(i,l){var s=n+l===e.body.length-1,u=y(t,e,s,o);i.canEntireRowFit(u,r)&&(g(t,e,i,o,r),a=n+l)})),a}function h(t,e,n,o){var r=e.settings;t.applyStyles(t.userStyles),"lastPage"!==r.showFoot&&"everyPage"!==r.showFoot||e.foot.forEach((function(r){return g(t,e,r,n,o)}))}function c(t,e,n){var o=n.getLineHeight(t.styles.fontSize),r=t.padding("vertical"),i=Math.floor((e-r)/o);return Math.max(0,i)}function f(t,e,n,o,i,a,s){var u=y(t,e,o,a);if(n.canEntireRowFit(u,s))g(t,e,n,a,s);else if(function(t,e,n,o){var r=t.pageSize().height,i=o.settings.margin,l=r-(i.top+i.bottom);"body"===e.section&&(l-=o.getHeadHeight(o.columns)+o.getFootHeight(o.columns));var a=e.getMinimumRowHeight(o.columns,t),s=a<n;if(a>l)return console.error("Will not be able to print row ".concat(e.index," correctly since it's minimum height is larger than page height")),!0;if(!s)return!1;var u=e.hasRowSpan(o.columns);return e.getMaxCellHeight(o.columns)>l?(u&&console.error("The content of row ".concat(e.index," will not be drawn correctly since drawing rows with a height larger than the page height and has cells with rowspans is not supported.")),!0):!u&&"avoid"!==o.settings.rowPageBreak}(t,n,u,e)){var d=function(t,e,n,o){var i={};t.spansMultiplePages=!0,t.height=0;for(var a=0,s=0,u=n.columns;s<u.length;s++){var d=u[s];if(b=t.cells[d.index]){Array.isArray(b.text)||(b.text=[b.text]);var h=new r.Cell(b.raw,b.styles,b.section);(h=(0,l.assign)(h,b)).text=[];var f=c(b,e,o);b.text.length>f&&(h.text=b.text.splice(f,b.text.length));var g=o.scaleFactor(),p=o.getLineHeightFactor();b.contentHeight=b.getContentHeight(g,p),b.contentHeight>=e&&(b.contentHeight=e,h.styles.minCellHeight-=e),b.contentHeight>t.height&&(t.height=b.contentHeight),h.contentHeight=h.getContentHeight(g,p),h.contentHeight>a&&(a=h.contentHeight),i[d.index]=h}}var y=new r.Row(t.raw,-1,t.section,i,!0);y.height=a;for(var v=0,m=n.columns;v<m.length;v++){var b;d=m[v],(h=y.cells[d.index])&&(h.height=y.height),(b=t.cells[d.index])&&(b.height=t.height)}return y}(n,u,e,t);g(t,e,n,a,s),v(t,e,i,a,s),f(t,e,d,o,i,a,s)}else v(t,e,i,a,s),f(t,e,n,o,i,a,s)}function g(t,e,n,o,r){o.x=e.settings.margin.left;for(var i=0,l=r;i<l.length;i++){var s=l[i],u=n.cells[s.index];if(u)if(t.applyStyles(u.styles),u.x=o.x,u.y=o.y,!1!==e.callCellHooks(t,e.hooks.willDrawCell,u,n,s,o)){p(t,u,o);var d=u.getTextPos();(0,a.default)(u.text,d.x,d.y,{halign:u.styles.halign,valign:u.styles.valign,maxWidth:Math.ceil(u.width-u.padding("left")-u.padding("right"))},t.getDocument()),e.callCellHooks(t,e.hooks.didDrawCell,u,n,s,o),o.x+=s.width}else o.x+=s.width;else o.x+=s.width}o.y+=n.height}function p(t,e,n){var r=e.styles;if(t.getDocument().setFillColor(t.getDocument().getFillColor()),"number"==typeof r.lineWidth){var i=(0,o.getFillStyle)(r.lineWidth,r.fillColor);i&&t.rect(e.x,n.y,e.width,e.height,i)}else"object"==typeof r.lineWidth&&(r.fillColor&&t.rect(e.x,n.y,e.width,e.height,"F"),function(t,e,n,o){var r,i,l,a;o.top&&(r=n.x,i=n.y,l=n.x+e.width,a=n.y,o.right&&(l+=.5*o.right),o.left&&(r-=.5*o.left),s(o.top,r,i,l,a));o.bottom&&(r=n.x,i=n.y+e.height,l=n.x+e.width,a=n.y+e.height,o.right&&(l+=.5*o.right),o.left&&(r-=.5*o.left),s(o.bottom,r,i,l,a));o.left&&(r=n.x,i=n.y,l=n.x,a=n.y+e.height,o.top&&(i-=.5*o.top),o.bottom&&(a+=.5*o.bottom),s(o.left,r,i,l,a));o.right&&(r=n.x+e.width,i=n.y,l=n.x+e.width,a=n.y+e.height,o.top&&(i-=.5*o.top),o.bottom&&(a+=.5*o.bottom),s(o.right,r,i,l,a));function s(e,n,o,r,i){t.getDocument().setLineWidth(e),t.getDocument().line(n,o,r,i,"S")}}(t,e,n,r.lineWidth))}function y(t,e,n,o){var r=e.settings.margin.bottom,i=e.settings.showFoot;return("everyPage"===i||"lastPage"===i&&n)&&(r+=e.getFootHeight(e.columns)),t.pageSize().height-o.y-r}function v(t,e,n,r,i,l){void 0===i&&(i=[]),void 0===l&&(l=!1),t.applyStyles(t.userStyles),"everyPage"!==e.settings.showFoot||l||e.foot.forEach((function(n){return g(t,e,n,r,i)})),e.callEndPageHooks(t,r);var a=e.settings.margin;(0,o.addTableBorder)(t,e,n,r),m(t),e.pageNumber++,e.pageCount++,r.x=a.left,r.y=a.top,n.y=a.top,e.callWillDrawPageHooks(t,r),"everyPage"===e.settings.showHead&&(e.head.forEach((function(n){return g(t,e,n,r,i)})),t.applyStyles(t.userStyles))}function m(t){var e=t.pageNumber();return t.setPage(e+1),t.pageNumber()===e&&(t.addPage(),!0)}e.drawTable=function(t,e){var n=e.settings,r=n.startY,a=n.margin,c={x:a.left,y:r},p=e.getHeadHeight(e.columns)+e.getFootHeight(e.columns),y=r+a.bottom+p;"avoid"===n.pageBreak&&(y+=e.body.reduce((function(t,e){return t+e.height}),0));var b=new i.DocHandler(t);("always"===n.pageBreak||null!=n.startY&&y>b.pageSize().height)&&(m(b),c.y=a.top),e.callWillDrawPageHooks(b,c);var w=(0,l.assign)({},c);e.startPageNumber=b.pageNumber(),n.horizontalPageBreak?function(t,e,n,o){var r=(0,s.calculateAllColumnsCanFitInPage)(t,e),i=e.settings;if("afterAllRows"===i.horizontalPageBreakBehaviour)r.forEach((function(r,i){t.applyStyles(t.userStyles),i>0?v(t,e,n,o,r.columns,!0):u(t,e,o,r.columns),function(t,e,n,o,r){t.applyStyles(t.userStyles),e.body.forEach((function(i,l){var a=l===e.body.length-1;f(t,e,i,a,n,o,r)}))}(t,e,n,o,r.columns),h(t,e,o,r.columns)}));else for(var l=-1,a=r[0],c=function(){var i=l;if(a){t.applyStyles(t.userStyles);var s=a.columns;l>=0?v(t,e,n,o,s,!0):u(t,e,o,s),i=d(t,e,l+1,o,s),h(t,e,o,s)}var c=i-l;r.slice(1).forEach((function(r){t.applyStyles(t.userStyles),v(t,e,n,o,r.columns,!0),d(t,e,l+1,o,r.columns,c),h(t,e,o,r.columns)})),l=i};l<e.body.length-1;)c()}(b,e,w,c):(b.applyStyles(b.userStyles),"firstPage"!==n.showHead&&"everyPage"!==n.showHead||e.head.forEach((function(t){return g(b,e,t,c,e.columns)})),b.applyStyles(b.userStyles),e.body.forEach((function(t,n){var o=n===e.body.length-1;f(b,e,t,o,w,c,e.columns)})),b.applyStyles(b.userStyles),"lastPage"!==n.showFoot&&"everyPage"!==n.showFoot||e.foot.forEach((function(t){return g(b,e,t,c,e.columns)}))),(0,o.addTableBorder)(b,e,w,c),e.callEndPageHooks(b,c),e.finalY=c.y,t.lastAutoTable=e,t.previousAutoTable=e,t.autoTable&&(t.autoTable.previous=e),b.applyStyles(b.userStyles)},e.addPage=v},224:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.calculateAllColumnsCanFitInPage=void 0;var o=n(420);function r(t,e,n){var r;void 0===n&&(n={});var i=(0,o.getPageAvailableWidth)(t,e),l=new Map,a=[],s=[],u=[];e.settings.horizontalPageBreakRepeat,Array.isArray(e.settings.horizontalPageBreakRepeat)?u=e.settings.horizontalPageBreakRepeat:"string"!=typeof e.settings.horizontalPageBreakRepeat&&"number"!=typeof e.settings.horizontalPageBreakRepeat||(u=[e.settings.horizontalPageBreakRepeat]),u.forEach((function(t){var n=e.columns.find((function(e){return e.dataKey===t||e.index===t}));n&&!l.has(n.index)&&(l.set(n.index,!0),a.push(n.index),s.push(e.columns[n.index]),i-=n.wrappedWidth)}));for(var d=!0,h=null!==(r=null==n?void 0:n.start)&&void 0!==r?r:0;h<e.columns.length;)if(l.has(h))h++;else{var c=e.columns[h].wrappedWidth;if(!(d||i>=c))break;d=!1,a.push(h),s.push(e.columns[h]),i-=c,h++}return{colIndexes:a,columns:s,lastIndex:h-1}}e.calculateAllColumnsCanFitInPage=function(t,e){for(var n=[],o=0;o<e.columns.length;o++){var i=r(t,e,{start:o});i.columns.length&&(n.push(i),o=i.lastIndex)}return n}},324:function(t,e,n){Object.defineProperty(e,"__esModule",{value:!0}),e.ellipsize=e.resizeColumns=e.calculateWidths=void 0;var o=n(420);function r(t,e,n){for(var o=e,i=t.reduce((function(t,e){return t+e.wrappedWidth}),0),l=0;l<t.length;l++){var a=t[l],s=o*(a.wrappedWidth/i),u=a.width+s,d=n(a),h=u<d?d:u;e-=h-a.width,a.width=h}if(e=Math.round(1e10*e)/1e10){var c=t.filter((function(t){return!(e<0)||t.width>n(t)}));c.length&&(e=r(c,e,n))}return e}function i(t,e,n,r,i){return t.map((function(t){return function(t,e,n,r,i){var l=1e4*r.scaleFactor();if(e=Math.ceil(e*l)/l,e>=(0,o.getStringWidth)(t,n,r))return t;for(;e<(0,o.getStringWidth)(t+i,n,r)&&!(t.length<=1);)t=t.substring(0,t.length-1);return t.trim()+i}(t,e,n,r,i)}))}e.calculateWidths=function(t,e){!function(t,e){var n=t.scaleFactor(),r=e.settings.horizontalPageBreak,i=(0,o.getPageAvailableWidth)(t,e);e.allRows().forEach((function(l){for(var a=0,s=e.columns;a<s.length;a++){var u=s[a],d=l.cells[u.index];if(d){var h=e.hooks.didParseCell;e.callCellHooks(t,h,d,l,u,null);var c=d.padding("horizontal");d.contentWidth=(0,o.getStringWidth)(d.text,d.styles,t)+c;var f=(0,o.getStringWidth)(d.text.join(" ").split(/\s+/),d.styles,t);if(d.minReadableWidth=f+d.padding("horizontal"),"number"==typeof d.styles.cellWidth)d.minWidth=d.styles.cellWidth,d.wrappedWidth=d.styles.cellWidth;else if("wrap"===d.styles.cellWidth||!0===r)d.contentWidth>i?(d.minWidth=i,d.wrappedWidth=i):(d.minWidth=d.contentWidth,d.wrappedWidth=d.contentWidth);else{var g=10/n;d.minWidth=d.styles.minCellWidth||g,d.wrappedWidth=d.contentWidth,d.minWidth>d.wrappedWidth&&(d.wrappedWidth=d.minWidth)}}}})),e.allRows().forEach((function(t){for(var n=0,o=e.columns;n<o.length;n++){var r=o[n],i=t.cells[r.index];if(i&&1===i.colSpan)r.wrappedWidth=Math.max(r.wrappedWidth,i.wrappedWidth),r.minWidth=Math.max(r.minWidth,i.minWidth),r.minReadableWidth=Math.max(r.minReadableWidth,i.minReadableWidth);else{var l=e.styles.columnStyles[r.dataKey]||e.styles.columnStyles[r.index]||{},a=l.cellWidth||l.minCellWidth;a&&"number"==typeof a&&(r.minWidth=a,r.wrappedWidth=a)}i&&(i.colSpan>1&&!r.minWidth&&(r.minWidth=i.minWidth),i.colSpan>1&&!r.wrappedWidth&&(r.wrappedWidth=i.minWidth))}}))}(t,e);var n=[],l=0;e.columns.forEach((function(t){var o=t.getMaxCustomCellWidth(e);o?t.width=o:(t.width=t.wrappedWidth,n.push(t)),l+=t.width}));var a=e.getWidth(t.pageSize().width)-l;a&&(a=r(n,a,(function(t){return Math.max(t.minReadableWidth,t.minWidth)}))),a&&(a=r(n,a,(function(t){return t.minWidth}))),a=Math.abs(a),!e.settings.horizontalPageBreak&&a>.1/t.scaleFactor()&&(a=a<1?a:Math.round(a),console.warn("Of the table content, ".concat(a," units width could not fit page"))),function(t){for(var e=t.allRows(),n=0;n<e.length;n++)for(var o=e[n],r=null,i=0,l=0,a=0;a<t.columns.length;a++){var s=t.columns[a];if((l-=1)>1&&t.columns[a+1])i+=s.width,delete o.cells[s.index];else if(r){var u=r;delete o.cells[s.index],r=null,u.width=s.width+i}else{if(!(u=o.cells[s.index]))continue;if(l=u.colSpan,i=0,u.colSpan>1){r=u,i+=s.width;continue}u.width=s.width+i}}}(e),function(t,e){for(var n={count:0,height:0},o=0,r=t.allRows();o<r.length;o++){for(var l=r[o],a=0,s=t.columns;a<s.length;a++){var u=s[a],d=l.cells[u.index];if(d){e.applyStyles(d.styles,!0);var h=d.width-d.padding("horizontal");if("linebreak"===d.styles.overflow)d.text=e.splitTextToSize(d.text,h+1/e.scaleFactor(),{fontSize:d.styles.fontSize});else if("ellipsize"===d.styles.overflow)d.text=i(d.text,h,d.styles,e,"...");else if("hidden"===d.styles.overflow)d.text=i(d.text,h,d.styles,e,"");else if("function"==typeof d.styles.overflow){var c=d.styles.overflow(d.text,h);d.text="string"==typeof c?[c]:c}d.contentHeight=d.getContentHeight(e.scaleFactor(),e.getLineHeightFactor());var f=d.contentHeight/d.rowSpan;d.rowSpan>1&&n.count*n.height<f*d.rowSpan?n={height:f,count:d.rowSpan}:n&&n.count>0&&n.height>f&&(f=n.height),f>l.height&&(l.height=f)}}n.count--}}(e,t),function(t){for(var e={},n=1,o=t.allRows(),r=0;r<o.length;r++)for(var i=o[r],l=0,a=t.columns;l<a.length;l++){var s=a[l],u=e[s.index];if(n>1)n--,delete i.cells[s.index];else if(u)u.cell.height+=i.height,n=u.cell.colSpan,delete i.cells[s.index],u.left--,u.left<=1&&delete e[s.index];else{var d=i.cells[s.index];if(!d)continue;if(d.height=i.height,d.rowSpan>1){var h=o.length-r,c=d.rowSpan>h?h:d.rowSpan;e[s.index]={cell:d,left:c,row:i}}}}}(e)},e.resizeColumns=r,e.ellipsize=i},964:function(e){if(void 0===t){var n=new Error("Cannot find module 'undefined'");throw n.code="MODULE_NOT_FOUND",n}e.exports=t}},n={};function o(t){var r=n[t];if(void 0!==r)return r.exports;var i=n[t]={exports:{}};return e[t].call(i.exports,i,i.exports,o),i.exports}var r={};return function(){var t=r;Object.defineProperty(t,"__esModule",{value:!0}),t.Cell=t.Column=t.Row=t.Table=t.CellHookData=t.__drawTable=t.__createTable=t.applyPlugin=void 0;var e=o(340),n=o(776),i=o(664),l=o(972),a=o(260);Object.defineProperty(t,"Table",{enumerable:!0,get:function(){return a.Table}});var s=o(172);Object.defineProperty(t,"CellHookData",{enumerable:!0,get:function(){return s.CellHookData}});var u=o(260);function d(t){(0,e.default)(t)}Object.defineProperty(t,"Cell",{enumerable:!0,get:function(){return u.Cell}}),Object.defineProperty(t,"Column",{enumerable:!0,get:function(){return u.Column}}),Object.defineProperty(t,"Row",{enumerable:!0,get:function(){return u.Row}}),t.applyPlugin=d,t.__createTable=function(t,e){var o=(0,n.parseInput)(t,e);return(0,l.createTable)(t,o)},t.__drawTable=function(t,e){(0,i.drawTable)(t,e)};try{var h=o(964);h.jsPDF&&(h=h.jsPDF),d(h)}catch(t){}t.default=function(t,e){var o=(0,n.parseInput)(t,e),r=(0,l.createTable)(t,o);(0,i.drawTable)(t,r)}}(),r}()}));</script>
 <script>
+const CONFIG = {"id":"minideba","url":"https://minideba.orienteca.es/","repo":"https://github.com/pjlledo/minideba","otherUrl":"https://deba.orienteca.es/"};
+const RAW = {"dims":{"1":{"es":"Acceso o presencia","va":"Accés o presència"},"2":{"es":"Aprendizaje y logro","va":"Aprenentatge i assoliment"},"3":{"es":"Participación y pertenencia","va":"Participació i pertinença"}},"blocks":{"AC1":{"es":"Interacción / transmisión de la información","va":"Interacció / transmissió de la informació"},"AC2":{"es":"Procesos de transición y coordinación con el entorno comunitario","va":"Processos de transició i coordinació amb l'entorn comunitari"},"AC3":{"es":"Asistencia al centro","va":"Assistència al centre"},"AC4":{"es":"Entornos seguros, saludables y sostenibles","va":"Entorns segurs, saludables i sostenibles"},"AC5":{"es":"Accesibilidad (espacios, mobiliario, materiales y recursos económicos)","va":"Accessibilitat (espais, mobiliari, materials i recursos econòmics)"},"AC6":{"es":"Organización para la inclusión","va":"Organització per a la inclusió"},"AP1":{"es":"Concreción curricular, programaciones y unidades didácticas","va":"Concreció curricular, programacions i unitats didàctiques"},"AP2":{"es":"Metodología y estrategias didácticas inclusivas","va":"Metodologia i estratègies didàctiques inclusives"},"AP3":{"es":"Evaluación inclusiva de los aprendizajes","va":"Avaluació inclusiva dels aprenentatges"},"AP4":{"es":"Formación para la inclusión","va":"Formació per a la inclusió"},"PA1":{"es":"Valores inclusivos y normas de convivencia","va":"Valors inclusius i normes de convivència"},"PA2":{"es":"Bienestar personal y relaciones interpersonales positivas","va":"Benestar personal i relacions interpersonals positives"},"PA3":{"es":"Participación del alumnado","va":"Participació de l'alumnat"},"PA4":{"es":"Participación e implicación del profesorado","va":"Participació i implicació del professorat"},"PA5":{"es":"Participación de la familia y la comunidad educativa","va":"Participació de la família i la comunitat educativa"}},"items":[{"n":1,"d":1,"b":"AC1","t":"OO","es":{"q":"¿Dispongo a tiempo (antes del inicio del curso o en el momento de la escolarización) y de forma organizada de la información educativa relevante sobre el alumnado con el fin de planificar la respuesta educativa adecuada?","note":"Condiciones de salud, circunstancias sociofamiliares, competencia curricular, medidas de respuesta y resultados, etc.","pos":"Dispongo a tiempo y de forma organizada de la información educativa relevante sobre el alumnado.","neg":"No dispongo a tiempo y de forma organizada de la información educativa relevante sobre el alumnado."},"va":{"q":"Dispose a temps (abans de l'inici de curs o en el moment de l'escolarització) i de forma organitzada de la informació educativa rellevant sobre l'alumnat a fi de planificar la resposta educativa adequada?","note":"Condicions de salut, circumstàncies sociofamiliars, competència curricular, mesures de resposta i resultats, etc.","pos":"Dispose a temps i de forma organitzada de la informació educativa rellevant sobre l'alumnat.","neg":"No dispose a temps i de forma organitzada de la informació educativa rellevant sobre l'alumnat."},"o":1},{"n":2,"d":1,"b":"AC1","t":"FF","es":{"q":"¿Proporciono a la familia del alumnado la información sobre su hijo/a y las actividades educativas de forma comprensible y adaptada a sus características y posibilidades asegurando su recepción?","note":"","pos":"Proporciono a la familia del alumnado la información sobre su hijo/a y las actividades educativas de forma comprensible y adaptada a sus características y posibilidades.","neg":"No proporciono a la familia del alumnado la información sobre su hijo/a y las actividades educativas de forma comprensible y adaptada a sus características y posibilidades."},"va":{"q":"Proporcione a la família de l'alumnat la informació sobre el seu fill/a i les activitats educatives de forma comprensible i adaptada a les seues característiques i possibilitats assegurant la seua recepció?","note":"","pos":"Proporcione a la família de l'alumnat la informació sobre el seu fill/a i les activitats educatives de forma comprensible i adaptada a les seues característiques i possibilitats.","neg":"No proporcione a la família de l'alumnat la informació sobre el seu fill/a i les activitats educatives de forma comprensible i adaptada a les seues característiques i possibilitats."},"o":3},{"n":3,"d":1,"b":"AC1","t":"FF","es":{"q":"¿Facilito información al alumnado de las actividades educativas de forma comprensible y adecuada a sus características y posibilidades?","note":"","pos":"Facilito información al alumnado de las actividades educativas de forma comprensible y adecuada a sus características y posibilidades.","neg":"No facilito información al alumnado de las actividades educativas de forma comprensible y adecuada a sus características y posibilidades."},"va":{"q":"Facilite informació a l'alumnat de les activitats educatives de forma comprensible i adequada a les seues característiques i possibilitats?","note":"","pos":"Facilite informació a l'alumnat de les activitats educatives de forma comprensible i adequada a les seues característiques i possibilitats.","neg":"No facilite informació a l'alumnat de les activitats educatives de forma comprensible i adequada a les seues característiques i possibilitats."},"o":4},{"n":4,"d":1,"b":"AC2","t":"FF","es":{"q":"¿Mantengo contacto (directo o indirecto) continuo y colaboro de forma efectiva con los agentes externos que participan en el proceso educativo del alumnado, o que le proporcionan apoyo social, sanitario o de otro tipo?","note":"Refuerzo educativo externo, servicios sociales, salud, y otros.","pos":"Mantengo contacto (directo o indirecto) continuo y colaboro de forma efectiva con los agentes externos que participan en el proceso educativo del alumnado, o que le proporcionan apoyo social, sanitario o de otro tipo.","neg":"No mantengo contacto (directo o indirecto) continuo ni colaboro de forma efectiva con los agentes externos que participan en el proceso educativo del alumnado, o que le proporcionan apoyo social, sanitario o de otro tipo."},"va":{"q":"Mantinc contacte (directe o indirecte) continu i col·labore de forma efectiva amb els agents externs que participen en el procés educatiu de l'alumnat, o que li proporcionen suport social, sanitari o d'un altre tipus?","note":"Reforç educatiu extern, serveis socials, salut i altres.","pos":"Mantinc contacte (directe o indirecte) continu i col·labore de forma efectiva amb els agents externs que participen en el procés educatiu de l'alumnat, o que li proporcionen suport social, sanitari o d'un altre tipus.","neg":"No mantinc contacte (directe o indirecte) continu ni col·labore de forma efectiva amb els agents externs que participen en el procés educatiu de l'alumnat, o que li proporcionen suport social, sanitari o d'un altre tipus."},"o":6},{"n":5,"d":1,"b":"AC3","t":"FF","es":{"q":"¿Actúo para reducir el absentismo leve que presenta el alumnado teniendo en cuenta las causas que lo producen?","note":"","pos":"Actúo para reducir el absentismo leve que presenta el alumnado teniendo en cuenta las causas que lo producen.","neg":"No actúo para reducir el absentismo leve que presenta el alumnado teniendo en cuenta las causas que lo producen."},"va":{"q":"Actue per a reduir l'absentisme lleu que presenta l'alumnat tenint en compte les causes que el produeixen?","note":"","pos":"Actue per a reduir l'absentisme lleu que presenta l'alumnat tenint en compte les causes que el produeixen.","neg":"No actue per a reduir l'absentisme lleu que presenta l'alumnat tenint en compte les causes que el produeixen."},"o":8},{"n":6,"d":1,"b":"AC4","t":"OO","es":{"q":"¿Los espacios donde se desarrollan las actividades educativas comunes son seguros y saludables para el alumnado?","note":"Calidad del aire, ruido, iluminación, temperatura, limpieza, desplazamientos, mantenimiento de instalaciones, etc.","pos":"Los espacios donde se desarrollan las actividades educativas comunes son seguros y saludables para el alumnado.","neg":"Los espacios donde se desarrollan las actividades educativas comunes no son seguros y saludables para el alumnado."},"va":{"q":"Els espais on es desenvolupen les activitats educatives comunes són segurs i saludables per a l'alumnat?","note":"Qualitat de l'aire, soroll, il·luminació, temperatura, neteja, desplaçaments, manteniment d'instal·lacions, etc.","pos":"Els espais on es desenvolupen les activitats educatives comunes són segurs i saludables per a l'alumnat.","neg":"Els espais on es desenvolupen les activitats educatives comunes no són segurs i saludables per a l'alumnat."},"o":10},{"n":7,"d":1,"b":"AC4","t":"FF","es":{"q":"¿Realizo las actuaciones necesarias para evitar situaciones de riesgo para el alumnado?","note":"","pos":"Realizo las actuaciones necesarias para evitar situaciones de riesgo para el alumnado.","neg":"No realizo las actuaciones necesarias para evitar situaciones de riesgo para el alumnado."},"va":{"q":"Realitze les actuacions necessàries per a evitar situacions de risc per a l'alumnat?","note":"","pos":"Realitze les actuacions necessàries per a evitar situacions de risc per a l'alumnat.","neg":"No realitze les actuacions necessàries per a evitar situacions de risc per a l'alumnat."},"o":12},{"n":8,"d":1,"b":"AC4","t":"FF","es":{"q":"¿Realizo actuaciones para que el alumnado adquiera hábitos de salud?","note":"Alimentación, descanso, actividad física y deportiva, hábitos posturales, prevención de enfermedades, etc.","pos":"Realizo actuaciones para que el alumnado adquiera hábitos de salud.","neg":"No realizo actuaciones para que el alumnado adquiera hábitos de salud."},"va":{"q":"Realitze actuacions perquè l'alumnat adquirisca hàbits de salut?","note":"Alimentació, descans, activitat física i esportiva, hàbits posturals, prevenció de malalties, etc.","pos":"Realitze actuacions perquè l'alumnat adquirisca hàbits de salut.","neg":"No realitze actuacions perquè l'alumnat adquirisca hàbits de salut."},"o":16},{"n":9,"d":1,"b":"AC4","t":"OO","es":{"q":"¿Colaboran la familia y el alumnado en las actividades para mejorar sus hábitos de salud?","note":"","pos":"La familia y el alumnado colaboran en las actividades para mejorar sus hábitos de salud.","neg":"La familia y el alumnado no colaboran en las actividades para mejorar sus hábitos de salud."},"va":{"q":"Col·laboren la família i l'alumnat en les activitats per a millorar els seus hàbits de salut?","note":"","pos":"La família i l'alumnat col·laboren en les activitats per a millorar els seus hàbits de salut.","neg":"La família i l'alumnat no col·laboren en les activitats per a millorar els seus hàbits de salut."},"o":17},{"n":10,"d":1,"b":"AC5","t":"FF","es":{"q":"¿Los entornos de aprendizaje y materiales del aula están señalizados/etiquetados para facilitar que el alumnado los identifique y acceda a ellos con la máxima autonomía?","note":"","pos":"Los entornos de aprendizaje y materiales del aula están señalizados/etiquetados para facilitar que el alumnado los identifique y acceda a ellos con la máxima autonomía.","neg":"Los entornos de aprendizaje y materiales del aula no están señalizados/etiquetados para facilitar que el alumnado los identifique y acceda a ellos con la máxima autonomía."},"va":{"q":"Els entorns d'aprenentatge i materials de l'aula estan senyalitzats/etiquetats per a facilitar que l'alumnat els identifique i accedisca a ells amb la màxima autonomia?","note":"","pos":"Els entorns d'aprenentatge i materials de l'aula estan senyalitzats/etiquetats per a facilitar que l'alumnat els identifique i accedisca a ells amb la màxima autonomia.","neg":"Els entorns d'aprenentatge i materials de l'aula no estan senyalitzats/etiquetats per a facilitar que l'alumnat els identifique i accedisca a ells amb la màxima autonomia."},"o":21},{"n":11,"d":1,"b":"AC5","t":"OO","es":{"q":"¿Disponen los espacios del centro y del aula de elementos arquitectónicos que facilitan la entrada y los desplazamientos del alumnado?","note":"","pos":"Los espacios del centro y del aula disponen de elementos arquitectónicos que facilitan la entrada y los desplazamientos del alumnado.","neg":"Los espacios del centro y del aula no disponen de elementos arquitectónicos que facilitan la entrada y los desplazamientos del alumnado."},"va":{"q":"Disposen els espais del centre i de l'aula d'elements arquitectònics que faciliten l'entrada i els desplaçaments de l'alumnat?","note":"","pos":"Els espais del centre i de l'aula disposen d'elements arquitectònics que faciliten l'entrada i els desplaçaments de l'alumnat.","neg":"Els espais del centre i de l'aula no disposen d'elements arquitectònics que faciliten l'entrada i els desplaçaments de l'alumnat."},"o":22},{"n":12,"d":1,"b":"AC5","t":"FF","es":{"q":"¿Los programas y aplicaciones que utilizan los dispositivos tecnológicos de uso común tienen activas las opciones de accesibilidad adecuadas a las características y necesidades del alumnado?","note":"Narradores, lectores de pantalla, lupa, reconocimiento por voz, asistente digital, tamaño de iconos, contraste, filtros color, etc.","pos":"Los programas y aplicaciones que utilizan los dispositivos tecnológicos de uso común tienen activas las opciones de accesibilidad adecuadas a las características y necesidades del alumnado.","neg":"Los programas y aplicaciones que utilizan los dispositivos tecnológicos de uso común no tienen activas las opciones de accesibilidad adecuadas a las características y necesidades del alumnado."},"va":{"q":"Els programes i aplicacions que utilitzen els dispositius tecnològics d'ús comú tenen actives les opcions d'accessibilitat adequades a les característiques i necessitats de l'alumnat?","note":"Narradors, lectors de pantalla, lupa, reconeixement de veu, assistent digital, grandària de les icones, contrast, filtres de color, etc.","pos":"Els programes i aplicacions que utilitzen els dispositius tecnològics d'ús comú tenen actives les opcions d'accessibilitat adequades a les característiques i necessitats de l'alumnat.","neg":"Els programes i aplicacions que utilitzen els dispositius tecnològics d'ús comú no tenen actives les opcions d'accessibilitat adequades a les característiques i necessitats de l'alumnat."},"o":28},{"n":13,"d":1,"b":"AC5","t":"FF","es":{"q":"¿Los materiales curriculares y didácticos comunes (libros de texto, libros de lectura, juegos, material escolar, material audiovisual, etc.) ofrecen las opciones de accesibilidad adecuadas a las características y necesidades del alumnado?","note":"","pos":"Los materiales curriculares y didácticos comunes (libros de texto, libros de lectura, juegos, material escolar, material audiovisual, etc.) ofrecen las opciones de accesibilidad adecuadas a las características y necesidades del alumnado.","neg":"Los materiales curriculares y didácticos comunes (libros de texto, libros de lectura, juegos, material escolar, material audiovisual, etc.) no ofrecen las opciones de accesibilidad adecuadas a las características y necesidades del alumnado."},"va":{"q":"Els materials curriculars i didàctics comuns (llibres de text, llibres de lectura, jocs, material escolar, material audiovisual, etc.) ofereixen les opcions d'accessibilitat adequades a les característiques i necessitats de l'alumnat?","note":"","pos":"Els materials curriculars i didàctics comuns (llibres de text, llibres de lectura, jocs, material escolar, material audiovisual, etc.) ofereixen les opcions d'accessibilitat adequades a les característiques i necessitats de l'alumnat.","neg":"Els materials curriculars i didàctics comuns (llibres de text, llibres de lectura, jocs, material escolar, material audiovisual, etc.) no ofereixen les opcions d'accessibilitat adequades a les característiques i necessitats de l'alumnat."},"o":29},{"n":14,"d":1,"b":"AC5","t":"OO","es":{"q":"¿Se beneficia el alumnado de las becas y ayudas económicas a las que tiene derecho por sus condiciones socioeconómicas?","note":"","pos":"El alumnado se beneficia de las becas y ayudas económicas a las que tiene derecho por sus condiciones socioeconómicas.","neg":"El alumnado no se beneficia de las becas y ayudas económicas a las que tiene derecho por sus condiciones socioeconómicas."},"va":{"q":"Es beneficia l'alumnat de les beques i ajudes econòmiques a les quals té dret per les seues condicions socioeconòmiques?","note":"","pos":"L'alumnat es beneficia de les beques i ajudes econòmiques a les quals té dret per les seues condicions socioeconòmiques.","neg":"L'alumnat no es beneficia de les beques i ajudes econòmiques a les quals té dret per les seues condicions socioeconòmiques."},"o":30},{"n":15,"d":1,"b":"AC6","t":"OO","es":{"q":"¿Recibe el alumnado el apoyo ordinario con la intensidad (número de sesiones) necesaria?","note":"","pos":"El alumnado recibe el apoyo ordinario que requieren las medidas de respuesta propuestas por el equipo educativo con la intensidad (número de sesiones) necesaria.","neg":"El alumnado no recibe el apoyo ordinario que requieren las medidas de respuesta propuestas por el equipo educativo con la intensidad (número de sesiones) necesaria."},"va":{"q":"Rep l'alumnat el suport ordinari amb la intensitat (nombre de sessions) necessària?","note":"","pos":"L'alumnat rep el suport ordinari que requereixen les mesures de resposta proposades per l'equip educatiu amb la intensitat (nombre de sessions) necessària.","neg":"L'alumnat no rep el suport ordinari que requereixen les mesures de resposta proposades per l'equip educatiu amb la intensitat (nombre de sessions) necessària."},"o":32},{"n":16,"d":1,"b":"AC6","t":"OO","es":{"q":"¿Se realizan de forma continua y planificada las coordinaciones entre el profesorado de las asignaturas y el profesorado que realiza el apoyo ordinario del alumnado?","note":"","pos":"Se realizan de forma continua y planificada las coordinaciones entre el profesorado de las asignaturas y el profesorado que realiza el apoyo ordinario del alumnado.","neg":"No se realizan de forma continua y planificada las coordinaciones entre el profesorado de las asignaturas y el profesorado que realiza el apoyo ordinario del alumnado."},"va":{"q":"Es realitzen de forma contínua i planificada les coordinacions entre el professorat de les assignatures i el professorat que realitza el suport ordinari de l'alumnat?","note":"","pos":"Es realitzen de forma contínua i planificada les coordinacions entre el professorat de les assignatures i el professorat que realitza el suport ordinari de l'alumnat.","neg":"No es realitzen de forma contínua i planificada les coordinacions entre el professorat de les assignatures i el professorat que realitza el suport ordinari de l'alumnat."},"o":33},{"n":17,"d":2,"b":"AP1","t":"FF","es":{"q":"¿Las unidades didácticas de mi programación proponen actividades a diferentes niveles de adquisición o complejidad para que el alumnado pueda participar de las actividades desde su nivel de competencia curricular?","note":"","pos":"Las unidades didácticas de mi programación proponen actividades a diferentes niveles de adquisición o complejidad para que el alumnado pueda participar desde su nivel de competencia curricular.","neg":"Las unidades didácticas de mi programación no proponen actividades a diferentes niveles de adquisición o complejidad para que el alumnado pueda participar desde su nivel de competencia curricular."},"va":{"q":"Les unitats didàctiques de la meua programació proposen activitats a diferents nivells d'adquisició o complexitat perquè l'alumnat puga participar de les activitats des del seu nivell de competència curricular?","note":"","pos":"Les unitats didàctiques de la meua programació proposen activitats a diferents nivells d'adquisició o complexitat perquè l'alumnat puga participar des del seu nivell de competència curricular.","neg":"Les unitats didàctiques de la meua programació no proposen activitats a diferents nivells d'adquisició o complexitat perquè l'alumnat puga participar des del seu nivell de competència curricular."},"o":35},{"n":18,"d":2,"b":"AP1","t":"FF","es":{"q":"¿Las unidades didácticas de mi programación son el referente del que parto para programar y evaluar las medidas de respuesta individualizadas del alumnado?","note":"Adecuación personalizada de las programaciones y refuerzo pedagógico.","pos":"Las unidades didácticas de mi programación son el referente del cual parto para programar y evaluar las medidas de respuesta individualizadas del alumnado.","neg":"Las unidades didácticas de mi programación no son el referente del cual parto para programar y evaluar las medidas de respuesta individualizadas del alumnado."},"va":{"q":"Les unitats didàctiques de la meua programació són el referent del qual partisc per a programar i avaluar les mesures de resposta individualitzades de l'alumnat?","note":"Adequació personalitzada de les programacions i reforç pedagògic.","pos":"Les unitats didàctiques de la meua programació són el referent del qual partisc per a programar i avaluar les mesures de resposta individualitzades de l'alumnat.","neg":"Les unitats didàctiques de la meua programació no són el referent del qual partisc per a programar i avaluar les mesures de resposta individualitzades de l'alumnat."},"o":36},{"n":19,"d":2,"b":"AP2","t":"FF","es":{"q":"¿En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado opciones de motivación e implicación (captar el interés, mantener el esfuerzo y la persistencia y autorregulación) adecuadas a sus características y necesidades?","note":"DUA PRINCIPIO III.","pos":"En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado opciones de motivación e implicación (captar el interés, mantener el esfuerzo y la persistencia y autorregulación) adecuadas a sus características y necesidades.","neg":"En las actividades de las unidades didácticas de mi programación no utilizo estrategias y materiales que ofrecen al alumnado opciones de motivación e implicación (captar el interés, mantener el esfuerzo y la persistencia y autorregulación) adecuadas a sus características y necesidades."},"va":{"q":"En les activitats de les unitats didàctiques de la meua programació utilitze estratègies i materials que ofereixen a l'alumnat opcions de motivació i implicació (captar l'interés, mantindre l'esforç i la persistència i autoregulació) adequades a les seues característiques i necessitats?","note":"DUA PRINCIPI III.","pos":"En les activitats de les unitats didàctiques de la meua programació utilitze estratègies i materials que ofereixen a l'alumnat opcions de motivació i implicació (captar l'interés, mantindre l'esforç i la persistència i autoregulació) adequades a les seues característiques i necessitats.","neg":"En les activitats de les unitats didàctiques de la meua programació no utilitze estratègies i materials que ofereixen a l'alumnat opcions de motivació i implicació (captar l'interés, mantindre l'esforç i la persistència i autoregulació) adequades a les seues característiques i necessitats."},"o":41},{"n":20,"d":2,"b":"AP2","t":"FF","es":{"q":"¿En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen diferentes opciones para la representación de la información (opciones para la percepción visual, auditiva, propioceptiva y para la comprensión) para adecuarlas a las características y necesidades del alumnado?","note":"DUA PRINCIPIO I","pos":"En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen diferentes opciones para la representación de la información (opciones para la percepción visual, auditiva, propioceptiva y la comprensión) para adecuarlas a las características y necesidades del alumnado.","neg":"En las actividades de las unidades didácticas de mi programación no utilizo estrategias y materiales que ofrecen diferentes opciones para la representación de la información (opciones para la percepción visual, auditiva, propioceptiva y la comprensión) para adecuarlas a las características y necesidades del alumnado."},"va":{"q":"En les activitats de les unitats didàctiques de la meua programació utilitze estratègies i materials que ofereixen diferents opcions per a la representació de la informació (opcions per a la percepció visual, auditiva, propioceptiva i per a la comprensió) per a adequar-les a les característiques i necessitats de l'alumnat?","note":"DUA PRINCIPI I.","pos":"En les activitats de les unitats didàctiques de la meua programació utilitze estratègies i materials que ofereixen diferents opcions per a la representació de la informació (opcions per a la percepció visual, auditiva, propioceptiva i la comprensió) per a adequar-les a les característiques i necessitats de l'alumnat.","neg":"En les activitats de les unitats didàctiques de la meua programació no utilitze estratègies i materials que ofereixen diferents opcions per a la representació de la informació (opcions per a la percepció visual, auditiva, propioceptiva i la comprensió) per a adequar-les a les característiques i necessitats de l'alumnat."},"o":42},{"n":21,"d":2,"b":"AP2","t":"FF","es":{"q":"¿En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado diferentes formas de acción y expresión de los conocimientos (interacción física, expresión/comunicación y autonomía en el aprendizaje) adecuadas a sus características y necesidades?","note":"DUA PRINCIPIO II","pos":"En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado diferentes formas de acción y expresión de los conocimientos (interacción física, expresión/comunicación y autonomía en el aprendizaje) adecuadas a sus características y necesidades.","neg":"En las actividades de las unidades didácticas de mi programación no utilizo estrategias y materiales que ofrecen al alumnado diferentes formas de acción y expresión de los conocimientos (interacción física, expresión/comunicación y autonomía en el aprendizaje) adecuadas a sus características y necesidades."},"va":{"q":"En les activitats de les unitats didàctiques de la meua programació utilitze estratègies i materials que ofereixen a l'alumnat diferents formes d'acció i expressió dels coneixements (interacció física, expressió/comunicació i autonomia en l'aprenentatge) adequades a les seues característiques i necessitats?","note":"DUA PRINCIPI II.","pos":"En les activitats de les unitats didàctiques de la meua programació utilitze estratègies i materials que ofereixen a l'alumnat diferents formes d'acció i expressió dels coneixements (interacció física, expressió/comunicació i autonomia en l'aprenentatge) adequades a les seues característiques i necessitats.","neg":"En les activitats de les unitats didàctiques de la meua programació no utilitze estratègies i materials que ofereixen a l'alumnat diferents formes d'acció i expressió dels coneixements (interacció física, expressió/comunicació i autonomia en l'aprenentatge) adequades a les seues característiques i necessitats."},"o":43},{"n":22,"d":2,"b":"AP2","t":"FF","es":{"q":"¿En las actividades de las unidades didácticas de mi programación realizo agrupamientos que favorecen la participación del alumnado y fomentan la ayuda mutua y la colaboración con sus compañeras y sus compañeros?","note":"","pos":"En las actividades de las unidades didácticas de mi programación realizo agrupamientos que favorecen la participación del alumnado y fomentan la ayuda mutua y la colaboración con sus compañeros y sus compañeras.","neg":"En las actividades de las unidades didácticas de mi programación no realizo agrupamientos que favorecen la participación del alumnado y fomentan la ayuda mutua y la colaboración con sus compañeros y sus compañeras."},"va":{"q":"En les activitats de les unitats didàctiques de la meua programació realitze agrupaments que afavoreixen la participació de l'alumnat i fomenten l'ajuda mútua i la col·laboració amb les seues companyes i els seus companys?","note":"","pos":"En les activitats de les unitats didàctiques de la meua programació realitze agrupaments que afavoreixen la participació de l'alumnat i fomenten l'ajuda mútua i la col·laboració amb les seues companyes i els seus companys.","neg":"En les activitats de les unitats didàctiques de la meua programació no realitze agrupaments que afavoreixen la participació de l'alumnat i fomenten l'ajuda mútua i la col·laboració amb les seues companyes i els seus companys."},"o":44},{"n":23,"d":2,"b":"AP3","t":"FF","es":{"q":"¿He realizado la evaluación inicial del nivel de competencia curricular del alumnado?","note":"","pos":"He realizado la evaluación inicial del nivel de competencia curricular del alumnado.","neg":"No he realizado la evaluación inicial del nivel de competencia curricular del alumnado."},"va":{"q":"He realitzat l'avaluació inicial del nivell de competència curricular de l'alumnat?","note":"","pos":"He realitzat l'avaluació inicial del nivell de competència curricular de l'alumnat.","neg":"No he realitzat l'avaluació inicial del nivell de competència curricular de l'alumnat."},"o":46},{"n":24,"d":2,"b":"AP3","t":"FF","es":{"q":"¿Evalúo al alumnado utilizando los criterios de evaluación de la unidad didáctica común ajustados a su nivel de competencia curricular?","note":"","pos":"Evalúo al alumnado utilizando los criterios de evaluación de la unidad didáctica común ajustados a su nivel de competencia curricular.","neg":"No evalúo al alumnado utilizando los criterios de evaluación de la unidad didáctica común ajustados a su nivel de competencia curricular."},"va":{"q":"Avalue l'alumnat utilitzant els criteris d'avaluació de la unitat didàctica comuna ajustats al seu nivell de competència curricular?","note":"","pos":"Avalue l'alumnat utilitzant els criteris d'avaluació de la unitat didàctica comuna ajustats al seu nivell de competència curricular.","neg":"No avalue l'alumnat utilitzant els criteris d'avaluació de la unitat didàctica comuna ajustats al seu nivell de competència curricular."},"o":47},{"n":25,"d":2,"b":"AP3","t":"FF","es":{"q":"¿Adecúo las pruebas e instrumentos de evaluación a las características y necesidades del alumnado?","note":"","pos":"Adecúo las pruebas e instrumentos de evaluación a las características y necesidades del alumnado.","neg":"No adecúo las pruebas e instrumentos de evaluación a las características y necesidades del alumnado."},"va":{"q":"Adeqüe les proves i instruments d'avaluació a les característiques i necessitats de l'alumnat?","note":"","pos":"Adeqüe les proves i instruments d'avaluació a les característiques i necessitats de l'alumnat.","neg":"No adeqüe les proves i instruments d'avaluació a les característiques i necessitats de l'alumnat."},"o":48},{"n":26,"d":2,"b":"AP3","t":"OO","es":{"q":"¿En las pruebas de evaluación que así lo requieran está organizado el apoyo personalizado que el alumnado necesita?","note":"","pos":"En las pruebas de evaluación que así lo requieren está organizado el apoyo personalizado que el alumnado necesita.","neg":"En las pruebas de evaluación que así lo requieren no está organizado el apoyo personalizado que el alumnado necesita."},"va":{"q":"En les proves d'avaluació que així ho requereixen està organitzat el suport personalitzat que l'alumnat necessita?","note":"","pos":"En les proves d'avaluació que així ho requereixen està organitzat el suport personalitzat que l'alumnat necessita.","neg":"En les proves d'avaluació que així ho requereixen no està organitzat el suport personalitzat que l'alumnat necessita."},"o":51},{"n":27,"d":2,"b":"AP3","t":"FF","es":{"q":"¿Comunico los resultados de evaluación al alumnado destacando sus logros y le proporciono orientaciones detalladas para mejorarlos?","note":"","pos":"Comunico los resultados de evaluación al alumnado destacando sus logros y le proporciono orientaciones detalladas para mejorarlos.","neg":"No comunico los resultados de evaluación al alumnado destacando sus logros ni le proporciono orientaciones detalladas para mejorarlos."},"va":{"q":"Comunique els resultats d'avaluació a l'alumnat destacant els seus assoliments i li proporcione orientacions detallades per a millorar-los?","note":"","pos":"Comunique els resultats d'avaluació a l'alumnat destacant els seus assoliments i li proporcione orientacions detallades per a millorar-los.","neg":"No comunique els resultats d'avaluació a l'alumnat destacant els seus assoliments ni li proporcione orientacions detallades per a millorar-los."},"o":52},{"n":28,"d":2,"b":"AP4","t":"FF","es":{"q":"¿Tengo la formación necesaria para dar respuesta a las características y necesidades del alumnado?","note":"","pos":"Tengo la formación necesaria para dar respuesta a las características y necesidades del alumnado.","neg":"No tengo la formación necesaria para dar respuesta a las características y necesidades del alumnado."},"va":{"q":"Tinc la formació necessària per a donar resposta a les característiques i necessitats de l'alumnat?","note":"","pos":"Tinc la formació necessària per a donar resposta a les característiques i necessitats de l'alumnat.","neg":"No tinc la formació necessària per a donar resposta a les característiques i necessitats de l'alumnat."},"o":55},{"n":29,"d":2,"b":"AP4","t":"OO","es":{"q":"¿Puedo acceder a la oferta formativa que realizan los CEFIRE u otros organismos e instituciones para dar respuesta educativa al alumnado?","note":"","pos":"Puedo acceder a la oferta formativa que realizan los CEFIRE u otros organismos e instituciones para dar respuesta educativa al alumnado.","neg":"No puedo acceder a la oferta formativa que realizan los CEFIRE u otros organismos e instituciones para dar respuesta educativa al alumnado."},"va":{"q":"Puc accedir a l'oferta formativa que realitzen els CEFIRE o altres organismes i institucions per a donar resposta educativa a l'alumnat?","note":"","pos":"Puc accedir a l'oferta formativa que realitzen els CEFIRE o altres organismes i institucions per a donar resposta educativa a l'alumnat.","neg":"No puc accedir a l'oferta formativa que realitzen els CEFIRE o altres organismes i institucions per a donar resposta educativa a l'alumnat."},"o":59},{"n":30,"d":3,"b":"PA1","t":"FF","es":{"q":"¿Doy apoyo al alumnado para que reconozca sus capacidades y fortalezas, sienta seguridad y mantenga su motivación e implicación en las tareas de aprendizaje?","note":"Ver acompañamiento, juegos adaptados, anticipación, etc.","pos":"Doy apoyo al alumnado para que reconozca sus capacidades y fortalezas, sienta seguridad y mantenga su motivación e implicación en las tareas de aprendizaje.","neg":"No doy apoyo al alumnado para que reconozca sus capacidades y fortalezas, sienta seguridad y mantenga su motivación e implicación en las tareas de aprendizaje."},"va":{"q":"Done suport a l'alumnat perquè reconega les seues capacitats i fortaleses, senta seguretat i mantinga la seua motivació i implicació en les tasques d'aprenentatge?","note":"Acompanyament, jocs adaptats, anticipació, etc.","pos":"Done suport a l'alumnat perquè reconega les seues capacitats i fortaleses, senta seguretat i mantinga la seua motivació i implicació en les tasques d'aprenentatge.","neg":"No done suport a l'alumnat perquè reconega les seues capacitats i fortaleses, senta seguretat i mantinga la seua motivació i implicació en les tasques d'aprenentatge."},"o":60},{"n":31,"d":3,"b":"PA1","t":"FF","es":{"q":"¿Desarrollo con el grupo clase actividades que promuevan actitudes y comportamientos que valoren la igualdad y la diversidad y eviten el rechazo y la discriminación?","note":"Funcional, cultural, sociocultural, sexual, familiar, etc.","pos":"Desarrollo con el grupo clase actividades que promueven actitudes y comportamientos que valoren la igualdad y la diversidad y evitan el rechazo y la discriminación.","neg":"No desarrollo con el grupo clase actividades que promueven actitudes y comportamientos que valoren la igualdad y la diversidad y eviten el rechazo y la discriminación."},"va":{"q":"Desenvolupe amb el grup classe activitats que promouen actituds i comportaments que valoren la igualtat i la diversitat i eviten el rebuig i la discriminació?","note":"Funcional, cultural, sociocultural, sexual, familiar, etc.","pos":"Desenvolupe amb el grup classe activitats que promouen actituds i comportaments que valoren la igualtat i la diversitat i eviten el rebuig i la discriminació.","neg":"No desenvolupe amb el grup classe activitats que promouen actituds i comportaments que valoren la igualtat i la diversitat i eviten el rebuig i la discriminació."},"o":62},{"n":32,"d":3,"b":"PA1","t":"FF","es":{"q":"¿Desarrollo actividades para adecuar las normas de convivencia del aula y el centro a las características y necesidades del alumnado?","note":"","pos":"Desarrollo actividades para adecuar las normas de convivencia del aula y el centro a las características y necesidades del alumnado.","neg":"No desarrollo actividades para adecuar las normas de convivencia del aula y el centro a las características y necesidades del alumnado."},"va":{"q":"Desenvolupe activitats per a adequar les normes de convivència de l'aula i el centre a les característiques i necessitats de l'alumnat?","note":"","pos":"Desenvolupe activitats per a adequar les normes de convivència de l'aula i el centre a les característiques i necessitats de l'alumnat.","neg":"No desenvolupe activitats per a adequar les normes de convivència de l'aula i el centre a les característiques i necessitats de l'alumnat."},"o":63},{"n":33,"d":3,"b":"PA2","t":"FF","es":{"q":"¿El grupo valora al alumno/a, lo respeta y permite su participación en juegos y actividades de aprendizaje?","note":"","pos":"El grupo valora al alumno/a, lo respeta y permite su participación en juegos y actividades de aprendizaje.","neg":"El grupo no valora al alumno/a, no lo respeta ni permite su participación en juegos y actividades de aprendizaje."},"va":{"q":"El grup valora l'alumne/a, el respecta i permet la seua participació en jocs i activitats d'aprenentatge?","note":"","pos":"El grup valora l'alumne/a, el respecta i permet la seua participació en jocs i activitats d'aprenentatge.","neg":"El grup no valora l'alumne/a, no el respecta ni permet la seua participació en jocs i activitats d'aprenentatge."},"o":64},{"n":34,"d":3,"b":"PA2","t":"OO","es":{"q":"¿El alumno/a tiene amigos y amigas u otros iguales con los que pueda contar?","note":"","pos":"El alumno/a tiene amigos y amigas u otros iguales con los que puede contar.","neg":"El alumno/a no tiene amigos y amigas u otros iguales con los que puede contar."},"va":{"q":"L'alumne/a té amics i amigues o altres iguals amb els quals pot comptar?","note":"","pos":"L'alumne/a té amics i amigues o altres iguals amb els quals pot comptar.","neg":"L'alumne/a no té amics i amigues o altres iguals amb els quals pot comptar."},"o":65},{"n":35,"d":3,"b":"PA2","t":"FF","es":{"q":"¿Facilito que el alumnado establezca y mantenga vínculos sociales y de amistad?","note":"","pos":"Facilito que el alumnado establezca y mantenga vínculos sociales y de amistad.","neg":"No facilito que el alumnado establezca y mantenga vínculos sociales y de amistad."},"va":{"q":"Facilite que l'alumnat establisca i mantinga vincles socials i d'amistat?","note":"","pos":"Facilite que l'alumnat establisca i mantinga vincles socials i d'amistat.","neg":"No facilite que l'alumnat establisca i mantinga vincles socials i d'amistat."},"o":66},{"n":36,"d":3,"b":"PA2","t":"FF","es":{"q":"¿Acuerdo con el alumnado y el grupo clase pautas para regular los comportamientos y las emociones negativas que puedan surgir en la interacción cotidiana?","note":"Cansancio, frustración, desatención, falta de comprensión, etc.","pos":"Acuerdo con el alumnado y el grupo clase pautas para regular los comportamientos y las emociones negativas que puedan surgir en la interacción cotidiana.","neg":"No acuerdo con el alumnado y el grupo clase pautas para regular los comportamientos y las emociones negativas que puedan surgir en la interacción cotidiana."},"va":{"q":"Acorde amb l'alumnat i el grup classe pautes per a regular els comportaments i les emocions negatives que puguen sorgir en la interacció quotidiana?","note":"Cansament, frustració, desatenció, falta de comprensió, etc.","pos":"Acorde amb l'alumnat i el grup classe pautes per a regular els comportaments i les emocions negatives que puguen sorgir en la interacció quotidiana.","neg":"No acorde amb l'alumnat i el grup classe pautes per a regular els comportaments i les emocions negatives que puguen sorgir en la interacció quotidiana."},"o":67},{"n":37,"d":3,"b":"PA3","t":"FF","es":{"q":"¿Tengo en cuenta las necesidades e intereses del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa?","note":"","pos":"Tengo en cuenta las necesidades e intereses del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa.","neg":"No tengo en cuenta las necesidades e intereses del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa."},"va":{"q":"Tinc en compte les necessitats i interessos de l'alumnat per a organitzar les activitats educatives (aprenentatge, avaluació, complementàries i extraescolars, etc.) en les quals participa?","note":"","pos":"Tinc en compte les necessitats i interessos de l'alumnat per a organitzar les activitats educatives (aprenentatge, avaluació, complementàries i extraescolars, etc.) en les quals participa.","neg":"No tinc en compte les necessitats i interessos de l'alumnat per a organitzar les activitats educatives (aprenentatge, avaluació, complementàries i extraescolars, etc.) en les quals participa."},"o":69},{"n":38,"d":3,"b":"PA3","t":"FF","es":{"q":"¿Organizo con el grupo clase actuaciones de apoyo entre iguales o de acompañamiento personalizado dirigidas al alumnado o en las que participa?","note":"","pos":"Organizo con el grupo clase actuaciones de apoyo entre iguales o de acompañamiento personalizado dirigidas al alumnado o en las que participa.","neg":"No organizo con el grupo clase actuaciones de apoyo entre iguales o de acompañamiento personalizado dirigidas al alumnado o en las que participa."},"va":{"q":"Organitze amb el grup classe actuacions de suport entre iguals o d'acompanyament personalitzat dirigides a l'alumnat o en les quals hi participa?","note":"","pos":"Organitze amb el grup classe actuacions de suport entre iguals o d'acompanyament personalitzat dirigides a l'alumnat o en les quals hi participa.","neg":"No organitze amb el grup classe actuacions de suport entre iguals o d'acompanyament personalitzat dirigides a l'alumnat o en les quals hi participa."},"o":71},{"n":39,"d":3,"b":"PA3","t":"FF","es":{"q":"¿Facilito que el alumnado se implique en las actividades lúdicas, festivas y extracurriculares que se organizan en el centro teniendo en cuenta sus características y fortalezas?","note":"Extraescolares, de ocio, deportivas, celebraciones, etc.","pos":"Facilito que el alumnado se implique en las actividades lúdicas, festivas y extracurriculares que se organizan en el centro teniendo en cuenta sus características y fortalezas.","neg":"No facilito que el alumnado se implique en las actividades lúdicas, festivas y extracurriculares que se organizan en el centro teniendo en cuenta sus características y fortalezas."},"va":{"q":"Facilite que l'alumnat s'implique en les activitats lúdiques, festives i extracurriculars que s'organitzen al centre tenint en compte les seues característiques i fortaleses?","note":"Extraescolars, d'oci, esportives, celebracions, etc.","pos":"Facilite que l'alumnat s'implique en les activitats lúdiques, festives i extracurriculars que s'organitzen al centre tenint en compte les seues característiques i fortaleses.","neg":"No facilite que l'alumnat s'implique en les activitats lúdiques, festives i extracurriculars que s'organitzen al centre tenint en compte les seues característiques i fortaleses."},"o":72},{"n":40,"d":3,"b":"PA4","t":"FF","es":{"q":"¿Conozco las funciones que debemos asumir los diferentes miembros del equipo educativo a la hora de dar respuesta a las necesidades del alumnado?","note":"","pos":"Conozco las funciones que debemos asumir los diferentes miembros del equipo educativo a la hora de dar respuesta a las necesidades del alumnado.","neg":"No conozco las funciones que debemos asumir los diferentes miembros del equipo educativo a la hora de dar respuesta a las necesidades del alumnado."},"va":{"q":"Conec les funcions que hem d'assumir els diferents membres de l'equip educatiu a l'hora de donar resposta a les necessitats de l'alumnat?","note":"","pos":"Conec les funcions que hem d'assumir els diferents membres de l'equip educatiu a l'hora de donar resposta a les necessitats de l'alumnat.","neg":"Desconec les funcions que hem d'assumir els diferents membres de l'equip educatiu a l'hora de donar resposta a les necessitats de l'alumnat."},"o":74},{"n":41,"d":3,"b":"PA4","t":"OO","es":{"q":"¿Los miembros del equipo educativo que participan dando respuesta a las necesidades del alumnado se comunican y colaboran satisfactoriamente?","note":"","pos":"Los miembros del equipo educativo que participan en la respuesta a las necesidades del alumnado se comunican y colaboran satisfactoriamente.","neg":"Los miembros del equipo educativo que participan en la respuesta a las necesidades del alumnado no se comunican ni colaboran satisfactoriamente."},"va":{"q":"Els membres de l'equip educatiu que participen donant resposta a les necessitats de l'alumnat es comuniquen i col·laboren satisfactòriament?","note":"","pos":"Els membres de l'equip educatiu que participen en la resposta a les necessitats de l'alumnat es comuniquen i col·laboren satisfactòriament.","neg":"Els membres de l'equip educatiu que participen en la resposta a les necessitats de l'alumnat no es comuniquen ni col·laboren satisfactòriament."},"o":75},{"n":42,"d":3,"b":"PA4","t":"FF","es":{"q":"¿Reviso mi práctica docente con el alumnado y ajusto mis actuaciones a los resultados de esta reflexión?","note":"","pos":"Reviso mi práctica docente con el alumnado y ajusto mis actuaciones a los resultados de esta reflexión.","neg":"No reviso mi práctica docente con el alumnado ni ajusto mis actuaciones a los resultados de esta reflexión."},"va":{"q":"Revise la meua pràctica docent amb l'alumnat i ajuste les meues actuacions als resultats d'aquesta reflexió?","note":"","pos":"Revise la meua pràctica docent amb l'alumnat i ajuste les meues actuacions als resultats d'aquesta reflexió.","neg":"No revise la meua pràctica docent amb l'alumnat ni ajuste les meues actuacions als resultats d'aquesta reflexió."},"o":76},{"n":43,"d":3,"b":"PA5","t":"FF","es":{"q":"¿Tengo en cuenta las preferencias y prioridades de la familia del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa su hijo/a?","note":"","pos":"Tengo en cuenta las preferencias y prioridades de la familia del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa su hijo/a.","neg":"No tengo en cuenta las preferencias y prioridades de la familia del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa su hijo/a."},"va":{"q":"Tinc en compte les preferències i prioritats de la família de l'alumnat per a organitzar les activitats educatives (aprenentatge, avaluació, complementàries i extraescolars, etc.) en les quals participa el seu fill/a?","note":"","pos":"Tinc en compte les preferències i prioritats de la família de l'alumnat per a organitzar les activitats educatives (aprenentatge, avaluació, complementàries i extraescolars, etc.) en les quals participa el seu fill/a.","neg":"No tinc en compte les preferències i prioritats de la família de l'alumnat per a organitzar les activitats educatives (aprenentatge, avaluació, complementàries i extraescolars, etc.) en les quals participa el seu fill/a."},"o":77},{"n":44,"d":3,"b":"PA5","t":"OO","es":{"q":"¿La familia del alumnado asiste con regularidad a las reuniones y/o entrevistas y colabora con el profesorado de la forma acordada?","note":"","pos":"La familia del alumnado asiste con regularidad a las reuniones y/o entrevistas y colabora con el profesorado de la forma acordada.","neg":"La familia del alumnado no asiste con regularidad a las reuniones y/o entrevistas ni colabora con el profesorado de la forma acordada."},"va":{"q":"La família de l'alumnat assisteix amb regularitat a les reunions i/o entrevistes i col·labora amb el professorat de la forma acordada?","note":"","pos":"La família de l'alumnat assisteix amb regularitat a les reunions i/o entrevistes i col·labora amb el professorat de la forma acordada.","neg":"La família de l'alumnat no assisteix amb regularitat a les reunions i/o entrevistes ni col·labora amb el professorat de la forma acordada."},"o":78},{"n":45,"d":3,"b":"PA5","t":"OO","es":{"q":"¿La familia estimula y da apoyo al alumnado para hacer sus tareas de aprendizaje en el entorno familiar?","note":"","pos":"La familia estimula y da apoyo al alumnado para hacer sus tareas de aprendizaje en el entorno familiar.","neg":"La familia no estimula ni da apoyo al alumnado para hacer sus tareas de aprendizaje en el entorno familiar."},"va":{"q":"La família estimula i dóna suport a l'alumnat per a fer les seues tasques d'aprenentatge en l'entorn familiar?","note":"","pos":"La família estimula i dóna suport a l'alumnat per a fer les seues tasques d'aprenentatge en l'entorn familiar.","neg":"La família no estimula ni dóna suport a l'alumnat per a fer les seues tasques d'aprenentatge en l'entorn familiar."},"o":79}]};
 "use strict";
-const DATA = {"dims":{"1":"Acceso o presencia","2":"Aprendizaje y logro","3":"Participación y pertenencia"},"blocks":{"AC1":"Interacción / transmisión de la información","AC2":"Procesos de transición y coordinación con el entorno comunitario","AC3":"Asistencia al centro","AC4":"Entornos seguros, saludables y sostenibles","AC5":"Accesibilidad (espacios, mobiliario, materiales y recursos económicos)","AC6":"Organización para la inclusión","AP1":"Concreción curricular, programaciones y unidades didácticas","AP2":"Metodología y estrategias didácticas inclusivas","AP3":"Evaluación inclusiva de los aprendizajes","AP4":"Formación para la inclusión","PA1":"Valores inclusivos y normas de convivencia","PA2":"Bienestar personal y relaciones interpersonales positivas","PA3":"Participación del alumnado","PA4":"Participación e implicación del profesorado","PA5":"Participación de la familia y la comunidad educativa"},"items":[{"n":1,"d":1,"b":"AC1","t":"OO","q":"¿Dispongo a tiempo (antes del inicio del curso o en el momento de la escolarización) y de forma organizada de la información educativa relevante sobre el alumnado con el fin de planificar la respuesta educativa adecuada?","pos":"Dispongo a tiempo y de forma organizada de la información educativa relevante sobre el alumnado.","neg":"No dispongo a tiempo y de forma organizada de la información educativa relevante sobre el alumnado.","note":"Condiciones de salud, circunstancias sociofamiliares, competencia curricular, medidas de respuesta y resultados, etc.","o":1},{"n":2,"d":1,"b":"AC1","t":"FF","q":"¿Proporciono a la familia del alumnado la información sobre su hijo/a y las actividades educativas de forma comprensible y adaptada a sus características y posibilidades asegurando su recepción?","pos":"Proporciono a la familia del alumnado la información sobre su hijo/a y las actividades educativas de forma comprensible y adaptada a sus características y posibilidades.","neg":"No proporciono a la familia del alumnado la información sobre su hijo/a y las actividades educativas de forma comprensible y adaptada a sus características y posibilidades.","note":"","o":3},{"n":3,"d":1,"b":"AC1","t":"FF","q":"¿Facilito información al alumnado de las actividades educativas de forma comprensible y adecuada a sus características y posibilidades?","pos":"Facilito información al alumnado de las actividades educativas de forma comprensible y adecuada a sus características y posibilidades.","neg":"No facilito información al alumnado de las actividades educativas de forma comprensible y adecuada a sus características y posibilidades.","note":"","o":4},{"n":4,"d":1,"b":"AC2","t":"FF","q":"¿Mantengo contacto (directo o indirecto) continuo y colaboro de forma efectiva con los agentes externos que participan en el proceso educativo del alumnado, o que le proporcionan apoyo social, sanitario o de otro tipo?","pos":"Mantengo contacto (directo o indirecto) continuo y colaboro de forma efectiva con los agentes externos que participan en el proceso educativo del alumnado, o que le proporcionan apoyo social, sanitario o de otro tipo.","neg":"No mantengo contacto (directo o indirecto) continuo ni colaboro de forma efectiva con los agentes externos que participan en el proceso educativo del alumnado, o que le proporcionan apoyo social, sanitario o de otro tipo.","note":"Refuerzo educativo externo, servicios sociales, salud, y otros.","o":6},{"n":5,"d":1,"b":"AC3","t":"FF","q":"¿Actúo para reducir el absentismo leve que presenta el alumnado teniendo en cuenta las causas que lo producen?","pos":"Actúo para reducir el absentismo leve que presenta el alumnado teniendo en cuenta las causas que lo producen.","neg":"No actúo para reducir el absentismo leve que presenta el alumnado teniendo en cuenta las causas que lo producen.","note":"","o":8},{"n":6,"d":1,"b":"AC4","t":"OO","q":"¿Los espacios donde se desarrollan las actividades educativas comunes son seguros y saludables para el alumnado?","pos":"Los espacios donde se desarrollan las actividades educativas comunes son seguros y saludables para el alumnado.","neg":"Los espacios donde se desarrollan las actividades educativas comunes no son seguros y saludables para el alumnado.","note":"Calidad del aire, ruido, iluminación, temperatura, limpieza, desplazamientos, mantenimiento de instalaciones, etc.","o":10},{"n":7,"d":1,"b":"AC4","t":"FF","q":"¿Realizo las actuaciones necesarias para evitar situaciones de riesgo para el alumnado?","pos":"Realizo las actuaciones necesarias para evitar situaciones de riesgo para el alumnado.","neg":"No realizo las actuaciones necesarias para evitar situaciones de riesgo para el alumnado.","note":"","o":12},{"n":8,"d":1,"b":"AC4","t":"FF","q":"¿Realizo actuaciones para que el alumnado adquiera hábitos de salud?","pos":"Realizo actuaciones para que el alumnado adquiera hábitos de salud.","neg":"No realizo actuaciones para que el alumnado adquiera hábitos de salud.","note":"Alimentación, descanso, actividad física y deportiva, hábitos posturales, prevención de enfermedades, etc.","o":16},{"n":9,"d":1,"b":"AC4","t":"OO","q":"¿Colaboran la familia y el alumnado en las actividades para mejorar sus hábitos de salud?","pos":"La familia y el alumnado colaboran en las actividades para mejorar sus hábitos de salud.","neg":"La familia y el alumnado no colaboran en las actividades para mejorar sus hábitos de salud.","note":"","o":17},{"n":10,"d":1,"b":"AC5","t":"FF","q":"¿Los entornos de aprendizaje y materiales del aula están señalizados/etiquetados para facilitar que el alumnado los identifique y acceda a ellos con la máxima autonomía?","pos":"Los entornos de aprendizaje y materiales del aula están señalizados/etiquetados para facilitar que el alumnado los identifique y acceda a ellos con la máxima autonomía.","neg":"Los entornos de aprendizaje y materiales del aula no están señalizados/etiquetados para facilitar que el alumnado los identifique y acceda a ellos con la máxima autonomía.","note":"","o":21},{"n":11,"d":1,"b":"AC5","t":"OO","q":"¿Disponen los espacios del centro y del aula de elementos arquitectónicos que facilitan la entrada y los desplazamientos del alumnado?","pos":"Los espacios del centro y del aula disponen de elementos arquitectónicos que facilitan la entrada y los desplazamientos del alumnado.","neg":"Los espacios del centro y del aula no disponen de elementos arquitectónicos que facilitan la entrada y los desplazamientos del alumnado.","note":"","o":22},{"n":12,"d":1,"b":"AC5","t":"FF","q":"¿Los programas y aplicaciones que utilizan los dispositivos tecnológicos de uso común tienen activas las opciones de accesibilidad adecuadas a las características y necesidades del alumnado?","pos":"Los programas y aplicaciones que utilizan los dispositivos tecnológicos de uso común tienen activas las opciones de accesibilidad adecuadas a las características y necesidades del alumnado.","neg":"Los programas y aplicaciones que utilizan los dispositivos tecnológicos de uso común no tienen activas las opciones de accesibilidad adecuadas a las características y necesidades del alumnado.","note":"Narradores, lectores de pantalla, lupa, reconocimiento por voz, asistente digital, tamaño de iconos, contraste, filtros color, etc.","o":28},{"n":13,"d":1,"b":"AC5","t":"FF","q":"¿Los materiales curriculares y didácticos comunes (libros de texto, libros de lectura, juegos, material escolar, material audiovisual, etc.) ofrecen las opciones de accesibilidad adecuadas a las características y necesidades del alumnado?","pos":"Los materiales curriculares y didácticos comunes (libros de texto, libros de lectura, juegos, material escolar, material audiovisual, etc.) ofrecen las opciones de accesibilidad adecuadas a las características y necesidades del alumnado.","neg":"Los materiales curriculares y didácticos comunes (libros de texto, libros de lectura, juegos, material escolar, material audiovisual, etc.) no ofrecen las opciones de accesibilidad adecuadas a las características y necesidades del alumnado.","note":"","o":29},{"n":14,"d":1,"b":"AC5","t":"OO","q":"¿Se beneficia el alumnado de las becas y ayudas económicas a las que tiene derecho por sus condiciones socioeconómicas?","pos":"El alumnado se beneficia de las becas y ayudas económicas a las que tiene derecho por sus condiciones socioeconómicas.","neg":"El alumnado no se beneficia de las becas y ayudas económicas a las que tiene derecho por sus condiciones socioeconómicas.","note":"","o":30},{"n":15,"d":1,"b":"AC6","t":"OO","q":"¿Recibe el alumnado el apoyo ordinario con la intensidad (número de sesiones) necesaria?","pos":"El alumnado recibe el apoyo ordinario que requieren las medidas de respuesta propuestas por el equipo educativo con la intensidad (número de sesiones) necesaria.","neg":"El alumnado no recibe el apoyo ordinario que requieren las medidas de respuesta propuestas por el equipo educativo con la intensidad (número de sesiones) necesaria.","note":"","o":32},{"n":16,"d":1,"b":"AC6","t":"OO","q":"¿Se realizan de forma continua y planificada las coordinaciones entre el profesorado de las asignaturas y el profesorado que realiza el apoyo ordinario del alumnado?","pos":"Se realizan de forma continua y planificada las coordinaciones entre el profesorado de las asignaturas y el profesorado que realiza el apoyo ordinario del alumnado.","neg":"No se realizan de forma continua y planificada las coordinaciones entre el profesorado de las asignaturas y el profesorado que realiza el apoyo ordinario del alumnado.","note":"","o":33},{"n":17,"d":2,"b":"AP1","t":"FF","q":"¿Las unidades didácticas de mi programación proponen actividades a diferentes niveles de adquisición o complejidad para que el alumnado pueda participar de las actividades desde su nivel de competencia curricular?","pos":"Las unidades didácticas de mi programación proponen actividades a diferentes niveles de adquisición o complejidad para que el alumnado pueda participar desde su nivel de competencia curricular.","neg":"Las unidades didácticas de mi programación no proponen actividades a diferentes niveles de adquisición o complejidad para que el alumnado pueda participar desde su nivel de competencia curricular.","note":"","o":35},{"n":18,"d":2,"b":"AP1","t":"FF","q":"¿Las unidades didácticas de mi programación son el referente del que parto para programar y evaluar las medidas de respuesta individualizadas del alumnado?","pos":"Las unidades didácticas de mi programación son el referente del cual parto para programar y evaluar las medidas de respuesta individualizadas del alumnado.","neg":"Las unidades didácticas de mi programación no son el referente del cual parto para programar y evaluar las medidas de respuesta individualizadas del alumnado.","note":"Adecuación personalizada de las programaciones y refuerzo pedagógico.","o":36},{"n":19,"d":2,"b":"AP2","t":"FF","q":"¿En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado opciones de motivación e implicación (captar el interés, mantener el esfuerzo y la persistencia y autorregulación) adecuadas a sus características y necesidades?","pos":"En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado opciones de motivación e implicación (captar el interés, mantener el esfuerzo y la persistencia y autorregulación) adecuadas a sus características y necesidades.","neg":"En las actividades de las unidades didácticas de mi programación no utilizo estrategias y materiales que ofrecen al alumnado opciones de motivación e implicación (captar el interés, mantener el esfuerzo y la persistencia y autorregulación) adecuadas a sus características y necesidades.","note":"DUA PRINCIPIO III.","o":41},{"n":20,"d":2,"b":"AP2","t":"FF","q":"¿En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen diferentes opciones para la representación de la información (opciones para la percepción visual, auditiva, propioceptiva y para la comprensión) para adecuarlas a las características y necesidades del alumnado?","pos":"En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen diferentes opciones para la representación de la información (opciones para la percepción visual, auditiva, propioceptiva y la comprensión) para adecuarlas a las características y necesidades del alumnado.","neg":"En las actividades de las unidades didácticas de mi programación no utilizo estrategias y materiales que ofrecen diferentes opciones para la representación de la información (opciones para la percepción visual, auditiva, propioceptiva y la comprensión) para adecuarlas a las características y necesidades del alumnado.","note":"DUA PRINCIPIO I","o":42},{"n":21,"d":2,"b":"AP2","t":"FF","q":"¿En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado diferentes formas de acción y expresión de los conocimientos (interacción física, expresión/comunicación y autonomía en el aprendizaje) adecuadas a sus características y necesidades?","pos":"En las actividades de las unidades didácticas de mi programación utilizo estrategias y materiales que ofrecen al alumnado diferentes formas de acción y expresión de los conocimientos (interacción física, expresión/comunicación y autonomía en el aprendizaje) adecuadas a sus características y necesidades.","neg":"En las actividades de las unidades didácticas de mi programación no utilizo estrategias y materiales que ofrecen al alumnado diferentes formas de acción y expresión de los conocimientos (interacción física, expresión/comunicación y autonomía en el aprendizaje) adecuadas a sus características y necesidades.","note":"DUA PRINCIPIO II","o":43},{"n":22,"d":2,"b":"AP2","t":"FF","q":"¿En las actividades de las unidades didácticas de mi programación realizo agrupamientos que favorecen la participación del alumnado y fomentan la ayuda mutua y la colaboración con sus compañeras y sus compañeros?","pos":"En las actividades de las unidades didácticas de mi programación realizo agrupamientos que favorecen la participación del alumnado y fomentan la ayuda mutua y la colaboración con sus compañeros y sus compañeras.","neg":"En las actividades de las unidades didácticas de mi programación no realizo agrupamientos que favorecen la participación del alumnado y fomentan la ayuda mutua y la colaboración con sus compañeros y sus compañeras.","note":"","o":44},{"n":23,"d":2,"b":"AP3","t":"FF","q":"¿He realizado la evaluación inicial del nivel de competencia curricular del alumnado?","pos":"He realizado la evaluación inicial del nivel de competencia curricular del alumnado.","neg":"No he realizado la evaluación inicial del nivel de competencia curricular del alumnado.","note":"","o":46},{"n":24,"d":2,"b":"AP3","t":"FF","q":"¿Evalúo al alumnado utilizando los criterios de evaluación de la unidad didáctica común ajustados a su nivel de competencia curricular?","pos":"Evalúo al alumnado utilizando los criterios de evaluación de la unidad didáctica común ajustados a su nivel de competencia curricular.","neg":"No evalúo al alumnado utilizando los criterios de evaluación de la unidad didáctica común ajustados a su nivel de competencia curricular.","note":"","o":47},{"n":25,"d":2,"b":"AP3","t":"FF","q":"¿Adecúo las pruebas e instrumentos de evaluación a las características y necesidades del alumnado?","pos":"Adecúo las pruebas e instrumentos de evaluación a las características y necesidades del alumnado.","neg":"No adecúo las pruebas e instrumentos de evaluación a las características y necesidades del alumnado.","note":"","o":48},{"n":26,"d":2,"b":"AP3","t":"OO","q":"¿En las pruebas de evaluación que así lo requieran está organizado el apoyo personalizado que el alumnado necesita?","pos":"En las pruebas de evaluación que así lo requieren está organizado el apoyo personalizado que el alumnado necesita.","neg":"En las pruebas de evaluación que así lo requieren no está organizado el apoyo personalizado que el alumnado necesita.","note":"","o":51},{"n":27,"d":2,"b":"AP3","t":"FF","q":"¿Comunico los resultados de evaluación al alumnado destacando sus logros y le proporciono orientaciones detalladas para mejorarlos?","pos":"Comunico los resultados de evaluación al alumnado destacando sus logros y le proporciono orientaciones detalladas para mejorarlos.","neg":"No comunico los resultados de evaluación al alumnado destacando sus logros ni le proporciono orientaciones detalladas para mejorarlos.","note":"","o":52},{"n":28,"d":2,"b":"AP4","t":"FF","q":"¿Tengo la formación necesaria para dar respuesta a las características y necesidades del alumnado?","pos":"Tengo la formación necesaria para dar respuesta a las características y necesidades del alumnado.","neg":"No tengo la formación necesaria para dar respuesta a las características y necesidades del alumnado.","note":"","o":55},{"n":29,"d":2,"b":"AP4","t":"OO","q":"¿Puedo acceder a la oferta formativa que realizan los CEFIRE u otros organismos e instituciones para dar respuesta educativa al alumnado?","pos":"Puedo acceder a la oferta formativa que realizan los CEFIRE u otros organismos e instituciones para dar respuesta educativa al alumnado.","neg":"No puedo acceder a la oferta formativa que realizan los CEFIRE u otros organismos e instituciones para dar respuesta educativa al alumnado.","note":"","o":59},{"n":30,"d":3,"b":"PA1","t":"FF","q":"¿Doy apoyo al alumnado para que reconozca sus capacidades y fortalezas, sienta seguridad y mantenga su motivación e implicación en las tareas de aprendizaje?","pos":"Doy apoyo al alumnado para que reconozca sus capacidades y fortalezas, sienta seguridad y mantenga su motivación e implicación en las tareas de aprendizaje.","neg":"No doy apoyo al alumnado para que reconozca sus capacidades y fortalezas, sienta seguridad y mantenga su motivación e implicación en las tareas de aprendizaje.","note":"Ver acompañamiento, juegos adaptados, anticipación, etc.","o":60},{"n":31,"d":3,"b":"PA1","t":"FF","q":"¿Desarrollo con el grupo clase actividades que promuevan actitudes y comportamientos que valoren la igualdad y la diversidad y eviten el rechazo y la discriminación?","pos":"Desarrollo con el grupo clase actividades que promueven actitudes y comportamientos que valoren la igualdad y la diversidad y evitan el rechazo y la discriminación.","neg":"No desarrollo con el grupo clase actividades que promueven actitudes y comportamientos que valoren la igualdad y la diversidad y eviten el rechazo y la discriminación.","note":"Funcional, cultural, sociocultural, sexual, familiar, etc.","o":62},{"n":32,"d":3,"b":"PA1","t":"FF","q":"¿Desarrollo actividades para adecuar las normas de convivencia del aula y el centro a las características y necesidades del alumnado?","pos":"Desarrollo actividades para adecuar las normas de convivencia del aula y el centro a las características y necesidades del alumnado.","neg":"No desarrollo actividades para adecuar las normas de convivencia del aula y el centro a las características y necesidades del alumnado.","note":"","o":63},{"n":33,"d":3,"b":"PA2","t":"FF","q":"¿El grupo valora al alumno/a, lo respeta y permite su participación en juegos y actividades de aprendizaje?","pos":"El grupo valora al alumno/a, lo respeta y permite su participación en juegos y actividades de aprendizaje.","neg":"El grupo no valora al alumno/a, no lo respeta ni permite su participación en juegos y actividades de aprendizaje.","note":"","o":64},{"n":34,"d":3,"b":"PA2","t":"OO","q":"¿El alumno/a tiene amigos y amigas u otros iguales con los que pueda contar?","pos":"El alumno/a tiene amigos y amigas u otros iguales con los que puede contar.","neg":"El alumno/a no tiene amigos y amigas u otros iguales con los que puede contar.","note":"","o":65},{"n":35,"d":3,"b":"PA2","t":"FF","q":"¿Facilito que el alumnado establezca y mantenga vínculos sociales y de amistad?","pos":"Facilito que el alumnado establezca y mantenga vínculos sociales y de amistad.","neg":"No facilito que el alumnado establezca y mantenga vínculos sociales y de amistad.","note":"","o":66},{"n":36,"d":3,"b":"PA2","t":"FF","q":"¿Acuerdo con el alumnado y el grupo clase pautas para regular los comportamientos y las emociones negativas que puedan surgir en la interacción cotidiana?","pos":"Acuerdo con el alumnado y el grupo clase pautas para regular los comportamientos y las emociones negativas que puedan surgir en la interacción cotidiana.","neg":"No acuerdo con el alumnado y el grupo clase pautas para regular los comportamientos y las emociones negativas que puedan surgir en la interacción cotidiana.","note":"Cansancio, frustración, desatención, falta de comprensión, etc.","o":67},{"n":37,"d":3,"b":"PA3","t":"FF","q":"¿Tengo en cuenta las necesidades e intereses del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa?","pos":"Tengo en cuenta las necesidades e intereses del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa.","neg":"No tengo en cuenta las necesidades e intereses del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa.","note":"","o":69},{"n":38,"d":3,"b":"PA3","t":"FF","q":"¿Organizo con el grupo clase actuaciones de apoyo entre iguales o de acompañamiento personalizado dirigidas al alumnado o en las que participa?","pos":"Organizo con el grupo clase actuaciones de apoyo entre iguales o de acompañamiento personalizado dirigidas al alumnado o en las que participa.","neg":"No organizo con el grupo clase actuaciones de apoyo entre iguales o de acompañamiento personalizado dirigidas al alumnado o en las que participa.","note":"","o":71},{"n":39,"d":3,"b":"PA3","t":"FF","q":"¿Facilito que el alumnado se implique en las actividades lúdicas, festivas y extracurriculares que se organizan en el centro teniendo en cuenta sus características y fortalezas?","pos":"Facilito que el alumnado se implique en las actividades lúdicas, festivas y extracurriculares que se organizan en el centro teniendo en cuenta sus características y fortalezas.","neg":"No facilito que el alumnado se implique en las actividades lúdicas, festivas y extracurriculares que se organizan en el centro teniendo en cuenta sus características y fortalezas.","note":"Extraescolares, de ocio, deportivas, celebraciones, etc.","o":72},{"n":40,"d":3,"b":"PA4","t":"FF","q":"¿Conozco las funciones que debemos asumir los diferentes miembros del equipo educativo a la hora de dar respuesta a las necesidades del alumnado?","pos":"Conozco las funciones que debemos asumir los diferentes miembros del equipo educativo a la hora de dar respuesta a las necesidades del alumnado.","neg":"No conozco las funciones que debemos asumir los diferentes miembros del equipo educativo a la hora de dar respuesta a las necesidades del alumnado.","note":"","o":74},{"n":41,"d":3,"b":"PA4","t":"OO","q":"¿Los miembros del equipo educativo que participan dando respuesta a las necesidades del alumnado se comunican y colaboran satisfactoriamente?","pos":"Los miembros del equipo educativo que participan en la respuesta a las necesidades del alumnado se comunican y colaboran satisfactoriamente.","neg":"Los miembros del equipo educativo que participan en la respuesta a las necesidades del alumnado no se comunican ni colaboran satisfactoriamente.","note":"","o":75},{"n":42,"d":3,"b":"PA4","t":"FF","q":"¿Reviso mi práctica docente con el alumnado y ajusto mis actuaciones a los resultados de esta reflexión?","pos":"Reviso mi práctica docente con el alumnado y ajusto mis actuaciones a los resultados de esta reflexión.","neg":"No reviso mi práctica docente con el alumnado ni ajusto mis actuaciones a los resultados de esta reflexión.","note":"","o":76},{"n":43,"d":3,"b":"PA5","t":"FF","q":"¿Tengo en cuenta las preferencias y prioridades de la familia del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa su hijo/a?","pos":"Tengo en cuenta las preferencias y prioridades de la familia del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa su hijo/a.","neg":"No tengo en cuenta las preferencias y prioridades de la familia del alumnado para organizar las actividades educativas (aprendizaje, evaluación, complementarias y extraescolares, etc.) en las que participa su hijo/a.","note":"","o":77},{"n":44,"d":3,"b":"PA5","t":"OO","q":"¿La familia del alumnado asiste con regularidad a las reuniones y/o entrevistas y colabora con el profesorado de la forma acordada?","pos":"La familia del alumnado asiste con regularidad a las reuniones y/o entrevistas y colabora con el profesorado de la forma acordada.","neg":"La familia del alumnado no asiste con regularidad a las reuniones y/o entrevistas ni colabora con el profesorado de la forma acordada.","note":"","o":78},{"n":45,"d":3,"b":"PA5","t":"OO","q":"¿La familia estimula y da apoyo al alumnado para hacer sus tareas de aprendizaje en el entorno familiar?","pos":"La familia estimula y da apoyo al alumnado para hacer sus tareas de aprendizaje en el entorno familiar.","neg":"La familia no estimula ni da apoyo al alumnado para hacer sus tareas de aprendizaje en el entorno familiar.","note":"","o":79}]};
-const ITEMS = DATA.items, TOTAL = ITEMS.length;
-const DIMS = DATA.dims, BLOCKS = DATA.blocks;
-const KEY = "minideba.v1";
+/* DEBA / minideba · código común. CONFIG y RAW los inserta build.py:
+   CONFIG.id = "deba" | "minideba"; RAW = datos bilingües (es/va) ya filtrados para cada app. */
+const MINI = CONFIG.id === "minideba";
+const ITEMS = RAW.items, TOTAL = ITEMS.length;
+const DIMS = RAW.dims, BLOCKS = RAW.blocks;
+const KEY = CONFIG.id + ".v1", LANG_KEY = CONFIG.id + ".lang";
+const NAME = MINI ? "minideba" : "DEBA";
+
+/* ---------- Idioma ---------- */
+function systemLang(langs){
+  for (const l of langs || []) {
+    const c = String(l).toLowerCase();
+    if (c.startsWith("ca") || c.startsWith("va")) return "va";
+    if (c.startsWith("es")) return "es";
+  }
+  return "es";
+}
+let lang = (() => {
+  try { const s = localStorage.getItem(LANG_KEY); if (s === "es" || s === "va") return s; } catch(e){}
+  return systemLang(navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language]);
+})();
+document.documentElement.lang = lang === "va" ? "ca-valencia" : "es";
+
+const T = {
+  es: {
+    h1:"Barreras y facilitadores para la inclusión", docTitle:"Barreras y facilitadores",
+    lead: n => `Responde ${n} preguntas sobre un alumno o alumna y descarga su análisis DAFO en PDF.`,
+    leadMini: n => `Versión reducida del DEBA: responde ${n} preguntas sobre un alumno o alumna y descarga su análisis DAFO en un PDF de dos páginas.`,
+    toMini: url => `<b>¿Poco tiempo?</b> Prueba <a href="${url}" target="_blank" rel="noopener">minideba</a>, la versión reducida: 45 preguntas y un PDF de dos páginas.`,
+    special: url => `<b>¿Caso especial?</b> Si el alumno/a está en un cambio de etapa, tiene una enfermedad crónica, absentismo grave o movilidad reducida, usa el <a href="${url}" target="_blank" rel="noopener">DEBA completo (80 preguntas)</a>.`,
+    inProgress:"Cuestionario en curso", completeDl:"Completo. Ya puedes descargar el PDF.", left: n => `Te quedan ${n} preguntas.`,
+    student:"Alumno/a", studentPh:"Iniciales o código (p. ej. MGL)", hintName:"Por protección de datos, no escribas el nombre completo.",
+    hintFull:"Parece un nombre completo. Usa mejor las iniciales o un código.", hintEmpty:"Escribe las iniciales o un código del alumno/a.",
+    teacher:"Profesor/a", teacherPh:"Tu nombre", date:"Fecha",
+    start:"Empezar", cont:"Continuar", seeResult:"Ver resultado", newStudent:"Empezar con otro alumno/a",
+    howTitle:"Cómo funciona",
+    how1:"Cada pregunta se responde de <b>1</b> (menor grado de acuerdo) a <b>4</b> (mayor grado de acuerdo), o <b>No procede</b> si no se aplica a este alumno/a.",
+    how2: ic => `Al tocar una respuesta pasas a la siguiente. Puedes volver atrás o saltar a cualquier pregunta desde el índice ${ic}.`,
+    how3:"Las respuestas 1 y 2 se convierten en <b>barreras</b>; las 3 y 4, en <b>facilitadores</b>:",
+    howQ:{D:"Barreras de la práctica docente", A:"Barreras del contexto", F:"Facilitadores de la práctica docente", O:"Facilitadores del contexto"},
+    howEnd:"Estos resultados son la base de la reflexión de cada docente y de las decisiones del equipo docente (apartado C del Anexo II).",
+    privacy:"Las respuestas se guardan solo en este dispositivo, para que no se pierdan si cierras la página. No se envían a ningún servidor. El PDF se genera en tu propio teléfono u ordenador.",
+    confirmNewHome: who => `Se borrarán las respuestas actuales${who ? " de " + who : ""}. Si necesitas el PDF, descárgalo antes.\n\n¿Empezar con otro alumno/a?`,
+    confirmNewResult: who => `Se borrarán las respuestas de ${who || "este alumno/a"}. ¿Has descargado ya el PDF?\n\n¿Empezar con otro alumno/a?`,
+    home:"Inicio", index:"Índice de preguntas", noStudent:"Sin alumno/a", answered: (d, t) => `${d} de ${t} respondidas`,
+    dimOf: d => `Dimensión ${d} de 3`, question: (n, t) => `Pregunta ${n} de ${t}`, origItem: o => `· ítem ${o} del DEBA`,
+    note:"Aclaración", agreeLow:"menor grado de acuerdo", agreeHigh:"mayor grado de acuerdo", legLow:"← Menor acuerdo", legHigh:"Mayor acuerdo →",
+    np:"No procede", prev:"Anterior", next:"Siguiente", backToResult:"Volver al resultado", navQ:"Navegación entre preguntas",
+    close:"Cerrar", doneLbl:"Respondidas", missingLbl:"Sin responder", goPending: n => `Ir a la ${n} (pendiente)`,
+    chipNp:", no procede", chipVal: v => `, respondida con ${v}`, chipMissing:", sin responder",
+    resultTitle:"Resultado DAFO", backToQ:"Volver a las preguntas", noStudentLong:"Alumno/a sin indicar", noDate:"Sin fecha",
+    missingBanner: n => `<b>Faltan ${n} pregunta(s) por responder.</b> No aparecerán en el DAFO.`, goQ: n => `Ir a la pregunta ${n}`,
+    completeBanner: (v, np) => `<b>Cuestionario completo:</b> ${v} ítems valorados y ${np} marcados como «No procede».`,
+    prac:"Práctica docente", ctx:"Contexto", barriers:"Barreras", facilitators:"Facilitadores", barrier:"Barrera", facilitator:"Facilitador",
+    srcPrac:"práctica docente", srcCtx:"contexto",
+    dimension:"Dimensión", facilShort:"Facilit.", npShort:"No proc.", total:"Total", pillB:"barr.", pillF:"facil.",
+    item:"Ítem", edit: n => `Editar pregunta ${n}`, noneDim:"Sin ítems valorados en esta dimensión.", npDim: n => `No procede: ${n} ítem(s).`,
+    tapToEdit:"Toca cualquier ítem para cambiar su respuesta.", download:"Descargar PDF", share:"Compartir", dlNav:"Descargar resultado",
+    matrix:"Matriz DAFO", summary:"Resumen por dimensión",
+    pdfError:"No se ha podido generar el PDF. Inténtalo de nuevo.", downloaded: n => `PDF descargado: ${n}`, shareError:"No se ha podido compartir. Se descarga el PDF.",
+    credits1: () => `<b>${MINI ? "minideba" : "DEBA web"}</b> · Creado por <b>Pedro J. Lledó Sigüenza</b> con la ayuda de la IA, a partir de la herramienta DEBA (Cuestionario de detección de barreras y facilitadores para la inclusión) de la Conselleria de Educación de la Generalitat Valenciana.`,
+    credits2: () => MINI ? `Versión reducida no oficial: la selección de ${TOTAL} de los 80 ítems es del autor, no de la Conselleria. Las preguntas mantienen su redacción original.`
+                         : "No es una herramienta oficial de la Conselleria. Los textos del cuestionario proceden de la herramienta original.",
+    license:"Código bajo licencia", source:"Código fuente", otherApp: () => MINI ? "DEBA completo" : "minideba (versión reducida)",
+    includes:"Incluye jsPDF y jsPDF-AutoTable (licencia MIT).",
+    more: a => `Más recursos para la orientación y la inclusión en ${a}.`,
+    pdf: {
+      title:"Análisis DAFO de barreras y facilitadores para la inclusión",
+      sub:"DEBA · Cuestionario de detección de barreras y facilitadores",
+      subMini: n => `minideba · versión reducida del cuestionario DEBA (${n} de 80 ítems)`,
+      student:"Alumno/a", teacher:"Profesor/a", date:"Fecha", noDate:"sin fecha", fileNoDate:"sin-fecha", fileStudent:"alumno",
+      ok: (v, np) => `Cuestionario completo: ${v} ítems valorados y ${np} marcados como «No procede».`,
+      warn: (n, list) => `ATENCIÓN: hay ${n} ítem(s) sin responder, que no aparecen en este DAFO (ítems ${list}).`,
+      legend:"Barreras = amenazas (factores del contexto) + debilidades (práctica docente), valoradas con 1 o 2. Facilitadores = oportunidades (contexto) + fortalezas (práctica docente), valoradas con 3 o 4.",
+      axisPrac:"PRÁCTICA DOCENTE (FACTORES INTERNOS)", axisCtx:"CONTEXTO (FACTORES EXTERNOS)",
+      sumHead:["Dimensión","Barreras","Amenazas","Debilidades","Facilitadores","Oportunidades","Fortalezas","No procede"],
+      detail:"Detalle por dimensión", dimBar: (b, f, np) => `Barreras: ${b}  ·  Facilitadores: ${f}  ·  No procede: ${np}`,
+      colItem:"ÍTEM", colDeba:"DEBA", colValue:"VALOR", colText:"ENUNCIADO",
+      noneDim:"Sin ítems valorados en esta dimensión.", npDim: list => `No procede en esta dimensión: ítems ${list}.`,
+      npAll: list => `Ítems marcados como «No procede»: ${list}.`, missingAll: list => `Ítems sin responder: ${list}.`,
+      closing:"Estos resultados son la base de la reflexión de cada profesor o profesora y de la toma de decisiones del equipo docente sobre los factores prioritarios sobre los que intervenir (barreras) o apoyarse (facilitadores). La información que el tutor o tutora utilizará para el apartado C del Anexo II serán los acuerdos asumidos de forma colectiva por el equipo docente.",
+      closingMini:"Estos resultados son la base de la reflexión de cada docente y de las decisiones del equipo docente (apartado C del Anexo II). Para el análisis completo, usa el cuestionario DEBA de 80 ítems.",
+      foot: (a, f) => `${NAME} · Alumno/a: ${a} · ${f}`, page: (p, n) => `Página ${p} de ${n}`
+    }
+  },
+  va: {
+    h1:"Barreres i facilitadors per a la inclusió", docTitle:"Barreres i facilitadors",
+    lead: n => `Respon ${n} preguntes sobre un alumne o alumna i descarrega la seua anàlisi DAFO en PDF.`,
+    leadMini: n => `Versió reduïda del DEBA: respon ${n} preguntes sobre un alumne o alumna i descarrega la seua anàlisi DAFO en un PDF de dues pàgines.`,
+    toMini: url => `<b>Tens poc temps?</b> Prova <a href="${url}" target="_blank" rel="noopener">minideba</a>, la versió reduïda: 45 preguntes i un PDF de dues pàgines.`,
+    special: url => `<b>Cas especial?</b> Si l'alumne/a està en un canvi d'etapa, té una malaltia crònica, absentisme greu o mobilitat reduïda, usa el <a href="${url}" target="_blank" rel="noopener">DEBA complet (80 preguntes)</a>.`,
+    inProgress:"Qüestionari en curs", completeDl:"Complet. Ja pots descarregar el PDF.", left: n => `Et queden ${n} preguntes.`,
+    student:"Alumne/a", studentPh:"Inicials o codi (p. ex. MGL)", hintName:"Per protecció de dades, no escrigues el nom complet.",
+    hintFull:"Sembla un nom complet. Usa millor les inicials o un codi.", hintEmpty:"Escriu les inicials o un codi de l'alumne/a.",
+    teacher:"Professor/a", teacherPh:"El teu nom", date:"Data",
+    start:"Començar", cont:"Continuar", seeResult:"Veure el resultat", newStudent:"Començar amb un altre alumne/a",
+    howTitle:"Com funciona",
+    how1:"Cada pregunta es respon de <b>1</b> (menor grau d'acord) a <b>4</b> (major grau d'acord), o <b>No procedeix</b> si no s'aplica a aquest alumne/a.",
+    how2: ic => `En tocar una resposta passes a la següent. Pots tornar arrere o saltar a qualsevol pregunta des de l'índex ${ic}.`,
+    how3:"Les respostes 1 i 2 es converteixen en <b>barreres</b>; les 3 i 4, en <b>facilitadors</b>:",
+    howQ:{D:"Barreres de la pràctica docent", A:"Barreres del context", F:"Facilitadors de la pràctica docent", O:"Facilitadors del context"},
+    howEnd:"Aquests resultats són la base de la reflexió de cada docent i de les decisions de l'equip docent (apartat C de l'annex II).",
+    privacy:"Les respostes es guarden només en aquest dispositiu, perquè no es perden si tanques la pàgina. No s'envien a cap servidor. El PDF es genera en el teu propi telèfon o ordinador.",
+    confirmNewHome: who => `S'esborraran les respostes actuals${who ? " de " + who : ""}. Si necessites el PDF, descarrega'l abans.\n\nVols començar amb un altre alumne/a?`,
+    confirmNewResult: who => `S'esborraran les respostes de ${who || "aquest alumne/a"}. Ja has descarregat el PDF?\n\nVols començar amb un altre alumne/a?`,
+    home:"Inici", index:"Índex de preguntes", noStudent:"Sense alumne/a", answered: (d, t) => `${d} de ${t} respostes`,
+    dimOf: d => `Dimensió ${d} de 3`, question: (n, t) => `Pregunta ${n} de ${t}`, origItem: o => `· ítem ${o} del DEBA`,
+    note:"Aclariment", agreeLow:"menor grau d'acord", agreeHigh:"major grau d'acord", legLow:"← Menor acord", legHigh:"Major acord →",
+    np:"No procedeix", prev:"Anterior", next:"Següent", backToResult:"Tornar al resultat", navQ:"Navegació entre preguntes",
+    close:"Tanca", doneLbl:"Respostes", missingLbl:"Sense resposta", goPending: n => `Ves a la ${n} (pendent)`,
+    chipNp:", no procedeix", chipVal: v => `, resposta: ${v}`, chipMissing:", sense resposta",
+    resultTitle:"Resultat DAFO", backToQ:"Tornar a les preguntes", noStudentLong:"Alumne/a sense indicar", noDate:"Sense data",
+    missingBanner: n => `<b>Falten ${n} pregunta(es) per respondre.</b> No apareixeran en el DAFO.`, goQ: n => `Ves a la pregunta ${n}`,
+    completeBanner: (v, np) => `<b>Qüestionari complet:</b> ${v} ítems valorats i ${np} marcats com a «No procedeix».`,
+    prac:"Pràctica docent", ctx:"Context", barriers:"Barreres", facilitators:"Facilitadors", barrier:"Barrera", facilitator:"Facilitador",
+    srcPrac:"pràctica docent", srcCtx:"context",
+    dimension:"Dimensió", facilShort:"Facilit.", npShort:"No proc.", total:"Total", pillB:"barr.", pillF:"facil.",
+    item:"Ítem", edit: n => `Edita la pregunta ${n}`, noneDim:"Sense ítems valorats en aquesta dimensió.", npDim: n => `No procedeix: ${n} ítem(s).`,
+    tapToEdit:"Toca qualsevol ítem per a canviar-ne la resposta.", download:"Descarregar PDF", share:"Compartir", dlNav:"Descarregar el resultat",
+    matrix:"Matriu DAFO", summary:"Resum per dimensió",
+    pdfError:"No s'ha pogut generar el PDF. Torna-ho a intentar.", downloaded: n => `PDF descarregat: ${n}`, shareError:"No s'ha pogut compartir. Es descarrega el PDF.",
+    credits1: () => `<b>${MINI ? "minideba" : "DEBA web"}</b> · Creat per <b>Pedro J. Lledó Sigüenza</b> amb l'ajuda de la IA, a partir de l'eina DEBA (Qüestionari de detecció de barreres i facilitadors per a la inclusió) de la Conselleria d'Educació de la Generalitat Valenciana.`,
+    credits2: () => MINI ? `Versió reduïda no oficial: la selecció de ${TOTAL} dels 80 ítems és de l'autor, no de la Conselleria. Les preguntes mantenen la redacció original.`
+                         : "No és una eina oficial de la Conselleria. Els textos del qüestionari procedeixen de l'eina original.",
+    license:"Codi amb llicència", source:"Codi font", otherApp: () => MINI ? "DEBA complet" : "minideba (versió reduïda)",
+    includes:"Inclou jsPDF i jsPDF-AutoTable (llicència MIT).",
+    more: a => `Més recursos per a l'orientació i la inclusió a ${a}.`,
+    pdf: {
+      title:"Anàlisi DAFO de barreres i facilitadors per a la inclusió",
+      sub:"DEBA · Qüestionari de detecció de barreres i facilitadors",
+      subMini: n => `minideba · versió reduïda del qüestionari DEBA (${n} de 80 ítems)`,
+      student:"Alumne/a", teacher:"Professor/a", date:"Data", noDate:"sense data", fileNoDate:"sense-data", fileStudent:"alumne",
+      ok: (v, np) => `Qüestionari complet: ${v} ítems valorats i ${np} marcats com a «No procedeix».`,
+      warn: (n, list) => `ATENCIÓ: hi ha ${n} ítem(s) sense resposta, que no apareixen en aquest DAFO (ítems ${list}).`,
+      legend:"Barreres = obstacles (factors del context) + febleses (pràctica docent), valorades amb 1 o 2. Facilitadors = oportunitats (context) + fortaleses (pràctica docent), valorades amb 3 o 4.",
+      axisPrac:"PRÀCTICA DOCENT (FACTORS INTERNS)", axisCtx:"CONTEXT (FACTORS EXTERNS)",
+      sumHead:["Dimensió","Barreres","Obstacles","Febleses","Facilitadors","Oportunitats","Fortaleses","No procedeix"],
+      detail:"Detall per dimensió", dimBar: (b, f, np) => `Barreres: ${b}  ·  Facilitadors: ${f}  ·  No procedeix: ${np}`,
+      colItem:"ÍTEM", colDeba:"DEBA", colValue:"VALOR", colText:"ENUNCIAT",
+      noneDim:"Sense ítems valorats en aquesta dimensió.", npDim: list => `No procedeix en aquesta dimensió: ítems ${list}.`,
+      npAll: list => `Ítems marcats com a «No procedeix»: ${list}.`, missingAll: list => `Ítems sense resposta: ${list}.`,
+      closing:"Aquests resultats són la base de la reflexió de cada professor o professora i de la presa de decisions de l'equip docent sobre els factors prioritaris sobre els quals intervindre (barreres) o en què recolzar-se (facilitadors). La informació que el tutor o tutora utilitzarà per a l'apartat C de l'annex II seran els acords assumits de forma col·lectiva per l'equip docent.",
+      closingMini:"Aquests resultats són la base de la reflexió de cada docent i de les decisions de l'equip docent (apartat C de l'annex II). Per a l'anàlisi completa, usa el qüestionari DEBA de 80 ítems.",
+      foot: (a, f) => `${NAME} · Alumne/a: ${a} · ${f}`, page: (p, n) => `Pàgina ${p} de ${n}`
+    }
+  }
+};
+const t = () => T[lang];
+const tx = it => it[lang];                       // textos del ítem en el idioma actual
+const dimName = d => DIMS[d][lang], blockName = b => BLOCKS[b][lang];
 
 /* Tipos DAFO (igual que la hoja Datos del Excel) */
 const QUAD = {
-  A:{name:"Amenaza",  plural:"Amenazas",      fam:"Barrera",     src:"contexto",          ord:1, rgb:[199,90,18],  soft:[252,239,227]},
-  D:{name:"Debilidad",plural:"Debilidades",   fam:"Barrera",     src:"práctica docente",  ord:2, rgb:[192,57,43],  soft:[251,232,230]},
-  O:{name:"Oportunidad",plural:"Oportunidades",fam:"Facilitador",src:"contexto",          ord:3, rgb:[18,124,114], soft:[224,242,240]},
-  F:{name:"Fortaleza",plural:"Fortalezas",    fam:"Facilitador", src:"práctica docente",  ord:4, rgb:[30,132,73],  soft:[227,243,233]}
+  A:{ord:1, rgb:[199,90,18],  soft:[252,239,227], css:"ame"},
+  D:{ord:2, rgb:[192,57,43],  soft:[251,232,230], css:"deb"},
+  O:{ord:3, rgb:[18,124,114], soft:[224,242,240], css:"opo"},
+  F:{ord:4, rgb:[30,132,73],  soft:[227,243,233], css:"for"}
 };
+const QN = {
+  es:{A:"Amenazas", D:"Debilidades", O:"Oportunidades", F:"Fortalezas"},
+  va:{A:"Obstacles", D:"Febleses",   O:"Oportunitats",  F:"Fortaleses"}
+};
+const isBarrier = q => q === "A" || q === "D";
+const qPlural = q => QN[lang][q];
+const qFam = q => isBarrier(q) ? t().barriers : t().facilitators;       // «Barreras» / «Facilitadores»
+const qFamOne = q => isBarrier(q) ? t().barrier : t().facilitator;      // «Barrera» / «Facilitador»
+const qSrc = q => (q === "A" || q === "O") ? t().srcCtx : t().srcPrac;
 const quadOf = (it, v) => typeof v !== "number" ? "" : (it.t === "FF" ? (v >= 3 ? "F" : "D") : (v >= 3 ? "O" : "A"));
 
 /* ---------- Estado (solo en este dispositivo) ---------- */
@@ -675,7 +839,7 @@ function compute(){
   ITEMS.forEach(it => {
     const v = ans(it.n);
     if (v === "NP"){ sum[it.d].NP++; npList.push(it.n); }
-    else if (typeof v === "number"){ valued++; const q = quadOf(it, v); sum[it.d][q]++; lines.push({it, v, q, text: v >= 3 ? it.pos : it.neg}); }
+    else if (typeof v === "number"){ valued++; const q = quadOf(it, v); sum[it.d][q]++; lines.push({it, v, q, text: v >= 3 ? tx(it).pos : tx(it).neg}); }
     else missing.push(it.n);
   });
   lines.sort((a,b) => a.it.d - b.it.d || QUAD[a.q].ord - QUAD[b.q].ord || a.it.n - b.it.n);
@@ -688,8 +852,9 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtDate = iso => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ""); return m ? `${m[3]}/${m[2]}/${m[1]}` : ""; };
 const pdfName = () => {
-  const a = (state.alumno || "").trim().replace(/\s+/g, "").replace(/[\\/:*?"<>|#%]/g, "-") || "alumno";
-  return `DAFO-minideba_${a}_${/^\d{4}-\d{2}-\d{2}$/.test(state.fecha) ? state.fecha : "sin-fecha"}.pdf`;
+  const P = t().pdf;
+  const a = (state.alumno || "").trim().replace(/\s+/g, "").replace(/[\\/:*?"<>|#%]/g, "-") || P.fileStudent;
+  return `${MINI ? "DAFO-minideba" : "DAFO"}_${a}_${/^\d{4}-\d{2}-\d{2}$/.test(state.fecha) ? state.fecha : P.fileNoDate}.pdf`;
 };
 const I = {
   back:'<path d="M15 18l-6-6 6-6"/>', next:'<path d="M9 18l6-6-6-6"/>', home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',
@@ -701,7 +866,19 @@ const I = {
 };
 const icon = (k, extra="") => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true" ${extra}>${I[k]}</svg>`;
 let toastT;
-function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2600); }
+function toast(msg){ const el = $("#toast"); el.textContent = msg; el.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("show"), 2600); }
+
+/* Selector Castellano / Valencià */
+const langSwitch = () => `<div class="langsw" role="group" aria-label="Idioma"><button type="button" data-lang="es" aria-pressed="${lang === "es"}">Castellano</button><button type="button" data-lang="va" aria-pressed="${lang === "va"}">Valencià</button></div>`;
+function setLang(l){
+  if (l === lang) return;
+  /* No perder lo escrito en el formulario de inicio sin guardar */
+  if ($("#alumno")) { state.alumno = $("#alumno").value.trim(); state.profesor = $("#profesor").value.trim(); state.fecha = $("#fecha").value || state.fecha; save(); }
+  lang = l; try { localStorage.setItem(LANG_KEY, l); } catch(e){}
+  document.documentElement.lang = l === "va" ? "ca-valencia" : "es";
+  const y = window.scrollY; route(); window.scrollTo(0, y);
+}
+function bindLang(){ document.querySelectorAll(".langsw button").forEach(b => b.onclick = () => setLang(b.dataset.lang)); }
 
 /* ---------- Navegación (el botón Atrás del móvil funciona) ---------- */
 const go = h => { if (location.hash === h) route(); else location.hash = h; };
@@ -717,78 +894,82 @@ window.addEventListener("hashchange", route);
 /* ---------- Autoría y licencia ---------- */
 const credits = () => `
   <footer class="credits">
-    <p><b>minideba</b> · Creado por <b>Pedro J. Lledó Sigüenza</b> con la ayuda de la IA, a partir de la herramienta DEBA (Cuestionario de detección de barreras y facilitadores para la inclusión) de la Conselleria de Educación de la Generalitat Valenciana.</p>
-    <p>Versión reducida no oficial: la selección de ${TOTAL} de los 80 ítems es del autor, no de la Conselleria. Las preguntas mantienen su redacción original.</p>
-    <p>© 2026 Pedro J. Lledó Sigüenza · Código bajo licencia <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" target="_blank" rel="noopener">EUPL 1.2</a> · <a href="https://github.com/pjlledo/minideba" target="_blank" rel="noopener">Código fuente</a> · <a href="https://deba.orienteca.es/" target="_blank" rel="noopener">DEBA completo</a> · Incluye jsPDF y jsPDF-AutoTable (licencia MIT).</p>
-  <p>Más recursos para la orientación y la inclusión en <a href="https://orienteca.es/" target="_blank" rel="noopener">orienteca.es</a>.</p>
+    <p>${t().credits1()}</p>
+    <p>${t().credits2()}</p>
+    <p>© 2026 Pedro J. Lledó Sigüenza · ${t().license} <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" target="_blank" rel="noopener">EUPL 1.2</a> · <a href="${CONFIG.repo}" target="_blank" rel="noopener">${t().source}</a> · <a href="${CONFIG.otherUrl}" target="_blank" rel="noopener">${t().otherApp()}</a> · ${t().includes}</p>
+    <p>${t().more('<a href="https://orienteca.es/" target="_blank" rel="noopener">orienteca.es</a>')}</p>
   </footer>`;
 
 /* ---------- Pantalla: inicio ---------- */
 function renderHome(){
-  document.title = "minideba · Barreras y facilitadores";
+  const L = t();
+  document.title = `${NAME} · ${L.docTitle}`;
   const done = countDone(), started = done > 0;
+  const notice = MINI ? `<div class="card notice">${icon("info",'style="width:20px;height:20px;margin-top:2px"')}<p>${L.special(CONFIG.otherUrl)}</p></div>`
+                      : (started ? "" : `<div class="card notice" id="toMini">${icon("info",'style="width:20px;height:20px;margin-top:2px"')}<p>${L.toMini(CONFIG.otherUrl)}</p></div>`);
   $("#app").innerHTML = `
   <div class="wrap">
     <header class="hero">
-      <div class="glyph" aria-hidden="true"><i style="background:#e0524a"></i><i style="background:#f0a04b"></i><i style="background:#33b06b"></i><i style="background:#38b2ac"></i></div>
-      <p class="eyebrow">minideba</p>
-      <h1>Barreras y facilitadores para la inclusión</h1>
-      <p class="lead">Versión reducida del DEBA: responde ${TOTAL} preguntas sobre un alumno o alumna y descarga su análisis DAFO en un PDF de dos páginas.</p>
+      <div class="hero-top">
+        <div class="glyph" aria-hidden="true"><i style="background:#e0524a"></i><i style="background:#f0a04b"></i><i style="background:#33b06b"></i><i style="background:#38b2ac"></i></div>
+        ${langSwitch()}
+      </div>
+      <p class="eyebrow">${NAME}</p>
+      <h1>${L.h1}</h1>
+      <p class="lead">${MINI ? L.leadMini(TOTAL) : L.lead(TOTAL)}</p>
     </header>
     <div class="stack">
-      <div class="card notice">${icon("info",'style="width:20px;height:20px;margin-top:2px"')}<p><b>¿Caso especial?</b> Si el alumno/a está en un cambio de etapa, tiene una enfermedad crónica, absentismo grave o movilidad reducida, usa el <a href="https://deba.orienteca.es/" target="_blank" rel="noopener">DEBA completo (80 preguntas)</a>.</p></div>
+      ${notice}
       ${started ? `
       <div class="card resume">
         <div class="ring" style="--p:${Math.round(done/TOTAL*100)}"><span>${done}/${TOTAL}</span></div>
-        <p><b>Cuestionario en curso${state.alumno ? " · " + esc(state.alumno) : ""}</b><br>${done === TOTAL ? "Completo. Ya puedes descargar el PDF." : `Te quedan ${TOTAL - done} preguntas.`}</p>
+        <p><b>${L.inProgress}${state.alumno ? " · " + esc(state.alumno) : ""}</b><br>${done === TOTAL ? L.completeDl : L.left(TOTAL - done)}</p>
       </div>` : ""}
       <form class="card stack" id="f" novalidate>
         <div>
-          <label class="field">Alumno/a <span class="req" aria-hidden="true">*</span><input id="alumno" name="alumno" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="30" placeholder="Iniciales o código (p. ej. MGL)" value="${esc(state.alumno)}" aria-describedby="alumnoHint" required></label>
-          <p class="hint" id="alumnoHint">Por protección de datos, no escribas el nombre completo.</p>
+          <label class="field">${L.student} <span class="req" aria-hidden="true">*</span><input id="alumno" name="alumno" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="30" placeholder="${esc(L.studentPh)}" value="${esc(state.alumno)}" aria-describedby="alumnoHint" required></label>
+          <p class="hint" id="alumnoHint">${L.hintName}</p>
         </div>
-        <label class="field">Profesor/a<input id="profesor" name="profesor" autocomplete="name" maxlength="60" placeholder="Tu nombre" value="${esc(state.profesor)}"></label>
-        <label class="field">Fecha<input id="fecha" name="fecha" type="date" value="${esc(state.fecha)}"></label>
-        <button class="btn primary block" type="submit">${started ? (done === TOTAL ? "Ver resultado" : "Continuar") : "Empezar"} ${icon("next")}</button>
-        ${started ? `<button class="btn ghost block" type="button" id="new">Empezar con otro alumno/a</button>` : ""}
+        <label class="field">${L.teacher}<input id="profesor" name="profesor" autocomplete="name" maxlength="60" placeholder="${esc(L.teacherPh)}" value="${esc(state.profesor)}"></label>
+        <label class="field">${L.date}<input id="fecha" name="fecha" type="date" value="${esc(state.fecha)}"></label>
+        <button class="btn primary block" type="submit">${started ? (done === TOTAL ? L.seeResult : L.cont) : L.start} ${icon("next")}</button>
+        ${started ? `<button class="btn ghost block" type="button" id="new">${L.newStudent}</button>` : ""}
       </form>
       <details class="card info">
-        <summary>Cómo funciona</summary>
+        <summary>${L.howTitle}</summary>
         <ul>
-          <li>Cada pregunta se responde de <b>1</b> (menor grado de acuerdo) a <b>4</b> (mayor grado de acuerdo), o <b>No procede</b> si no se aplica a este alumno/a.</li>
-          <li>Al tocar una respuesta pasas a la siguiente. Puedes volver atrás o saltar a cualquier pregunta desde el índice ${icon("grid",'style="width:16px;height:16px;vertical-align:-3px"')}.</li>
-          <li>Las respuestas 1 y 2 se convierten en <b>barreras</b>; las 3 y 4, en <b>facilitadores</b>:</li>
+          <li>${L.how1}</li>
+          <li>${L.how2(icon("grid",'style="width:16px;height:16px;vertical-align:-3px"'))}</li>
+          <li>${L.how3}</li>
         </ul>
         <div class="quads">
-          <div class="q-D"><b>Debilidades</b>Barreras de la práctica docente</div>
-          <div class="q-A"><b>Amenazas</b>Barreras del contexto</div>
-          <div class="q-F"><b>Fortalezas</b>Facilitadores de la práctica docente</div>
-          <div class="q-O"><b>Oportunidades</b>Facilitadores del contexto</div>
+          ${["D","A","F","O"].map(q => `<div class="q-${q}"><b>${qPlural(q)}</b>${L.howQ[q]}</div>`).join("")}
         </div>
-        <p>Estos resultados son la base de la reflexión de cada docente y de las decisiones del equipo docente (apartado C del Anexo II).</p>
+        <p>${L.howEnd}</p>
       </details>
-      <p class="privacy">${icon("lock",'style="width:18px;height:18px;margin-top:2px"')}<span>Las respuestas se guardan solo en este dispositivo, para que no se pierdan si cierras la página. No se envían a ningún servidor. El PDF se genera en tu propio teléfono u ordenador.</span></p>
+      <p class="privacy">${icon("lock",'style="width:18px;height:18px;margin-top:2px"')}<span>${L.privacy}</span></p>
     </div>
     ${credits()}
   </div>`;
+  bindLang();
   const al = $("#alumno"), hint = $("#alumnoHint");
   const checkName = () => {
     const v = al.value.trim();
-    if (/[a-záéíóúñü]{3,}\s+[a-záéíóúñü]{3,}/i.test(v)) { hint.className = "hint warn"; hint.textContent = "Parece un nombre completo. Usa mejor las iniciales o un código."; }
-    else { hint.className = "hint"; hint.textContent = "Por protección de datos, no escribas el nombre completo."; }
+    if (/[a-zàáèéíïòóúüñç·]{3,}\s+[a-zàáèéíïòóúüñç·]{3,}/i.test(v)) { hint.className = "hint warn"; hint.textContent = L.hintFull; }
+    else { hint.className = "hint"; hint.textContent = L.hintName; }
   };
   al.addEventListener("input", checkName); checkName();
   $("#f").addEventListener("submit", e => {
     e.preventDefault();
     const v = al.value.trim();
-    if (!v){ hint.className = "hint err"; hint.textContent = "Escribe las iniciales o un código del alumno/a."; al.focus(); return; }
+    if (!v){ hint.className = "hint err"; hint.textContent = L.hintEmpty; al.focus(); return; }
     state.alumno = v; state.profesor = $("#profesor").value.trim(); state.fecha = $("#fecha").value || "";
     save();
     if (countDone() === TOTAL) go("#/resultado"); else go("#/p/" + (firstMissing() || 1));
   });
   const nb = $("#new");
   if (nb) nb.addEventListener("click", () => {
-    if (!confirm("Se borrarán las respuestas actual" + (state.alumno ? "es de " + state.alumno : "es") + ". Si necesitas el PDF, descárgalo antes.\n\n¿Empezar con otro alumno/a?")) return;
+    if (!confirm(L.confirmNewHome(state.alumno))) return;
     const prof = state.profesor; clearAll(); state.profesor = prof; save(); renderHome(); $("#alumno").focus();
   });
 }
@@ -796,35 +977,36 @@ function renderHome(){
 /* ---------- Pantalla: pregunta ---------- */
 let cur = 1, locked = false, editReturn = false; /* editReturn: se llegó desde el resultado para corregir un ítem */
 function renderQuiz(n){
+  const L = t();
   cur = n; locked = false;
-  const it = ITEMS[n-1], v = ans(n), done = countDone();
-  document.title = `Pregunta ${n} · minideba`;
-  const opt = k => `<button class="opt" role="radio" aria-checked="${v === k}" data-v="${k}" aria-label="${k}${k===1?" (menor grado de acuerdo)":k===4?" (mayor grado de acuerdo)":""}">${k}</button>`;
+  const it = ITEMS[n-1], v = ans(n), done = countDone(), X = tx(it);
+  document.title = `${L.question(n, TOTAL)} · ${NAME}`;
+  const opt = k => `<button class="opt" role="radio" aria-checked="${v === k}" data-v="${k}" aria-label="${k}${k===1 ? ` (${L.agreeLow})` : k===4 ? ` (${L.agreeHigh})` : ""}">${k}</button>`;
   $("#app").innerHTML = `
   <header class="topbar">
     <div class="wrap row">
-      <button class="icon" id="home" aria-label="Inicio">${icon("home")}</button>
-      <div class="tb-title"><strong>${esc(state.alumno || "Sin alumno/a")}</strong><span>${done} de ${TOTAL} respondidas</span></div>
-      <button class="icon" id="map" aria-label="Índice de preguntas">${icon("grid")}</button>
+      <button class="icon" id="home" aria-label="${L.home}">${icon("home")}</button>
+      <div class="tb-title"><strong>${esc(state.alumno || L.noStudent)}</strong><span>${L.answered(done, TOTAL)}</span></div>
+      <button class="icon" id="map" aria-label="${L.index}">${icon("grid")}</button>
     </div>
     <div class="progress" aria-hidden="true"><i style="width:${done/TOTAL*100}%"></i></div>
   </header>
   <main class="wrap quiz">
-    <span class="chip">Dimensión ${it.d} de 3 · ${esc(DIMS[it.d])}</span>
-    <p class="block"><b>${it.b}</b> · ${esc(BLOCKS[it.b])}</p>
+    <span class="chip">${L.dimOf(it.d)} · ${esc(dimName(it.d))}</span>
+    <p class="block"><b>${it.b}</b> · ${esc(blockName(it.b))}</p>
     <article class="card">
-      <p class="qnum">Pregunta ${n} de ${TOTAL} <span class="orig">· ítem ${it.o} del DEBA</span></p>
-      <h2 class="qtext" id="qt">${esc(it.q)}</h2>
-      ${it.note ? `<details class="note"><summary>${icon("info",'style="width:18px;height:18px"')} Aclaración</summary><p>${esc(it.note)}</p></details>` : ""}
+      <p class="qnum">${L.question(n, TOTAL)}${it.o ? ` <span class="orig">${L.origItem(it.o)}</span>` : ""}</p>
+      <h2 class="qtext" id="qt">${esc(X.q)}</h2>
+      ${X.note ? `<details class="note"><summary>${icon("info",'style="width:18px;height:18px"')} ${L.note}</summary><p>${esc(X.note)}</p></details>` : ""}
     </article>
     <div class="scale" role="radiogroup" aria-labelledby="qt">${[1,2,3,4].map(opt).join("")}</div>
-    <div class="scale-legend" aria-hidden="true"><span>← Menor acuerdo</span><span>Mayor acuerdo →</span></div>
-    <button class="opt np" role="radio" aria-checked="${v === "NP"}" data-v="NP">No procede</button>
+    <div class="scale-legend" aria-hidden="true"><span>${L.legLow}</span><span>${L.legHigh}</span></div>
+    <button class="opt np" role="radio" aria-checked="${v === "NP"}" data-v="NP">${L.np}</button>
   </main>
-  <nav class="bottombar" aria-label="Navegación entre preguntas">
+  <nav class="bottombar" aria-label="${L.navQ}">
     <div class="wrap">
-      <button class="btn ghost" id="prev" ${n === 1 ? "disabled" : ""}>${icon("back")} Anterior</button>
-      <button class="btn ${n === TOTAL || editReturn ? "primary" : ""}" id="nextb">${editReturn ? "Volver al resultado" : n === TOTAL ? "Ver resultado" : "Siguiente"} ${icon("next")}</button>
+      <button class="btn ghost" id="prev" ${n === 1 ? "disabled" : ""}>${icon("back")} ${L.prev}</button>
+      <button class="btn ${n === TOTAL || editReturn ? "primary" : ""}" id="nextb">${editReturn ? L.backToResult : n === TOTAL ? L.seeResult : L.next} ${icon("next")}</button>
     </div>
   </nav>`;
   window.scrollTo(0, 0);
@@ -839,7 +1021,7 @@ function choose(val){
   state.answers[cur] = val; save();
   document.querySelectorAll(".opt").forEach(b => b.setAttribute("aria-checked", String((b.dataset.v === "NP" ? "NP" : +b.dataset.v) === val)));
   const done = countDone();
-  $(".tb-title span").textContent = `${done} de ${TOTAL} respondidas`;
+  $(".tb-title span").textContent = t().answered(done, TOTAL);
   $(".progress i").style.width = done/TOTAL*100 + "%";
   locked = true;
   setTimeout(() => {
@@ -859,25 +1041,26 @@ document.addEventListener("keydown", e => {
 
 /* ---------- Índice de preguntas ---------- */
 function openMap(){
+  const L = t();
   const done = countDone(), np = ITEMS.filter(it => ans(it.n) === "NP").length, fm = firstMissing();
   let body = "";
   [1,2,3].forEach(d => {
-    body += `<h4 class="mapdim">${d}. ${esc(DIMS[d])}</h4>`;
+    body += `<h4 class="mapdim">${d}. ${esc(dimName(d))}</h4>`;
     Object.keys(BLOCKS).filter(b => ITEMS.some(it => it.b === b && it.d === d)).forEach(b => {
-      body += `<p class="mapblk"><b>${b}</b> · ${esc(BLOCKS[b])}</p><div class="chips">` +
+      body += `<p class="mapblk"><b>${b}</b> · ${esc(blockName(b))}</p><div class="chips">` +
         ITEMS.filter(it => it.b === b).map(it => { const v = ans(it.n); const cls = v === "NP" ? "np" : (typeof v === "number" ? "done" : "");
-          return `<button class="c ${cls} ${it.n === cur && /^#\/p\//.test(location.hash) ? "cur" : ""}" data-n="${it.n}" aria-label="Pregunta ${it.n}${v === "NP" ? ", no procede" : typeof v === "number" ? ", respondida con " + v : ", sin responder"}">${it.n}</button>`; }).join("") + `</div>`;
+          return `<button class="c ${cls} ${it.n === cur && /^#\/p\//.test(location.hash) ? "cur" : ""}" data-n="${it.n}" aria-label="${L.question(it.n, TOTAL)}${v === "NP" ? L.chipNp : typeof v === "number" ? L.chipVal(v) : L.chipMissing}">${it.n}</button>`; }).join("") + `</div>`;
     });
   });
   $("#sheet").innerHTML = `<div class="sheet-inner">
-    <div class="sheet-head"><h3 id="sheetTitle">Índice de preguntas</h3><button class="icon" id="closeMap" aria-label="Cerrar">${icon("x")}</button></div>
+    <div class="sheet-head"><h3 id="sheetTitle">${L.index}</h3><button class="icon" id="closeMap" aria-label="${L.close}">${icon("x")}</button></div>
     <div class="sheet-body">
-      <p class="counts"><span><i class="dot done"></i>Respondidas <b>${done - np}</b></span><span><i class="dot np"></i>No procede <b>${np}</b></span><span><i class="dot"></i>Sin responder <b>${TOTAL - done}</b></span></p>
+      <p class="counts"><span><i class="dot done"></i>${L.doneLbl} <b>${done - np}</b></span><span><i class="dot np"></i>${L.np} <b>${np}</b></span><span><i class="dot"></i>${L.missingLbl} <b>${TOTAL - done}</b></span></p>
       ${body}
     </div>
     <div class="sheet-foot">
-      ${fm ? `<button class="btn ghost" id="toMissing">Ir a la ${fm} (pendiente)</button>` : ""}
-      <button class="btn primary" id="toResult">Ver resultado</button>
+      ${fm ? `<button class="btn ghost" id="toMissing">${L.goPending(fm)}</button>` : ""}
+      <button class="btn primary" id="toResult">${L.seeResult}</button>
     </div></div>`;
   $("#sheet").classList.add("open"); $("#backdrop").classList.add("open"); $("#sheet").setAttribute("aria-hidden", "false");
   $("#closeMap").onclick = () => closeMap();
@@ -896,64 +1079,66 @@ $("#backdrop").addEventListener("click", () => closeMap());
 
 /* ---------- Pantalla: resultado ---------- */
 function renderResult(){
+  const L = t();
   editReturn = false;
-  document.title = "Resultado DAFO · minideba";
-  const r = compute(), t = r.tot;
+  document.title = `${L.resultTitle} · ${NAME}`;
+  const r = compute(), tt = r.tot;
   const canShare = (() => { try { return !!(navigator.canShare && navigator.canShare({files:[new File(["x"], "t.pdf", {type:"application/pdf"})]})); } catch(e){ return false; } })();
-  const cell = (q, n) => `<div class="mx q-${q}"><div class="n">${n}</div><div class="l">${QUAD[q].plural}</div><div class="s">${QUAD[q].fam === "Barrera" ? "Barreras" : "Facilitadores"} · ${QUAD[q].src}</div></div>`;
-  const row = d => { const s = r.sum[d]; return `<tr><td>${esc(DIMS[d])}</td><td class="tb">${s.A + s.D}</td><td class="tf">${s.O + s.F}</td><td>${s.NP}</td></tr>`; };
+  const cell = (q, n) => `<div class="mx q-${q}"><div class="n">${n}</div><div class="l">${qPlural(q)}</div><div class="s">${qFam(q)} · ${qSrc(q)}</div></div>`;
+  const row = d => { const s = r.sum[d]; return `<tr><td>${esc(dimName(d))}</td><td class="tb">${s.A + s.D}</td><td class="tf">${s.O + s.F}</td><td>${s.NP}</td></tr>`; };
   const dimDetail = d => {
-    const L = r.lines.filter(l => l.it.d === d), s = r.sum[d];
+    const Ls = r.lines.filter(l => l.it.d === d), s = r.sum[d];
     const groups = ["A","D","O","F"].map(q => {
-      const g = L.filter(l => l.q === q); if (!g.length) return "";
-      return `<div class="grp"><h4><span class="sw" style="background:var(--${{A:"ame",D:"deb",O:"opo",F:"for"}[q]})"></span>${QUAD[q].fam === "Barrera" ? "Barreras" : "Facilitadores"} · ${QUAD[q].plural} (${g.length})</h4>` +
-        g.map(l => `<button class="line" data-n="${l.it.n}" aria-label="Editar pregunta ${l.it.n}"><span class="v q-${q}">${l.v}</span><span class="t"><small>Ítem ${l.it.n} · ${l.it.b} · DEBA ${l.it.o}</small>${esc(l.text)}</span></button>`).join("") + `</div>`;
+      const g = Ls.filter(l => l.q === q); if (!g.length) return "";
+      return `<div class="grp"><h4><span class="sw" style="background:var(--${QUAD[q].css})"></span>${qFam(q)} · ${qPlural(q)} (${g.length})</h4>` +
+        g.map(l => `<button class="line" data-n="${l.it.n}" aria-label="${L.edit(l.it.n)}"><span class="v q-${q}">${l.v}</span><span class="t"><small>${L.item} ${l.it.n} · ${l.it.b}${l.it.o ? ` · DEBA ${l.it.o}` : ""}</small>${esc(l.text)}</span></button>`).join("") + `</div>`;
     }).join("");
     return `<details class="card dim" ${d === 1 ? "open" : ""}>
-      <summary><h3>${esc(DIMS[d])}</h3><span class="pill q-D">${s.A + s.D} barr.</span><span class="pill q-F">${s.O + s.F} facil.</span><span class="chev">${icon("chev")}</span></summary>
-      ${groups || `<p class="empty">Sin ítems valorados en esta dimensión.</p>`}
-      ${s.NP ? `<p class="empty">No procede: ${s.NP} ítem(s).</p>` : ""}
+      <summary><h3>${esc(dimName(d))}</h3><span class="pill q-D">${s.A + s.D} ${L.pillB}</span><span class="pill q-F">${s.O + s.F} ${L.pillF}</span><span class="chev">${icon("chev")}</span></summary>
+      ${groups || `<p class="empty">${L.noneDim}</p>`}
+      ${s.NP ? `<p class="empty">${L.npDim(s.NP)}</p>` : ""}
     </details>`;
   };
   $("#app").innerHTML = `
   <header class="topbar">
     <div class="wrap row">
-      <button class="icon" id="back" aria-label="Volver a las preguntas">${icon("back")}</button>
-      <div class="tb-title"><strong>Resultado DAFO</strong><span>${esc(state.alumno || "Sin alumno/a")}</span></div>
-      <button class="icon" id="map" aria-label="Índice de preguntas">${icon("grid")}</button>
+      <button class="icon" id="back" aria-label="${L.backToQ}">${icon("back")}</button>
+      <div class="tb-title"><strong>${L.resultTitle}</strong><span>${esc(state.alumno || L.noStudent)}</span></div>
+      <button class="icon" id="map" aria-label="${L.index}">${icon("grid")}</button>
     </div>
   </header>
   <main class="wrap result stack">
+    <div class="result-top">${langSwitch()}</div>
     <div>
-      <h2>${esc(state.alumno || "Alumno/a sin indicar")}</h2>
-      <p class="meta">${state.profesor ? esc(state.profesor) + " · " : ""}${fmtDate(state.fecha) || "Sin fecha"}</p>
+      <h2>${esc(state.alumno || L.noStudentLong)}</h2>
+      <p class="meta">${state.profesor ? esc(state.profesor) + " · " : ""}${fmtDate(state.fecha) || L.noDate}</p>
       ${r.missing.length
-        ? `<div class="banner warn">${icon("alert")}<p><b>Faltan ${r.missing.length} pregunta(s) por responder.</b> No aparecerán en el DAFO.<br><button class="link" id="toMissing">Ir a la pregunta ${r.missing[0]}</button></p></div>`
-        : `<div class="banner ok">${icon("check")}<p><b>Cuestionario completo:</b> ${r.valued} ítems valorados y ${r.npList.length} marcados como «No procede».</p></div>`}
+        ? `<div class="banner warn">${icon("alert")}<p>${L.missingBanner(r.missing.length)}<br><button class="link" id="toMissing">${L.goQ(r.missing[0])}</button></p></div>`
+        : `<div class="banner ok">${icon("check")}<p>${L.completeBanner(r.valued, r.npList.length)}</p></div>`}
     </div>
-    <section class="card" aria-label="Matriz DAFO">
-      <div class="axis"><span>Práctica docente</span><span>Contexto</span></div>
-      <div class="matrix">${cell("D", t.D)}${cell("A", t.A)}${cell("F", t.F)}${cell("O", t.O)}</div>
+    <section class="card" aria-label="${L.matrix}">
+      <div class="axis"><span>${L.prac}</span><span>${L.ctx}</span></div>
+      <div class="matrix">${cell("D", tt.D)}${cell("A", tt.A)}${cell("F", tt.F)}${cell("O", tt.O)}</div>
     </section>
-    <section class="card" aria-label="Resumen por dimensión">
+    <section class="card" aria-label="${L.summary}">
       <table class="sum">
-        <thead><tr><th>Dimensión</th><th>Barreras</th><th>Facilit.</th><th>No proc.</th></tr></thead>
+        <thead><tr><th>${L.dimension}</th><th>${L.barriers}</th><th>${L.facilShort}</th><th>${L.npShort}</th></tr></thead>
         <tbody>${row(1)}${row(2)}${row(3)}</tbody>
-        <tfoot><tr><td>Total</td><td class="tb">${t.A + t.D}</td><td class="tf">${t.O + t.F}</td><td>${t.NP}</td></tr></tfoot>
+        <tfoot><tr><td>${L.total}</td><td class="tb">${tt.A + tt.D}</td><td class="tf">${tt.O + tt.F}</td><td>${tt.NP}</td></tr></tfoot>
       </table>
     </section>
     ${[1,2,3].map(dimDetail).join("")}
-    <p class="hint" style="text-align:center">Toca cualquier ítem para cambiar su respuesta.</p>
-    <div style="text-align:center"><button class="link" id="newStudent">Empezar con otro alumno/a</button></div>
+    <p class="hint" style="text-align:center">${L.tapToEdit}</p>
+    <div style="text-align:center"><button class="link" id="newStudent">${L.newStudent}</button></div>
     ${credits()}
   </main>
-  <nav class="bottombar" aria-label="Descargar resultado">
+  <nav class="bottombar" aria-label="${L.dlNav}">
     <div class="wrap">
-      <button class="btn primary" id="dl">${icon("dl")} Descargar PDF</button>
-      ${canShare ? `<button class="btn ghost" id="share">${icon("share")} Compartir</button>` : ""}
+      <button class="btn primary" id="dl">${icon("dl")} ${L.download}</button>
+      ${canShare ? `<button class="btn ghost" id="share">${icon("share")} ${L.share}</button>` : ""}
     </div>
   </nav>`;
-  window.scrollTo(0, 0);
+  bindLang();
   $("#back").onclick = () => go("#/p/" + (firstMissing() || TOTAL));
   $("#map").onclick = openMap;
   if ($("#toMissing")) $("#toMissing").onclick = () => go("#/p/" + r.missing[0]);
@@ -961,36 +1146,175 @@ function renderResult(){
   $("#dl").onclick = downloadPdf;
   if ($("#share")) $("#share").onclick = sharePdf;
   $("#newStudent").onclick = () => {
-    if (!confirm("Se borrarán las respuestas de " + (state.alumno || "este alumno/a") + ". ¿Has descargado ya el PDF?\n\n¿Empezar con otro alumno/a?")) return;
+    if (!confirm(L.confirmNewResult(state.alumno))) return;
     const prof = state.profesor; clearAll(); state.profesor = prof; save(); go("#/");
   };
 }
 
-/* ---------- PDF (se genera en el dispositivo; máximo 2 páginas) ---------- */
-/* Se prueba con tamaños de letra cada vez menores hasta que el informe cabe en 2 páginas. */
-const PDF_SCALES = [1, .96, .92, .88, .84, .8, .76, .72];
-const MAX_PAGES = 2;
-function makePdf(){
-  let doc, used = PDF_SCALES[0];
-  for (const s of PDF_SCALES){ used = s; doc = buildPdf(s); if (doc.getNumberOfPages() <= MAX_PAGES) break; }
-  return {blob: doc.output("blob"), name: pdfName(), pages: doc.getNumberOfPages(), scale: used};
+/* ---------- PDF (se genera en el dispositivo) ---------- */
+const NAVY = [29,58,122], INK = [19,26,43], MUTED = [90,99,119], LINE = [216,222,234];
+const pdfFields = () => {
+  const P = t().pdf;
+  return { alumno: (state.alumno || "").trim() || "-", prof: (state.profesor || "").trim() || "-", fecha: fmtDate(state.fecha) || P.noDate };
+};
+function pdfFooter(doc, W, H, M, y0, fs){
+  const P = t().pdf, f = pdfFields(), pages = doc.getNumberOfPages();
+  for (let p = 1; p <= pages; p++){
+    doc.setPage(p);
+    doc.setDrawColor(...LINE); doc.setLineWidth(.2); doc.line(M, H - y0, W - M, H - y0);
+    doc.setFont("helvetica","normal"); doc.setFontSize(fs); doc.setTextColor(...MUTED);
+    doc.text(P.foot(f.alumno, f.fecha), M, H - y0 + 4.2);
+    doc.text(P.page(p, pages), W - M, H - y0 + 4.2, {align:"right"});
+  }
 }
-function buildPdf(s){
-  const { jsPDF } = window.jspdf;
+
+/* DEBA: informe completo (A4 vertical, tantas páginas como haga falta) */
+function buildPdfFull(){
+  const P = t().pdf, { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:"mm", format:"a4", orientation:"portrait", compress:true});
+  const W = 210, H = 297, M = 14, CW = W - 2*M;
+  const r = compute(), tt = r.tot, f = pdfFields();
+  doc.setProperties({title: P.title + " · " + f.alumno, subject: P.sub, creator: NAME});
+
+  // Cabecera
+  doc.setFillColor(...NAVY); doc.rect(0, 0, W, 25, "F");
+  [[224,82,74],[240,160,75],[51,176,107],[56,178,172]].forEach((c, i) => { doc.setFillColor(...c); doc.roundedRect(M + (i%2)*5.6, 6.5 + Math.floor(i/2)*5.6, 4.6, 4.6, 1, 1, "F"); });
+  doc.setTextColor(255,255,255); doc.setFont("helvetica","bold"); doc.setFontSize(14);
+  doc.text(P.title, M + 15, 12);
+  doc.setFont("helvetica","normal"); doc.setFontSize(8.8);
+  doc.text(P.sub, M + 15, 18);
+
+  // Datos
+  let y = 34;
+  const field = (label, val, x, w) => {
+    doc.setFont("helvetica","bold"); doc.setFontSize(7.2); doc.setTextColor(...MUTED); doc.text(label.toUpperCase(), x, y);
+    doc.setFontSize(11); doc.setTextColor(...INK); doc.text(doc.splitTextToSize(val, w)[0], x, y + 5.4);
+  };
+  field(P.student, f.alumno, M, 52); field(P.teacher, f.prof, M + 58, 86); field(P.date, f.fecha, M + 150, 32);
+  y += 10;
+
+  // Estado
+  const okState = r.missing.length === 0;
+  const status = okState ? P.ok(r.valued, r.npList.length) : P.warn(r.missing.length, r.missing.join(", "));
+  doc.setFont("helvetica", okState ? "normal" : "bold"); doc.setFontSize(9);
+  const sl = doc.splitTextToSize(status, CW - 8), sh = sl.length * 4.2 + 5;
+  doc.setFillColor(...(okState ? [227,243,233] : [255,244,214])); doc.roundedRect(M, y, CW, sh, 2, 2, "F");
+  doc.setTextColor(...(okState ? [30,122,69] : [122,82,0])); doc.text(sl, M + 4, y + 5.6);
+  y += sh + 5;
+
+  // Leyenda
+  doc.setFont("helvetica","normal"); doc.setFontSize(8.4); doc.setTextColor(...MUTED);
+  const leg = doc.splitTextToSize(P.legend, CW);
+  doc.text(leg, M, y); y += leg.length * 3.8 + 3;
+
+  // Matriz DAFO 2x2
+  doc.setFont("helvetica","bold"); doc.setFontSize(7.2); doc.setTextColor(...MUTED);
+  const gw = (CW - 4) / 2;
+  doc.text(P.axisPrac, M, y + 2); doc.text(P.axisCtx, M + gw + 4, y + 2);
+  y += 4.5;
+  const mx = (q, n, x, yy) => {
+    const Q = QUAD[q];
+    doc.setFillColor(...Q.soft); doc.roundedRect(x, yy, gw, 19, 2.5, 2.5, "F");
+    doc.setFillColor(...Q.rgb); doc.rect(x, yy + 2.5, 1.4, 14, "F");
+    doc.setTextColor(...Q.rgb); doc.setFont("helvetica","bold"); doc.setFontSize(20); doc.text(String(n), x + 6, yy + 12.5);
+    const nx = x + 6 + doc.getTextWidth(String(n)) + 4;
+    doc.setFontSize(11); doc.text(qPlural(q), nx, yy + 8.6);
+    doc.setFont("helvetica","normal"); doc.setFontSize(8); doc.setTextColor(...INK);
+    doc.text(qFam(q) + " · " + qSrc(q), nx, yy + 13.2);
+  };
+  mx("D", tt.D, M, y); mx("A", tt.A, M + gw + 4, y);
+  mx("F", tt.F, M, y + 22); mx("O", tt.O, M + gw + 4, y + 22);
+  y += 22 + 19 + 6;
+
+  // Resumen por dimensión
+  const sumRow = (name, s, bold) => [name, s.A + s.D, s.A, s.D, s.O + s.F, s.O, s.F, s.NP].map(v => bold ? {content: String(v), styles:{fontStyle:"bold"}} : String(v));
+  doc.autoTable({
+    startY: y, margin: {left: M, right: M, bottom: 18},
+    head: [P.sumHead], body: [1,2,3].map(d => sumRow(dimName(d), r.sum[d])), foot: [sumRow(t().total, tt, true)],
+    theme: "grid",
+    styles: {font:"helvetica", fontSize:8.6, cellPadding:2, lineColor:LINE, lineWidth:.2, textColor:INK, halign:"center", valign:"middle"},
+    headStyles: {fillColor:NAVY, textColor:255, fontSize:7.6, fontStyle:"bold"},
+    footStyles: {fillColor:[238,241,247], textColor:INK},
+    columnStyles: {0:{halign:"left", cellWidth:44}, 1:{textColor:QUAD.D.rgb, fontStyle:"bold"}, 4:{textColor:QUAD.F.rgb, fontStyle:"bold"}},
+    didParseCell: h => { if (h.section === "head" && h.column.index === 0) h.cell.styles.halign = "left"; }
+  });
+  y = doc.lastAutoTable.finalY + 9;
+
+  // Detalle: una tabla por grupo, para que el título del grupo no quede separado de sus ítems
+  const TOP = 16, BOTTOM = 18, C0 = 20, C1 = 13;
+  const ensure = h => { if (y + h > H - BOTTOM) { doc.addPage(); y = TOP; } };
+  ensure(40);
+  doc.setFont("helvetica","bold"); doc.setFontSize(12); doc.setTextColor(...INK);
+  doc.text(P.detail, M, y); y += 4;
+  [1,2,3].forEach(d => {
+    const Ls = r.lines.filter(l => l.it.d === d), s = r.sum[d];
+    ensure(32);
+    doc.setFillColor(...NAVY); doc.rect(M, y, CW, 8, "F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(10); doc.setTextColor(255,255,255);
+    doc.text(`${d}. ${dimName(d)}`, M + 2.2, y + 5.5);
+    doc.setFont("helvetica","normal"); doc.setFontSize(8);
+    doc.text(P.dimBar(s.A + s.D, s.O + s.F, s.NP), W - M - 2.2, y + 5.4, {align:"right"});
+    y += 8;
+    doc.setFillColor(238,241,247); doc.rect(M, y, CW, 5.6, "F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(7.2); doc.setTextColor(...MUTED);
+    doc.text(P.colItem, M + 2.2, y + 3.8); doc.text(P.colValue, M + C0 + C1/2, y + 3.8, {align:"center"}); doc.text(P.colText, M + C0 + C1 + 2.2, y + 3.8);
+    y += 5.6;
+    let any = false;
+    ["A","D","O","F"].forEach(q => {
+      const g = Ls.filter(l => l.q === q); if (!g.length) return;
+      any = true; const Q = QUAD[q];
+      ensure(17);
+      doc.autoTable({
+        startY: y, margin: {left: M, right: M, top: TOP, bottom: BOTTOM},
+        head: [[{content: `${qFam(q)} · ${qPlural(q)} (${qSrc(q)}): ${g.length}`, colSpan: 3}]],
+        body: g.map(l => [`${l.it.n} · ${l.it.b}`, {content: String(l.v), styles:{textColor: Q.rgb, fontStyle:"bold"}}, l.text]),
+        theme: "grid", showHead: "everyPage", rowPageBreak: "avoid",
+        styles: {font:"helvetica", fontSize:8.8, cellPadding:{top:1.8,bottom:1.8,left:2.2,right:2.2}, lineColor:LINE, lineWidth:.2, textColor:INK, valign:"top"},
+        headStyles: {fillColor: Q.soft, textColor: Q.rgb, fontStyle:"bold", fontSize:8.6},
+        columnStyles: {0:{cellWidth:C0}, 1:{cellWidth:C1, halign:"center"}, 2:{cellWidth:"auto"}}
+      });
+      y = doc.lastAutoTable.finalY;
+    });
+    doc.setFont("helvetica","normal"); doc.setFontSize(8); doc.setTextColor(...MUTED);
+    const npD = r.npList.filter(n => ITEMS[n-1].d === d);
+    [!any ? P.noneDim : "", npD.length ? P.npDim(npD.join(", ")) : ""].filter(Boolean)
+      .forEach(txt => { ensure(6); doc.text(txt, M + 2.2, y + 4.2); y += 5; });
+    y += 6;
+  });
+
+  // Notas finales
+  const notes = [];
+  if (r.npList.length) notes.push(P.npAll(r.npList.join(", ")));
+  if (r.missing.length) notes.push(P.missingAll(r.missing.join(", ")));
+  notes.push(P.closing);
+  doc.setFont("helvetica","normal"); doc.setFontSize(8.4); doc.setTextColor(...MUTED);
+  notes.forEach(n => {
+    const ls = doc.splitTextToSize(n, CW);
+    if (y + ls.length * 3.8 > H - 18) { doc.addPage(); y = 18; }
+    doc.text(ls, M, y + 3); y += ls.length * 3.8 + 2.5;
+  });
+
+  pdfFooter(doc, W, H, M, 12, 7.6);
+  return doc;
+}
+
+/* minideba: informe compacto de 2 páginas como máximo.
+   Se prueba con tamaños de letra cada vez menores hasta que cabe. */
+const PDF_SCALES = [1, .96, .92, .88, .84, .8, .76, .72], MAX_PAGES = 2;
+function buildPdfCompact(s){
+  const P = t().pdf, { jsPDF } = window.jspdf;
   const doc = new jsPDF({unit:"mm", format:"a4", orientation:"portrait", compress:true});
   const W = 210, H = 297, M = 13, CW = W - 2*M, TOP = 14, BOTTOM = 15;
-  const r = compute(), t = r.tot;
-  const NAVY = [29,58,122], INK = [19,26,43], MUTED = [90,99,119], LINE = [216,222,234];
-  const alumno = (state.alumno || "").trim() || "-", prof = (state.profesor || "").trim() || "-", fecha = fmtDate(state.fecha) || "sin fecha";
-  doc.setProperties({title: "Análisis DAFO (minideba) · " + alumno, subject: "minideba · versión reducida del cuestionario DEBA", creator: "minideba"});
+  const r = compute(), tt = r.tot, f = pdfFields();
+  doc.setProperties({title: P.title + " · " + f.alumno, subject: P.subMini(TOTAL), creator: NAME});
 
   // Cabecera
   doc.setFillColor(...NAVY); doc.rect(0, 0, W, 19, "F");
   [[224,82,74],[240,160,75],[51,176,107],[56,178,172]].forEach((c, i) => { doc.setFillColor(...c); doc.roundedRect(M + (i%2)*5, 4.6 + Math.floor(i/2)*5, 4.1, 4.1, .9, .9, "F"); });
   doc.setTextColor(255,255,255); doc.setFont("helvetica","bold"); doc.setFontSize(13);
-  doc.text("Análisis DAFO de barreras y facilitadores para la inclusión", M + 13, 9.6);
+  doc.text(P.title, M + 13, 9.6);
   doc.setFont("helvetica","normal"); doc.setFontSize(8);
-  doc.text(`minideba · versión reducida del cuestionario DEBA (${TOTAL} de 80 ítems)`, M + 13, 15);
+  doc.text(P.subMini(TOTAL), M + 13, 15);
 
   // Datos
   let y = 26;
@@ -998,24 +1322,21 @@ function buildPdf(s){
     doc.setFont("helvetica","bold"); doc.setFontSize(6.8); doc.setTextColor(...MUTED); doc.text(label.toUpperCase(), x, y);
     doc.setFontSize(10.5); doc.setTextColor(...INK); doc.text(doc.splitTextToSize(val, w)[0], x, y + 4.8);
   };
-  field("Alumno/a", alumno, M, 52); field("Profesor/a", prof, M + 58, 88); field("Fecha", fecha, M + 152, 32);
+  field(P.student, f.alumno, M, 52); field(P.teacher, f.prof, M + 58, 88); field(P.date, f.fecha, M + 152, 32);
   y += 9;
 
   // Estado
   const okState = r.missing.length === 0;
-  const status = okState
-    ? `Cuestionario completo: ${r.valued} ítems valorados y ${r.npList.length} marcados como «No procede».`
-    : `ATENCIÓN: hay ${r.missing.length} ítem(s) sin responder, que no aparecen en este DAFO (ítems ${r.missing.join(", ")}).`;
+  const status = okState ? P.ok(r.valued, r.npList.length) : P.warn(r.missing.length, r.missing.join(", "));
   doc.setFont("helvetica", okState ? "normal" : "bold"); doc.setFontSize(8.2);
-  const sl = doc.splitTextToSize(status, CW - 7);
-  const sh = sl.length * 3.6 + 3.6;
+  const sl = doc.splitTextToSize(status, CW - 7), sh = sl.length * 3.6 + 3.6;
   doc.setFillColor(...(okState ? [227,243,233] : [255,244,214])); doc.roundedRect(M, y, CW, sh, 1.8, 1.8, "F");
   doc.setTextColor(...(okState ? [30,122,69] : [122,82,0])); doc.text(sl, M + 3.5, y + 4.9);
   y += sh + 3.5;
 
   // Leyenda
   doc.setFont("helvetica","normal"); doc.setFontSize(7.6); doc.setTextColor(...MUTED);
-  const leg = doc.splitTextToSize("Barreras = amenazas (factores del contexto) + debilidades (práctica docente), valoradas con 1 o 2. Facilitadores = oportunidades (contexto) + fortalezas (práctica docente), valoradas con 3 o 4.", CW);
+  const leg = doc.splitTextToSize(P.legend, CW);
   doc.text(leg, M, y + 2.4); y += leg.length * 3.3 + 2.6;
 
   // Matriz DAFO en una fila
@@ -1024,11 +1345,11 @@ function buildPdf(s){
     const Q = QUAD[q], x = M + i*(cw4 + gap);
     doc.setFillColor(...Q.soft); doc.roundedRect(x, y, cw4, mh, 2, 2, "F");
     doc.setFillColor(...Q.rgb); doc.rect(x, y + 2, 1.2, mh - 4, "F");
-    doc.setTextColor(...Q.rgb); doc.setFont("helvetica","bold"); doc.setFontSize(8.8); doc.text(Q.plural, x + 4, y + 5.1);
+    doc.setTextColor(...Q.rgb); doc.setFont("helvetica","bold"); doc.setFontSize(8.8); doc.text(qPlural(q), x + 4, y + 5.1);
     doc.setFont("helvetica","normal"); doc.setFontSize(6.6); doc.setTextColor(...INK);
-    doc.text([Q.fam === "Barrera" ? "Barrera" : "Facilitador", Q.src], x + 4, y + 8.6, {lineHeightFactor: 1.2});
+    doc.text([qFamOne(q), qSrc(q)], x + 4, y + 8.6, {lineHeightFactor: 1.2});
     doc.setTextColor(...Q.rgb); doc.setFont("helvetica","bold"); doc.setFontSize(17);
-    doc.text(String(t[q]), x + cw4 - 3, y + 9.6, {align:"right"});
+    doc.text(String(tt[q]), x + cw4 - 3, y + 9.6, {align:"right"});
   });
   y += mh + 4;
 
@@ -1036,9 +1357,7 @@ function buildPdf(s){
   const sumRow = (name, z, bold) => [name, z.A + z.D, z.A, z.D, z.O + z.F, z.O, z.F, z.NP].map(v => bold ? {content: String(v), styles:{fontStyle:"bold"}} : String(v));
   doc.autoTable({
     startY: y, margin: {left: M, right: M, bottom: BOTTOM},
-    head: [["Dimensión","Barreras","Amenazas","Debilidades","Facilitadores","Oportunidades","Fortalezas","No procede"]],
-    body: [1,2,3].map(d => sumRow(DIMS[d], r.sum[d])),
-    foot: [sumRow("Total", t, true)],
+    head: [P.sumHead], body: [1,2,3].map(d => sumRow(dimName(d), r.sum[d])), foot: [sumRow(t().total, tt, true)],
     theme: "grid",
     styles: {font:"helvetica", fontSize:7.8, cellPadding:1.3, lineColor:LINE, lineWidth:.2, textColor:INK, halign:"center", valign:"middle"},
     headStyles: {fillColor:NAVY, textColor:255, fontSize:7, fontStyle:"bold"},
@@ -1048,36 +1367,36 @@ function buildPdf(s){
   });
   y = doc.lastAutoTable.finalY + 6;
 
-  // Detalle: una tabla por grupo, para que el título del grupo no quede separado de sus ítems
+  // Detalle
   const ensure = h => { if (y + h > H - BOTTOM) { doc.addPage(); y = TOP; } };
   const C0 = 16, C1 = 11, C2 = 11, pad = 1.15 * s;
   ensure(30 * s);
   doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(...INK);
-  doc.text("Detalle por dimensión", M, y); y += 2.5;
+  doc.text(P.detail, M, y); y += 2.5;
   [1,2,3].forEach(d => {
-    const L = r.lines.filter(l => l.it.d === d), z = r.sum[d];
+    const Ls = r.lines.filter(l => l.it.d === d), z = r.sum[d];
     const barH = 6.6 * s, colH = 4.6 * s;
     ensure(barH + colH + 12 * s);
     doc.setFillColor(...NAVY); doc.rect(M, y, CW, barH, "F");
     doc.setFont("helvetica","bold"); doc.setFontSize(9 * s); doc.setTextColor(255,255,255);
-    doc.text(`${d}. ${DIMS[d]}`, M + 2, y + barH * .68);
+    doc.text(`${d}. ${dimName(d)}`, M + 2, y + barH * .68);
     doc.setFont("helvetica","normal"); doc.setFontSize(7.4 * s);
-    doc.text(`Barreras: ${z.A + z.D}  ·  Facilitadores: ${z.O + z.F}  ·  No procede: ${z.NP}`, W - M - 2, y + barH * .68, {align:"right"});
+    doc.text(P.dimBar(z.A + z.D, z.O + z.F, z.NP), W - M - 2, y + barH * .68, {align:"right"});
     y += barH;
     doc.setFillColor(238,241,247); doc.rect(M, y, CW, colH, "F");
     doc.setFont("helvetica","bold"); doc.setFontSize(6.4 * s); doc.setTextColor(...MUTED);
     const cy = y + colH * .7;
-    doc.text("ÍTEM", M + 1.8, cy); doc.text("DEBA", M + C0 + C1/2, cy, {align:"center"});
-    doc.text("VALOR", M + C0 + C1 + C2/2, cy, {align:"center"}); doc.text("ENUNCIADO", M + C0 + C1 + C2 + 1.8, cy);
+    doc.text(P.colItem, M + 1.8, cy); doc.text(P.colDeba, M + C0 + C1/2, cy, {align:"center"});
+    doc.text(P.colValue, M + C0 + C1 + C2/2, cy, {align:"center"}); doc.text(P.colText, M + C0 + C1 + C2 + 1.8, cy);
     y += colH;
     let any = false;
     ["A","D","O","F"].forEach(q => {
-      const g = L.filter(l => l.q === q); if (!g.length) return;
+      const g = Ls.filter(l => l.q === q); if (!g.length) return;
       any = true; const Q = QUAD[q];
       ensure(15 * s);
       doc.autoTable({
         startY: y, margin: {left: M, right: M, top: TOP, bottom: BOTTOM},
-        head: [[{content: `${Q.fam === "Barrera" ? "Barreras" : "Facilitadores"} · ${Q.plural} (${Q.src}): ${g.length}`, colSpan: 4}]],
+        head: [[{content: `${qFam(q)} · ${qPlural(q)} (${qSrc(q)}): ${g.length}`, colSpan: 4}]],
         body: g.map(l => [`${l.it.n} · ${l.it.b}`, String(l.it.o), {content: String(l.v), styles:{textColor: Q.rgb, fontStyle:"bold"}}, l.text]),
         theme: "grid", showHead: "everyPage", rowPageBreak: "avoid",
         styles: {font:"helvetica", fontSize:8.2 * s, cellPadding:{top:pad, bottom:pad, left:1.8, right:1.8}, lineColor:LINE, lineWidth:.2, textColor:INK, valign:"top"},
@@ -1086,15 +1405,15 @@ function buildPdf(s){
       });
       y = doc.lastAutoTable.finalY;
     });
-    if (!any){ doc.setFont("helvetica","italic"); doc.setFontSize(7.6 * s); doc.setTextColor(...MUTED); ensure(5); doc.text("Sin ítems valorados en esta dimensión.", M + 1.8, y + 3.8); y += 5; }
+    if (!any){ doc.setFont("helvetica","italic"); doc.setFontSize(7.6 * s); doc.setTextColor(...MUTED); ensure(5); doc.text(P.noneDim, M + 1.8, y + 3.8); y += 5; }
     y += 3.5 * s;
   });
 
   // Notas finales
   const notes = [];
-  if (r.npList.length) notes.push(`Ítems marcados como «No procede»: ${r.npList.join(", ")}.`);
-  if (r.missing.length) notes.push(`Ítems sin responder: ${r.missing.join(", ")}.`);
-  notes.push("Estos resultados son la base de la reflexión de cada docente y de las decisiones del equipo docente (apartado C del Anexo II). Para el análisis completo, usa el cuestionario DEBA de 80 ítems.");
+  if (r.npList.length) notes.push(P.npAll(r.npList.join(", ")));
+  if (r.missing.length) notes.push(P.missingAll(r.missing.join(", ")));
+  notes.push(P.closingMini);
   doc.setFont("helvetica","normal"); doc.setFontSize(7.4 * s); doc.setTextColor(...MUTED);
   notes.forEach(n => {
     const ls = doc.splitTextToSize(n, CW), lh = 3.2 * s;
@@ -1102,34 +1421,31 @@ function buildPdf(s){
     doc.text(ls, M, y + 2.6 * s); y += ls.length * lh + 1.6;
   });
 
-  // Pie de página
-  const pages = doc.getNumberOfPages();
-  for (let p = 1; p <= pages; p++){
-    doc.setPage(p);
-    doc.setDrawColor(...LINE); doc.setLineWidth(.2); doc.line(M, H - 10.5, W - M, H - 10.5);
-    doc.setFont("helvetica","normal"); doc.setFontSize(7.2); doc.setTextColor(...MUTED);
-    doc.text(`minideba · Alumno/a: ${alumno} · ${fecha}`, M, H - 6.5);
-    doc.text(`Página ${p} de ${pages}`, W - M, H - 6.5, {align:"right"});
-  }
+  pdfFooter(doc, W, H, M, 10.5, 7.2);
   return doc;
 }
-
+function makePdf(){
+  let doc, used = 1;
+  if (MINI) { for (const s of PDF_SCALES){ used = s; doc = buildPdfCompact(s); if (doc.getNumberOfPages() <= MAX_PAGES) break; } }
+  else doc = buildPdfFull();
+  return {blob: doc.output("blob"), name: pdfName(), pages: doc.getNumberOfPages(), scale: used};
+}
 function pdfOrToast(){
   try { return makePdf(); }
-  catch(e){ console.error(e); toast("No se ha podido generar el PDF. Inténtalo de nuevo."); return null; }
+  catch(e){ console.error(e); toast(t().pdfError); return null; }
 }
 function downloadPdf(){
   const p = pdfOrToast(); if (!p) return;
   const url = URL.createObjectURL(p.blob), a = document.createElement("a");
   a.href = url; a.download = p.name; a.rel = "noopener"; document.body.appendChild(a); a.click();
   setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 8000);
-  toast("PDF descargado: " + p.name);
+  toast(t().downloaded(p.name));
 }
 async function sharePdf(){
   const p = pdfOrToast(); if (!p) return;
   const file = new File([p.blob], p.name, {type:"application/pdf"});
   try { await navigator.share({files:[file], title:p.name}); }
-  catch(e){ if (e && e.name !== "AbortError") { toast("No se ha podido compartir. Se descarga el PDF."); downloadPdf(); } }
+  catch(e){ if (e && e.name !== "AbortError") { toast(t().shareError); downloadPdf(); } }
 }
 
 /* Icono para «Añadir a pantalla de inicio» en iPhone */
@@ -1143,6 +1459,7 @@ async function sharePdf(){
 })();
 
 route();
+
 </script>
 </body>
 </html>
